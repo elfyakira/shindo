@@ -2,163 +2,59 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { site, company, contact, locations } from "@/lib/site";
-import { FadeInUp, FadeInImage, HeroBackground } from "@/components/animations";
+import { FadeInUp } from "@/components/animations";
 
 // ============================================================
-// 📝 コンテンツデータ（構成案に基づいて編集してください）
+// Hero Section
 // ============================================================
-
-// ミッション・ビジョン
-const MISSION = {
-  title: "理念のタイトルを入力",
-  paragraphs: [
-    "理念の説明文を入力してください。",
-    "会社の想いや大切にしていることを記載します。",
-    "お客様への約束なども含めると良いでしょう。",
-  ],
-};
-
-// 代表メッセージ
-const CEO_MESSAGE = {
-  image: "/images/ceo.jpg", // 代表者の写真
-  paragraphs: [
-    "代表メッセージを入力してください。",
-    "会社の歴史や想いを伝えます。",
-    "お客様への感謝や今後の展望を記載します。",
-    "最後に締めの言葉を入れてください。",
-  ],
-};
-
-// 選ばれる理由
-const STRENGTHS = [
-  {
-    number: "01",
-    title: "強み1のタイトル",
-    description: "強み1の詳細説明を入力してください。具体的な数字や実績を交えると説得力が増します。",
-  },
-  {
-    number: "02",
-    title: "強み2のタイトル",
-    description: "強み2の詳細説明を入力してください。他社との差別化ポイントを明確にしましょう。",
-  },
-  {
-    number: "03",
-    title: "強み3のタイトル",
-    description: "強み3の詳細説明を入力してください。お客様にとってのメリットを伝えましょう。",
-  },
-];
-
-// 会社概要
-const COMPANY_INFO = [
-  { label: "会社名", value: company.name || "株式会社サンプル" },
-  { label: "代表者", value: company.ceo || "代表取締役 山田太郎" },
-  { label: "設立", value: company.established || "20XX年" },
-  { label: "資本金", value: company.capital || "1,000万円" },
-  { label: "従業員数", value: company.employees || "XX名" },
-  { label: "事業内容", value: company.business || "事業内容を入力" },
-  { label: "所在地", value: locations.headquarters.address || "所在地を入力" },
-  { label: "電話番号", value: contact.phone || "000-000-0000" },
-  { label: "メール", value: contact.email || "info@example.com" },
-  { label: "営業時間", value: contact.hours || "9:00〜18:00" },
-];
-
-// 沿革（site.jsonのhistoryを使用、なければこちらを使用）
-const HISTORY_FALLBACK = [
-  { year: "20XX年", event: "会社設立" },
-  { year: "20XX年", event: "事業拡大" },
-  { year: "20XX年", event: "現在に至る" },
-];
-
-// ============================================================
-// コンポーネント
-// ============================================================
-
-function PageHeader() {
+function HeroSection() {
   return (
-    <section className="relative h-[200px] lg:h-[300px] flex items-center justify-center">
-      <HeroBackground className="absolute inset-0 z-0">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center">
+      <div className="absolute inset-0 z-0">
         <Image
-          src="/images/about-hero.jpg"
-          alt="会社概要"
+          src="/images/generated/ceo_portrait.jpg"
+          alt="About"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-[rgba(26,58,92,0.8)]" />
-      </HeroBackground>
-      <div className="relative z-10 text-center">
-        <FadeInUp>
-          <p className="text-sm text-white/80 tracking-[0.1em] mb-3">About Us</p>
-          <h1 className="text-[28px] lg:text-[40px] font-bold text-white">
-            会社概要
-          </h1>
-        </FadeInUp>
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      <div className="relative z-10 w-full px-6 lg:px-[10%]">
+        <p className="text-sm text-white/80 tracking-wider mb-2">私たちについて</p>
+        <h1 className="text-[32px] lg:text-[48px] font-bold text-white">About</h1>
       </div>
     </section>
   );
 }
 
-function MissionSection() {
+// ============================================================
+// About Content Section
+// ============================================================
+function AboutContentSection() {
   return (
-    <section className="py-[60px] lg:py-[100px] bg-white">
-      <div className="max-w-[800px] mx-auto px-4 text-center">
-        <FadeInUp>
-          <span className="section-label block">Mission & Vision</span>
-          <h2 className="text-2xl lg:text-[32px] font-bold text-text-primary leading-[1.5] mb-8 lg:mb-10">
-            {MISSION.title}
-          </h2>
-        </FadeInUp>
-        <FadeInUp delay={100}>
-          <div className="max-w-[700px] mx-auto text-[15px] lg:text-base text-text-primary leading-[2] space-y-6">
-            {MISSION.paragraphs.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </div>
-        </FadeInUp>
-      </div>
-    </section>
-  );
-}
-
-function MessageSection() {
-  const ceo = site.ceo;
-  const message = ceo.message.length > 0 ? ceo.message : CEO_MESSAGE.paragraphs;
-  const ceoImage = ceo.image || CEO_MESSAGE.image;
-  const ceoName = ceo.name || company.ceo || "代表取締役";
-  const ceoTitle = ceo.title || "";
-
-  return (
-    <section className="py-[60px] lg:py-[100px] bg-bg-light">
-      <div className="max-w-[1000px] mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[60px]">
-          <FadeInUp className="lg:w-[280px] flex-shrink-0">
-            <span className="section-label block lg:hidden">Message</span>
-            <h2 className="text-2xl lg:text-[28px] font-bold text-text-primary mb-6 lg:hidden">
-              代表メッセージ
-            </h2>
-            <div className="relative w-[200px] lg:w-[280px] h-[250px] lg:h-[350px] mx-auto lg:mx-0 rounded overflow-hidden">
-              <Image
-                src={ceoImage}
-                alt={ceoName}
-                fill
-                className="object-cover"
-              />
-            </div>
+    <section className="py-16 lg:py-24 bg-white">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
+          <FadeInUp className="lg:w-1/3">
+            <span className="section-label">私たちについて</span>
+            <h2 className="text-[24px] lg:text-[28px] font-bold text-text-primary">About</h2>
           </FadeInUp>
 
-          <FadeInUp className="flex-1" delay={100}>
-            <span className="section-label hidden lg:block">Message</span>
-            <h2 className="text-2xl lg:text-[28px] font-bold text-text-primary mb-8 hidden lg:block">
-              代表メッセージ
-            </h2>
-            <div className="text-sm lg:text-[15px] text-text-primary leading-[1.9] space-y-5">
-              {message.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-            <p className="mt-8 text-sm text-text-secondary">
-              {ceoTitle && `${ceoTitle}　`}{ceoName}
+          <FadeInUp className="lg:w-2/3" delay={0.1}>
+            <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-8">
+              地域にとって本当に必要な公共事業に、<br />
+              誠実に向き合う建設会社です。
+            </h3>
+            <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-6">
+              信藤建設は、昭和13年の創業以来、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んできました。
+            </p>
+            <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-6">
+              河川の護岸工事や道路舗装、堤防工事、上下水道工事など、地域の暮らしを支える仕事を、誠実に、着実に続けています。
+            </p>
+            <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              私たちは、目に見えにくいところで地域を支えるインフラ整備こそ、本当に大切な仕事だと考えています。
             </p>
           </FadeInUp>
         </div>
@@ -167,29 +63,53 @@ function MessageSection() {
   );
 }
 
+// ============================================================
+// Strengths Section
+// ============================================================
+const STRENGTHS = [
+  {
+    number: "01",
+    title: "地域密着の姿勢",
+    description: "三重県北勢・中勢エリアを中心に、地域の皆様と共に歩んできました。地元の風土を熟知した施工で、安心・安全な工事を実現します。",
+  },
+  {
+    number: "02",
+    title: "豊富な実績",
+    description: "昭和13年の創業以来、数多くの公共工事に携わってきました。河川護岸、道路舗装、上下水道など、幅広い分野での実績があります。",
+  },
+  {
+    number: "03",
+    title: "確かな技術力",
+    description: "長年培った技術と経験を活かし、品質の高い施工を提供します。国土交通省や県からの表彰実績も多数あります。",
+  },
+];
+
 function StrengthsSection() {
   return (
-    <section className="py-[60px] lg:py-[100px] bg-white">
-      <div className="max-w-[1100px] mx-auto px-4">
-        <FadeInUp className="text-center mb-10 lg:mb-[60px]">
-          <span className="section-label block">Our Strength</span>
-          <h2 className="text-2xl lg:text-[32px] font-bold text-text-primary">
-            {company.nameShort || "当社"}が選ばれる理由
+    <section className="py-16 lg:py-24 bg-bg-light">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[24px] lg:text-[28px] font-bold text-text-primary">
+            信藤建設の強み
           </h2>
         </FadeInUp>
 
-        <div className="grid lg:grid-cols-3 gap-10 lg:gap-[60px]">
+        <div className="space-y-8 lg:space-y-12">
           {STRENGTHS.map((item, index) => (
-            <FadeInUp key={item.number} delay={index * 100}>
-              <span className="block text-4xl lg:text-5xl font-bold text-accent/30">
-                {item.number}
-              </span>
-              <h3 className="mt-3 lg:mt-4 text-lg lg:text-xl font-semibold text-text-primary">
-                {item.title}
-              </h3>
-              <p className="mt-3 lg:mt-4 text-sm lg:text-[15px] text-text-secondary leading-[1.7]">
-                {item.description}
-              </p>
+            <FadeInUp key={index} delay={index * 0.1}>
+              <div className="flex gap-6 lg:gap-10">
+                <span className="text-[32px] lg:text-[40px] font-bold text-primary/30">
+                  {item.number}
+                </span>
+                <div>
+                  <h3 className="text-[18px] lg:text-[20px] font-bold text-text-primary mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[1.8]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
             </FadeInUp>
           ))}
         </div>
@@ -198,171 +118,113 @@ function StrengthsSection() {
   );
 }
 
-function CompanyInfoSection() {
+// ============================================================
+// Awards Section
+// ============================================================
+const AWARDS = [
+  { image: "/images/generated/completed_building_sky.jpg", title: "国土交通大臣表彰", year: "令和X年" },
+  { image: "/images/generated/completed_building_sky.jpg", title: "三重県知事表彰", year: "令和X年" },
+  { image: "/images/generated/completed_building_sky.jpg", title: "優良工事表彰", year: "令和X年" },
+  { image: "/images/generated/completed_building_sky.jpg", title: "安全優良工事表彰", year: "令和X年" },
+  { image: "/images/generated/completed_building_sky.jpg", title: "品質優秀表彰", year: "令和X年" },
+  { image: "/images/generated/completed_building_sky.jpg", title: "地域貢献表彰", year: "令和X年" },
+];
+
+function AwardsSection() {
   return (
-    <section className="py-[60px] lg:py-[100px] bg-bg-light">
-      <div className="max-w-[1000px] mx-auto px-4">
-        <div className="lg:flex lg:gap-16">
-          <FadeInUp className="lg:w-48 mb-8 lg:mb-0 text-center lg:text-left">
-            <span className="section-label block">Company</span>
-            <h2 className="text-2xl lg:text-[28px] font-bold text-text-primary">
-              会社概要
-            </h2>
-          </FadeInUp>
-          <FadeInUp className="flex-1 bg-white" delay={100}>
-            {COMPANY_INFO.map((item, index) => (
-              <div
-                key={index}
-                className="flex border-b border-gray-200 last:border-b-0"
-              >
-                <div className="w-[35%] lg:w-[30%] px-4 lg:px-6 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
-                  {item.label}
+    <section className="py-16 lg:py-24 bg-white">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-10 lg:mb-16">
+          <span className="section-label">受賞歴</span>
+          <h2 className="text-[24px] lg:text-[28px] font-bold text-text-primary">Awards</h2>
+        </FadeInUp>
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+          {AWARDS.map((award, index) => (
+            <FadeInUp key={index} delay={index * 0.05}>
+              <div className="bg-white border border-gray-100 rounded overflow-hidden">
+                <div className="relative aspect-[4/3] bg-gray-50">
+                  <Image
+                    src={award.image}
+                    alt={award.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div className="flex-1 px-4 lg:px-6 py-4 lg:py-5 text-sm lg:text-[15px] text-text-primary">
-                  {item.value}
+                <div className="p-4">
+                  <p className="text-xs text-text-secondary mb-1">{award.year}</p>
+                  <p className="text-[14px] font-medium text-text-primary">{award.title}</p>
                 </div>
               </div>
-            ))}
-          </FadeInUp>
+            </FadeInUp>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function HistorySection() {
-  const history = site.history.length > 0 ? site.history : HISTORY_FALLBACK;
+// ============================================================
+// Blog Section
+// ============================================================
+const BLOG_POSTS = [
+  {
+    date: "2026.01.01",
+    title: "ブログタイトル1",
+    image: "/images/generated/completed_building_sky.jpg",
+    slug: "1",
+  },
+  {
+    date: "2026.01.01",
+    title: "ブログタイトル2",
+    image: "/images/generated/completed_building_sky.jpg",
+    slug: "2",
+  },
+  {
+    date: "2026.01.01",
+    title: "ブログタイトル3",
+    image: "/images/generated/completed_building_sky.jpg",
+    slug: "3",
+  },
+];
 
+function BlogSection() {
   return (
-    <section className="py-[60px] lg:py-[100px] bg-white">
-      <div className="max-w-[1000px] mx-auto px-4">
-        <div className="lg:flex lg:gap-16">
-          <FadeInUp className="lg:w-48 mb-8 lg:mb-0 text-center lg:text-left">
-            <span className="section-label block">History</span>
-            <h2 className="text-2xl lg:text-[28px] font-bold text-text-primary">
-              沿革
-            </h2>
-          </FadeInUp>
-          <div className="flex-1">
-            {history.map((item, index) => (
-              <FadeInUp key={index} delay={index * 50}>
-                <div className="flex gap-4 lg:gap-10 mb-6 lg:mb-8 last:mb-0">
-                  <div className="w-20 lg:w-24 flex-shrink-0">
-                    <span className="text-base lg:text-lg font-bold text-navy">
-                      {item.year}
-                    </span>
-                  </div>
-                  <div className="relative flex-1 pb-6 lg:pb-8 border-l-2 border-gray-200 pl-4 lg:pl-10 last:border-l-0">
-                    <div className="hidden lg:block absolute left-[-5px] top-2 w-2 h-2 rounded-full bg-accent" />
-                    <p className="text-sm lg:text-[15px] text-text-primary">
-                      {item.event}
-                    </p>
-                  </div>
+    <section className="py-16 lg:py-24 bg-bg-light">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-10 lg:mb-16">
+          <span className="section-label">お知らせ</span>
+          <h2 className="text-[24px] lg:text-[28px] font-bold text-text-primary">Blog</h2>
+        </FadeInUp>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {BLOG_POSTS.map((post, index) => (
+            <FadeInUp key={index} delay={index * 0.1}>
+              <Link href={`/news/${post.slug}`} className="block group">
+                <div className="relative aspect-[16/10] rounded overflow-hidden mb-4">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-              </FadeInUp>
-            ))}
-          </div>
+                <p className="text-xs text-text-secondary mb-2">{post.date}</p>
+                <h3 className="text-[15px] font-medium text-text-primary group-hover:text-primary transition-colors">
+                  {post.title}
+                </h3>
+              </Link>
+            </FadeInUp>
+          ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-function AccessSection() {
-  const hq = locations.headquarters;
-  const branches = locations.branches;
-
-  return (
-    <section className="py-[60px] lg:py-[100px] bg-bg-light">
-      <div className="max-w-[1100px] mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          <FadeInUp className="lg:w-[40%]">
-            <span className="section-label block">Access</span>
-            <h2 className="text-2xl lg:text-[28px] font-bold text-text-primary mb-6 lg:mb-8">
-              アクセス
-            </h2>
-
-            <div className="mb-8">
-              <span className="text-sm font-semibold text-accent">{hq.name}</span>
-              <p className="mt-2 text-base text-text-primary leading-[1.7]">
-                {hq.zipCode && <>{hq.zipCode}<br /></>}
-                {hq.address || "住所を入力してください"}
-              </p>
-              <p className="mt-2 text-base text-text-primary">
-                TEL: {contact.phone || "000-000-0000"}
-              </p>
-              {hq.access && (
-                <p className="mt-1 text-sm text-text-secondary">{hq.access}</p>
-              )}
-            </div>
-
-            {branches.map((branch, i) => (
-              <div key={i} className="mb-6">
-                <span className="text-sm font-semibold text-accent">{branch.name}</span>
-                <p className="mt-2 text-base text-text-primary leading-[1.7]">
-                  {branch.zipCode && <>{branch.zipCode}<br /></>}
-                  {branch.address}
-                </p>
-                {branch.access && (
-                  <p className="mt-1 text-sm text-text-secondary">{branch.access}</p>
-                )}
-              </div>
-            ))}
-          </FadeInUp>
-
-          <FadeInUp className="lg:w-[60%]" delay={100}>
-            <div className="h-[300px] lg:h-[400px] rounded lg:rounded bg-gray-200">
-              {hq.mapUrl ? (
-                <iframe
-                  src={hq.mapUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${company.name} ${hq.name}`}
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-text-secondary">
-                  Google Maps埋め込みURLを設定してください
-                </div>
-              )}
-            </div>
-          </FadeInUp>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className="py-[60px] lg:py-20 bg-navy">
-      <div className="max-w-narrow mx-auto px-4 text-center">
-        <FadeInUp>
-          <h2 className="text-2xl lg:text-[32px] font-bold text-white mb-4">
-            お気軽にご相談ください
-          </h2>
-          <p className="text-sm lg:text-base text-white/90 mb-8 lg:mb-10">
-            まずはお気軽にお問い合わせください。
-          </p>
-
-          <a
-            href={`tel:${contact.phoneTel || contact.phone?.replace(/-/g, "")}`}
-            className="block lg:inline-block text-[28px] lg:text-[36px] font-bold text-white mb-2"
-          >
-            {contact.phoneFormatted || contact.phone || "000-000-0000"}
-          </a>
-          <p className="text-sm text-white/70 mb-8">
-            受付時間: {contact.hours || "9:00〜18:00"}
-          </p>
-
+        <FadeInUp className="mt-10 lg:mt-12 text-center" delay={0.3}>
           <Link
-            href="/contact"
-            className="btn-primary px-14 py-[18px] text-base font-semibold"
+            href="/news"
+            className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:opacity-80 transition-opacity"
           >
-            お問い合わせフォームへ
+            View More
+            <span>→</span>
           </Link>
         </FadeInUp>
       </div>
@@ -370,17 +232,17 @@ function CTASection() {
   );
 }
 
+// ============================================================
+// Main Page
+// ============================================================
 export default function AboutPage() {
   return (
     <>
-      <PageHeader />
-      <MissionSection />
-      <MessageSection />
+      <HeroSection />
+      <AboutContentSection />
       <StrengthsSection />
-      <CompanyInfoSection />
-      <HistorySection />
-      <AccessSection />
-      <CTASection />
+      <AwardsSection />
+      <BlogSection />
     </>
   );
 }

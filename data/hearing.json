@@ -1,0 +1,20 @@
+{
+  "companyName": "信藤建設",
+  "companyNameEn": "shindo",
+  "address": "〒510-0853 三重県四日市市川合町2番地",
+  "phone": "059-345-3171",
+  "fax": "059-347-2775",
+  "website": "https://www.shindou-kk.co.jp/",
+  "established": "昭和13年2月",
+  "employees": "27名",
+  "business": "土木工事一式、建築工事一式、舗装工事一式",
+  "area": "三重県北勢・中勢エリア",
+  "workTypes": [
+    "河川の護岸工事・整備工事",
+    "道路舗装工事",
+    "堤防工事",
+    "橋下部工事",
+    "上下水道工事",
+    "石油化学プラントの土木工事"
+  ]
+}

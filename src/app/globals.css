@@ -2,11 +2,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-navy: #1a3a5c;
-  --color-navy-dark: #152e4a;
-  --color-accent: #e67635;
-  --color-accent-dark: #d56025;
+  /* Brand Colors - 信藤建設 */
+  --color-primary: #1B5E3A;
+  --color-primary-dark: #154a2e;
+  --color-accent: #8BC34A;
+  --color-accent-dark: #7ab33a;
+  --color-sub: #C5D3DC;
+
+  /* Legacy aliases for compatibility */
+  --color-navy: #1B5E3A;
+  --color-navy-dark: #154a2e;
 
   /* Text Colors */
   --color-text-primary: #333333;
@@ -14,7 +19,8 @@
   --color-text-muted: #999999;
 
   /* Background Colors */
-  --color-bg-light: #e0e0e0;
+  --color-bg-light: #f5f5f5;
+  --color-bg-sub: #C5D3DC;
   --color-bg-white: #ffffff;
 
   /* Border Colors */
@@ -58,7 +64,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   color: white;
   padding: 1rem 2rem;
   border-radius: var(--radius-btn);
@@ -68,6 +74,23 @@ body {
 }
 
 .btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.btn-accent:hover {
   background-color: var(--color-accent-dark);
 }
 
@@ -76,8 +99,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: var(--color-navy);
-  border: 1px solid var(--color-navy);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-btn);
   font-size: 1rem;
@@ -85,7 +108,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(26, 58, 92, 0.05);
+  background-color: rgba(27, 94, 58, 0.05);
 }
 
 .btn-outline-white {
@@ -109,7 +132,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  color: var(--color-navy);
+  color: var(--color-primary);
   font-weight: 600;
   transition: color 0.2s;
 }
@@ -123,11 +146,12 @@ body {
 }
 
 .section-label {
-  font-size: 0.875rem;
+  display: block;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-text-secondary);
   letter-spacing: 0.1em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .section-padding {
@@ -151,20 +175,36 @@ body {
   max-width: var(--width-narrow);
 }
 
+@utility bg-primary {
+  background-color: var(--color-primary);
+}
+
 @utility bg-navy {
-  background-color: var(--color-navy);
+  background-color: var(--color-primary);
 }
 
 @utility bg-accent {
   background-color: var(--color-accent);
 }
 
+@utility bg-sub {
+  background-color: var(--color-sub);
+}
+
 @utility bg-bg-light {
   background-color: var(--color-bg-light);
 }
 
+@utility bg-bg-sub {
+  background-color: var(--color-bg-sub);
+}
+
+@utility text-primary {
+  color: var(--color-primary);
+}
+
 @utility text-navy {
-  color: var(--color-navy);
+  color: var(--color-primary);
 }
 
 @utility text-accent {

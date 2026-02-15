@@ -1,37 +1,31 @@
 import type { Metadata } from "next";
-import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
-  // === 基本SEO ===
-  title: "採用情報 | Recruit",
-  description: `${company.name}の採用情報。募集職種、待遇・福利厚生、社員インタビューなど、当社で働く魅力をご紹介します。`,
+  title: "Recruit",
+  description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。募集職種、待遇、よくある質問をご紹介します。",
 
-  // === OpenGraph (SNS共有時) ===
   openGraph: {
-    title: `採用情報 | Recruit${site.seo.titleSuffix}`,
-    description: `${company.name}の採用情報。募集職種、待遇・福利厚生、社員インタビューなど。`,
-    url: `${site.seo.siteUrl}/recruit`,
-    siteName: company.name,
+    title: "Recruit | 信藤建設",
+    description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。",
+    url: "https://www.shindou-kk.co.jp/recruit",
+    siteName: "信藤建設",
     locale: "ja_JP",
     type: "website",
   },
 
-  // === Twitter Card ===
   twitter: {
     card: "summary_large_image",
-    title: `採用情報 | Recruit${site.seo.titleSuffix}`,
-    description: `${company.name}の採用情報。募集職種、待遇・福利厚生など。`,
+    title: "Recruit | 信藤建設",
+    description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。",
   },
 
-  // === Canonical URL (重複コンテンツ対策) ===
   alternates: {
     canonical: "/recruit",
   },
 
-  // === LLMO対応 (AI検索エンジン最適化) ===
   other: {
-    "ai:summary": `${company.name}の採用情報ページ。募集職種、待遇・福利厚生、社員インタビューを掲載。`,
-    "ai:topics": "採用情報, 求人, 募集職種, 福利厚生, 社員インタビュー",
+    "ai:summary": "信藤建設の採用情報ページ。新卒・中途採用の募集要項、FAQ、エントリー方法を掲載。土木施工管理職を募集中。",
+    "ai:topics": "採用情報, 求人, 募集職種, 土木施工管理, エントリー",
   },
 };
 
@@ -40,5 +34,5 @@ export default function RecruitLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }

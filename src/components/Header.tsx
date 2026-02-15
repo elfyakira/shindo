@@ -3,13 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { company, contact, images } from "@/lib/site";
+import { company, images } from "@/lib/site";
 
 const navItems = [
-  { label: "会社概要", href: "/about" },
-  { label: "事業内容", href: "/service" },
-  { label: "採用情報", href: "/recruit" },
-  { label: "お知らせ", href: "/news" },
+  { label: "About", href: "/about" },
+  { label: "Business", href: "/business" },
+  { label: "Company", href: "/company" },
+  { label: "Recruit", href: "/recruit" },
+  { label: "Blog", href: "/news" },
 ];
 
 export default function Header() {
@@ -40,7 +41,7 @@ export default function Header() {
     <>
       {/* PC Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-[1000] h-20 transition-all duration-300 ${
+        className={`hidden lg:block fixed top-0 left-0 right-0 z-[1000] h-20 transition-all duration-300 ${
           isScrolled ? "bg-white shadow-header" : "bg-transparent"
         }`}
       >
@@ -49,9 +50,9 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <Image
               src={images.logo || "/images/logo.png"}
-              alt={company.name || "会社ロゴ"}
-              width={220}
-              height={55}
+              alt={company.name || "信藤建設"}
+              width={180}
+              height={45}
               className={`transition-all duration-300 ${
                 isScrolled ? "" : "brightness-0 invert"
               }`}
@@ -59,51 +60,19 @@ export default function Header() {
           </Link>
 
           {/* PC Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="flex items-center gap-10">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[15px] transition-colors duration-200 hover:text-accent ${
+                className={`text-[15px] font-medium transition-colors duration-200 hover:opacity-70 ${
                   isScrolled ? "text-text-primary" : "text-white"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="bg-accent text-white px-6 py-3 rounded-btn text-sm font-semibold transition-colors duration-200 hover:bg-accent-dark ml-4"
-            >
-              お問い合わせ
-            </Link>
           </nav>
-
-          {/* Hamburger Button (SP) */}
-          <button
-            className="lg:hidden w-11 h-11 flex items-center justify-center"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-            aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
-          >
-            <div className="relative w-6 h-6">
-              <span
-                className={`absolute left-0 w-6 h-0.5 transition-all duration-300 ${
-                  isScrolled ? "bg-text-primary" : "bg-white"
-                } ${isMenuOpen ? "top-[11px] rotate-45" : "top-1"}`}
-              />
-              <span
-                className={`absolute left-0 top-[11px] w-6 h-0.5 transition-all duration-300 ${
-                  isScrolled ? "bg-text-primary" : "bg-white"
-                } ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
-              />
-              <span
-                className={`absolute left-0 w-6 h-0.5 transition-all duration-300 ${
-                  isScrolled ? "bg-text-primary" : "bg-white"
-                } ${isMenuOpen ? "top-[11px] -rotate-45" : "top-[19px]"}`}
-              />
-            </div>
-          </button>
         </div>
       </header>
 
@@ -113,9 +82,9 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             <Image
               src={images.logo || "/images/logo.png"}
-              alt={company.name || "会社ロゴ"}
-              width={150}
-              height={38}
+              alt={company.name || "信藤建設"}
+              width={140}
+              height={35}
             />
           </Link>
 
@@ -166,7 +135,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="block h-14 leading-[56px] px-6 text-lg text-text-primary border-b border-gray-100 transition-colors hover:text-accent"
+              className="block h-14 leading-[56px] px-6 text-lg text-text-primary border-b border-gray-100 transition-colors hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
@@ -175,22 +144,12 @@ export default function Header() {
           <div className="px-6 py-6">
             <Link
               href="/contact"
-              className="block w-full h-12 leading-[48px] text-center bg-accent text-white rounded-btn font-semibold transition-colors hover:bg-accent-dark"
+              className="block w-full h-12 leading-[48px] text-center bg-primary text-white rounded-btn font-semibold transition-colors hover:opacity-90"
               onClick={() => setIsMenuOpen(false)}
             >
-              お問い合わせ
+              Contact
             </Link>
           </div>
-          {contact.phone && (
-            <div className="px-6 pt-4">
-              <a
-                href={`tel:${contact.phoneTel || contact.phone.replace(/-/g, "")}`}
-                className="text-sm text-text-secondary"
-              >
-                TEL: {contact.phoneFormatted || contact.phone}
-              </a>
-            </div>
-          )}
         </div>
       </nav>
     </>

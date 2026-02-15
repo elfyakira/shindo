@@ -8,28 +8,55 @@ import { seo, company, contact, locations } from "@/lib/site";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: company.name,
-  description: seo.defaultDescription,
-  url: seo.siteUrl,
-  telephone: contact.phone,
-  email: contact.email,
+  "@id": "https://www.shindou-kk.co.jp/#organization",
+  name: "信藤建設",
+  alternateName: "Shindo Construction",
+  description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備（河川護岸工事、道路舗装、上下水道工事など）に取り組んでいます。",
+  url: "https://www.shindou-kk.co.jp",
+  telephone: "059-345-3171",
+  fax: "059-347-2775",
+  foundingDate: "1938-02",
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    value: 27,
+  },
   address: {
     "@type": "PostalAddress",
-    postalCode: locations.headquarters.zipCode,
+    streetAddress: "川合町2番地",
+    postalCode: "510-0853",
+    addressLocality: "四日市市",
+    addressRegion: "三重県",
     addressCountry: "JP",
-    streetAddress: locations.headquarters.address,
   },
-  founder: company.ceo,
-  foundingDate: company.established,
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      addressCountry: "JP",
+    },
+    description: "三重県北勢・中勢エリア",
+  },
+  knowsAbout: [
+    "土木工事",
+    "河川護岸工事",
+    "道路舗装工事",
+    "堤防工事",
+    "上下水道工事",
+    "建築工事",
+    "舗装工事",
+    "公共事業",
+    "地域インフラ整備",
+  ],
+  slogan: "We Build What Matters.",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(seo.siteUrl),
+  metadataBase: new URL(seo.siteUrl || "https://www.shindou-kk.co.jp"),
   title: {
-    default: seo.defaultTitle || company.name,
-    template: `%s${seo.titleSuffix}`,
+    default: "信藤建設 | We Build What Matters.",
+    template: `%s | 信藤建設`,
   },
-  description: seo.defaultDescription,
+  description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備に取り組んでいます。河川護岸工事、道路舗装、上下水道工事など。",
 
   // canonical URL
   alternates: {
@@ -51,10 +78,10 @@ export const metadata: Metadata = {
 
   // OGP
   openGraph: {
-    title: seo.defaultTitle || company.name,
-    description: seo.defaultDescription,
-    url: seo.siteUrl,
-    siteName: company.name,
+    title: "信藤建設 | We Build What Matters.",
+    description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備に取り組んでいます。",
+    url: "https://www.shindou-kk.co.jp",
+    siteName: "信藤建設",
     locale: "ja_JP",
     type: "website",
     images: [
@@ -62,7 +89,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: company.name,
+        alt: "信藤建設",
       },
     ],
   },
@@ -70,15 +97,21 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: seo.defaultTitle || company.name,
-    description: seo.defaultDescription,
+    title: "信藤建設 | We Build What Matters.",
+    description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備に取り組んでいます。",
     images: ["/images/og-image.jpg"],
+  },
+
+  // LLMO対応
+  other: {
+    "ai:summary": "三重県四日市市の建設会社。昭和13年創業。公共事業を中心に河川護岸工事、道路舗装、上下水道工事などの地域インフラ整備を行う。",
+    "ai:topics": "建設会社, 土木工事, 公共事業, 三重県, 四日市市, 河川護岸, 道路舗装",
   },
 };
 
 // Viewport
 export const viewport: Viewport = {
-  themeColor: "#1a2744",
+  themeColor: "#1B5E3A",
   width: "device-width",
   initialScale: 1,
 };

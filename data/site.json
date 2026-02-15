@@ -1,24 +1,24 @@
 {
   "company": {
-    "name": "",
-    "nameShort": "",
-    "nameEn": "",
-    "id": "",
+    "name": "信藤建設",
+    "nameShort": "信藤建設",
+    "nameEn": "Shindo Construction",
+    "id": "shindo",
     "ceo": "",
-    "established": "",
+    "established": "昭和13年2月",
     "capital": "",
     "revenue": "",
-    "employees": "",
-    "business": "",
+    "employees": "27名",
+    "business": "土木工事一式、建築工事一式、舗装工事一式",
     "license": "",
-    "catchphrase": "",
-    "mission": ""
+    "catchphrase": "We Build What Matters.",
+    "mission": "地域にとって本当に必要な公共事業に、誠実に向き合う建設会社です。"
   },
   "contact": {
-    "phone": "",
-    "phoneFormatted": "",
-    "phoneTel": "",
-    "fax": "",
+    "phone": "059-345-3171",
+    "phoneFormatted": "059-345-3171",
+    "phoneTel": "0593453171",
+    "fax": "059-347-2775",
     "email": "",
     "hours": "",
     "recruitContact": ""
@@ -26,8 +26,8 @@
   "locations": {
     "headquarters": {
       "name": "本社",
-      "zipCode": "",
-      "address": "",
+      "zipCode": "510-0853",
+      "address": "三重県四日市市川合町2番地",
       "access": "",
       "mapUrl": ""
     },
@@ -42,10 +42,10 @@
     "logoOnly": "/images/logo-only.png"
   },
   "seo": {
-    "siteUrl": "https://example.com",
-    "titleSuffix": "",
-    "defaultTitle": "",
-    "defaultDescription": ""
+    "siteUrl": "https://www.shindou-kk.co.jp",
+    "titleSuffix": " | 信藤建設",
+    "defaultTitle": "信藤建設 | We Build What Matters.",
+    "defaultDescription": "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備に取り組んでいます。"
   },
   "stats": {
     "yearsInBusiness": "",
