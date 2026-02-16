@@ -107,12 +107,12 @@ function PhilosophySection() {
 // History Section
 // ============================================================
 const HISTORY = [
-  { year: "1938", event: "aaaa" },
-  { year: "19XX", event: "aaaa" },
-  { year: "19XX", event: "aaaa" },
-  { year: "19XX", event: "aaaa" },
-  { year: "20XX", event: "aaaa" },
-  { year: "20XX", event: "aaaa" },
+  { year: "1938", event: "aaaa", barWidth: "75%" },
+  { year: "19XX", event: "aaaa", barWidth: "85%" },
+  { year: "19XX", event: "aaaa", barWidth: "65%" },
+  { year: "19XX", event: "aaaa", barWidth: "90%" },
+  { year: "20XX", event: "aaaa", barWidth: "70%" },
+  { year: "20XX", event: "aaaa", barWidth: "80%" },
 ];
 
 function HistorySection() {
@@ -126,12 +126,15 @@ function HistorySection() {
         <div className="max-w-2xl mx-auto">
           {HISTORY.map((item, index) => (
             <FadeInUp key={index} delay={index * 0.05}>
-              <div className="flex border-b border-gray-200 last:border-b-0">
-                <div className="w-24 lg:w-32 py-4 lg:py-5 text-[15px] lg:text-base font-semibold text-primary">
+              <div className="flex items-center py-4 lg:py-5 border-b border-gray-200 last:border-b-0">
+                <div className="w-16 lg:w-20 text-[15px] lg:text-base font-semibold text-text-primary">
                   {item.year}
                 </div>
-                <div className="flex-1 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary">
-                  {item.event}
+                <div className="flex-1 h-2 bg-gray-200 rounded-full mx-4">
+                  <div
+                    className="h-full bg-gray-400 rounded-full"
+                    style={{ width: item.barWidth }}
+                  />
                 </div>
               </div>
             </FadeInUp>

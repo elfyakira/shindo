@@ -17,7 +17,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] flex items-center">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/team_photo.jpg"

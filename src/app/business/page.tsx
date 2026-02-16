@@ -10,15 +10,26 @@ import { FadeInUp } from "@/components/animations";
 function HeroSection() {
   return (
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/generated/construction_wide.jpg"
-          alt="Business"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 z-0 flex">
+        <div className="relative w-1/2 h-full">
+          <Image
+            src="/images/generated/excavator_work.jpg"
+            alt="重機作業"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative w-1/2 h-full">
+          <Image
+            src="/images/generated/construction_worker.jpg"
+            alt="作業員"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
@@ -84,101 +95,92 @@ function MainBusinessSection() {
 }
 
 // ============================================================
-// Solar Power Section
+// Green Background Sections (Solar, Site Visit, Cleaning)
 // ============================================================
-function SolarPowerSection() {
+function GreenBackgroundSections() {
   return (
-    <section className="py-16 lg:py-24 bg-primary text-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-          <FadeInUp className="w-full lg:w-1/2">
-            <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">太陽光発電事業</h2>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
-              信藤建設では、再生可能エネルギーの普及に貢献するため、太陽光発電事業にも取り組んでいます。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
-              地域の遊休地を活用した太陽光発電所の設置・運営を通じて、クリーンエネルギーの供給と地域経済の活性化に貢献しています。
-            </p>
-          </FadeInUp>
+    <section className="bg-primary text-white">
+      {/* Solar Power */}
+      <div className="py-16 lg:py-20">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+            <FadeInUp className="w-full lg:w-1/2">
+              <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">太陽光発電事業</h2>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
+                信藤建設では、再生可能エネルギーの普及に貢献するため、太陽光発電事業にも取り組んでいます。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
+                地域の遊休地を活用した太陽光発電所の設置・運営を通じて、クリーンエネルギーの供給と地域経済の活性化に貢献しています。
+              </p>
+            </FadeInUp>
 
-          <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
-            <div className="relative aspect-[4/3] rounded overflow-hidden">
-              <Image
-                src="/images/generated/completed_building_sky.jpg"
-                alt="太陽光発電"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </FadeInUp>
+            <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden">
+                <Image
+                  src="/images/generated/completed_building_sky.jpg"
+                  alt="太陽光発電"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </div>
-    </section>
-  );
-}
 
-// ============================================================
-// Site Visit Section
-// ============================================================
-function SiteVisitSection() {
-  return (
-    <section className="py-16 lg:py-24 bg-primary text-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-16 items-center">
-          <FadeInUp className="w-full lg:w-1/2">
-            <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">現場見学・出前授業</h2>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
-              地域の学校や団体を対象に、建設現場の見学会や出前授業を実施しています。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
-              建設業の魅力や地域インフラの重要性を伝え、次世代の担い手育成に貢献しています。
-            </p>
-          </FadeInUp>
+      {/* Site Visit */}
+      <div className="py-16 lg:py-20">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-16 items-center">
+            <FadeInUp className="w-full lg:w-1/2">
+              <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">現場見学・出前授業</h2>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
+                地域の学校や団体を対象に、建設現場の見学会や出前授業を実施しています。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
+                建設業の魅力や地域インフラの重要性を伝え、次世代の担い手育成に貢献しています。
+              </p>
+            </FadeInUp>
 
-          <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
-            <div className="relative aspect-[4/3] rounded overflow-hidden">
-              <Image
-                src="/images/generated/mentoring_scene.jpg"
-                alt="現場見学"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </FadeInUp>
+            <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden">
+                <Image
+                  src="/images/generated/mentoring_scene.jpg"
+                  alt="現場見学"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </div>
-    </section>
-  );
-}
 
-// ============================================================
-// Cleaning Section
-// ============================================================
-function CleaningSection() {
-  return (
-    <section className="py-16 lg:py-24 bg-primary text-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-          <FadeInUp className="w-full lg:w-1/2">
-            <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">清掃活動</h2>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
-              地域貢献活動の一環として、定期的に地域の清掃活動を実施しています。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
-              道路や河川周辺の清掃を通じて、美しい街づくりと環境保全に取り組んでいます。
-            </p>
-          </FadeInUp>
+      {/* Cleaning */}
+      <div className="py-16 lg:py-20">
+        <div className="max-w-container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+            <FadeInUp className="w-full lg:w-1/2">
+              <h2 className="text-[24px] lg:text-[32px] font-bold mb-6">清掃活動</h2>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-6">
+                地域貢献活動の一環として、定期的に地域の清掃活動を実施しています。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2]">
+                道路や河川周辺の清掃を通じて、美しい街づくりと環境保全に取り組んでいます。
+              </p>
+            </FadeInUp>
 
-          <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
-            <div className="relative aspect-[4/3] rounded overflow-hidden">
-              <Image
-                src="/images/generated/team_photo.jpg"
-                alt="清掃活動"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </FadeInUp>
+            <FadeInUp className="w-full lg:w-1/2" delay={0.1}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden">
+                <Image
+                  src="/images/generated/team_photo.jpg"
+                  alt="清掃活動"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </div>
     </section>
@@ -193,9 +195,7 @@ export default function BusinessPage() {
     <>
       <HeroSection />
       <MainBusinessSection />
-      <SolarPowerSection />
-      <SiteVisitSection />
-      <CleaningSection />
+      <GreenBackgroundSections />
     </>
   );
 }
