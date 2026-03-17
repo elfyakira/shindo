@@ -4,9 +4,9 @@ import Image from "next/image";
 import { FadeInUp } from "@/components/animations";
 import { ALL_AWARDS } from "@/lib/awards";
 
-const AWARD_PHOTOS = Array.from({ length: 9 }, (_, i) => ({
-  image: `/images/awards-photos/photo-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `表彰式写真${i + 1}`,
+const AWARD_PHOTOS = [1, 3, 4, 6, 7, 8, 9].map((n) => ({
+  image: `/images/awards-photos/photo-${String(n).padStart(2, "0")}.jpg`,
+  alt: `表彰式写真${n}`,
 }));
 
 export default function AwardsPage() {

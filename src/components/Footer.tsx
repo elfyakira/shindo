@@ -51,7 +51,8 @@ export default function Footer() {
           <div className="flex items-start gap-8">
             <Link href="/">
               <Image
-                src={images.logo || "/images/logo.png"}
+                src={images.logo || "/images/logo.gif"}
+                unoptimized
                 alt={company.name || "信藤建設"}
                 width={160}
                 height={40}
@@ -85,7 +86,8 @@ export default function Footer() {
         <div className="lg:hidden text-center mb-8">
           <Link href="/" className="inline-block mb-6">
             <Image
-              src={images.logo || "/images/logo.png"}
+              src={images.logo || "/images/logo.gif"}
+                unoptimized
               alt={company.name || "信藤建設"}
               width={140}
               height={35}

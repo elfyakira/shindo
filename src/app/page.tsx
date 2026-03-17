@@ -43,46 +43,48 @@ function AboutIntroSection() {
     <section className="py-20 lg:py-32 bg-[#1E5F4A]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <div className="text-left">
-            <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
-              We Build<br />
-              What Matters.
-            </h2>
-            <p className="text-[16px] lg:text-[18px] text-white leading-[1.8] mb-8">
-              地域にとって、本当に必要なものをつくる。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-              信藤建設が大切にしているのは、<br className="hidden lg:block" />
-              「なぜこの工事を行うのか」という目的意識です。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-              確かな技術や品質管理は、あくまで手段。<br className="hidden lg:block" />
-              その先にあるのは、地域の安全と安心を守り続けるという使命です。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
-              ISO取得に裏付けられた施工品質と、地域に向き合う真摯な姿勢を両立しながら、<br className="hidden lg:block" />
-              私たちは公共事業に取り組んできました。
-            </p>
-            <div className="grid grid-cols-3 gap-4 lg:gap-6 mt-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:gap-12">
+            <div className="text-left lg:flex-1">
+              <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
+                We Build<br />
+                What Matters.
+              </h2>
+              <p className="text-[16px] lg:text-[18px] text-white leading-[1.8] mb-8">
+                地域にとって、本当に必要なものをつくる。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
+                信藤建設が大切にしているのは、<br className="hidden lg:block" />
+                「なぜこの工事を行うのか」という目的意識です。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
+                確かな技術や品質管理は、あくまで手段。<br className="hidden lg:block" />
+                その先にあるのは、地域の安全と安心を守り続けるという使命です。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
+                ISO取得に裏付けられた施工品質と、地域に向き合う真摯な姿勢を両立しながら、<br className="hidden lg:block" />
+                私たちは公共事業に取り組んできました。
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-6 mt-10 lg:mt-0 lg:translate-y-4 w-full lg:w-[500px] flex-shrink-0">
               <Image
                 src="/images/generated/iso-cert-01.png"
                 alt="ISO認証書類"
-                width={400}
-                height={560}
+                width={200}
+                height={280}
                 className="w-full h-auto"
               />
               <Image
                 src="/images/generated/iso14001-cert.png"
                 alt="ISO14001認証書類"
-                width={400}
-                height={560}
+                width={200}
+                height={280}
                 className="w-full h-auto"
               />
               <Image
                 src="/images/generated/iso45001-cert.png"
                 alt="ISO45001認証書類"
-                width={400}
-                height={560}
+                width={200}
+                height={280}
                 className="w-full h-auto"
               />
             </div>
@@ -139,7 +141,7 @@ function BusinessSection() {
               <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Business</h2>
               <span className="section-label text-text-secondary">事業内容</span>
               <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mt-6 mb-8">
-                信藤建設は、三重県北勢・中勢エリアを中心に、河川・道路・舗装・上下水道・港湾などの公共事業を主軸とした地域インフラ整備を行う総合建設会社です。公共工事をはじめ、民間工事にも対応し、計画から施工まで一貫した体制で幅広い工事に取り組んでいます。
+                信藤建設は、三重県北勢・中勢エリアを中心に、河川・道路・舗装・上下水道・港湾などの公共事業を主軸とした地域インフラ整備を行う総合建設会社です。公共工事をはじめ、民間工事にも対応し、計画から施工まで一貫した体制で幅広い工事に取り組んでいます。また、インフラ整備にとどまらず、太陽光発電事業や地域と関わる各種活動にも取り組んでいます。
               </p>
               <Link
                 href="/business"
@@ -343,10 +345,10 @@ function CompanySection() {
 // Recruit Section
 // ============================================================
 const RECRUIT_MENU = [
-  { title: "3分でわかる信藤建設", href: "/recruit#about" },
-  { title: "働く環境", href: "/recruit#environment" },
-  { title: "スタッフインタビュー", href: "/recruit#interview" },
   { title: "採用メッセージ", href: "/recruit#message" },
+  { title: "スタッフインタビュー", href: "/recruit#interview" },
+  { title: "募集要項", href: "/recruit#requirements" },
+  { title: "よくある質問", href: "/recruit#faq" },
 ];
 
 function RecruitSection() {
@@ -358,7 +360,7 @@ function RecruitSection() {
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
-                  src="/images/generated/team_photo.jpg"
+                  src="/images/generated/recruit-hero.jpg"
                   alt="採用情報"
                   fill
                   className="object-cover"

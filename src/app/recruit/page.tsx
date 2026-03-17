@@ -13,10 +13,10 @@ function HeroSection() {
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/team_photo.jpg"
+          src="/images/generated/recruit-hero.jpg"
           alt="RECRUIT"
           fill
-          className="object-cover"
+          className="object-cover object-[center_20%]"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -35,34 +35,23 @@ function HeroSection() {
 // ============================================================
 function MessageSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-20 lg:py-32 bg-[#1E5F4A]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-            <div className="w-full lg:w-1/2">
-              <div className="relative aspect-[4/3] rounded overflow-hidden">
-                <Image
-                  src="/images/generated/mentoring_scene.jpg"
-                  alt="採用メッセージ"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Message</h2>
-              <span className="section-label">採用メッセージ</span>
-              <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mt-6 mb-6">
-                地域のインフラを支える仕事に、<br />
-                あなたも参加しませんか。
-              </h3>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
-                信藤建設は、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んでいます。
-              </p>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
-                河川護岸、道路舗装、上下水道工事など、目に見えにくいところで地域を支える仕事を、一緒にやりませんか。
-              </p>
-            </div>
+          <div className="text-left">
+            <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
+              地域のインフラを支える仕事に、<br />
+              あなたも参加しませんか。
+            </h2>
+            <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
+              信藤建設は、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んでいます。
+            </p>
+            <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
+              河川護岸、道路舗装、上下水道工事など、目に見えにくいところで地域を支える仕事を、一緒にやりませんか。
+            </p>
+            <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
+              経験の有無は問いません。地域の暮らしを支えたいという思いを持つ方を、私たちは歓迎します。入社後は先輩社員が丁寧にサポートし、資格取得支援制度も充実しています。
+            </p>
           </div>
         </FadeInUp>
       </div>
@@ -78,7 +67,7 @@ function JoinTeamSection() {
     <section className="relative py-24 lg:py-32">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/mentoring_scene.jpg"
+          src="/images/generated/recruit-join.jpg"
           alt="Join our team"
           fill
           className="object-cover"
@@ -101,6 +90,28 @@ function JoinTeamSection() {
             <span>エントリーする</span>
             <span>→</span>
           </Link>
+        </FadeInUp>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// Interview Video Section
+// ============================================================
+function InterviewSection() {
+  return (
+    <section className="py-16 lg:py-24 bg-white">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">スタッフインタビュー</h2>
+        </FadeInUp>
+
+        <FadeInUp>
+          <div className="relative aspect-video bg-gray-100 rounded overflow-hidden flex items-center justify-center">
+            {/* TODO: 動画が用意でき次第差し替え */}
+            <p className="text-text-secondary text-[15px]">動画準備中</p>
+          </div>
         </FadeInUp>
       </div>
     </section>
@@ -272,6 +283,7 @@ export default function RecruitPage() {
       <HeroSection />
       <MessageSection />
       <JoinTeamSection />
+      <InterviewSection />
       <RequirementsSection />
       <FAQSection />
       <CTASection />

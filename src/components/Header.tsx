@@ -49,7 +49,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src={images.logo || "/images/logo.png"}
+              src={images.logo || "/images/logo.gif"}
+              unoptimized
               alt={company.name || "信藤建設"}
               width={180}
               height={45}
@@ -81,7 +82,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-full px-4">
           <Link href="/" className="flex items-center">
             <Image
-              src={images.logo || "/images/logo.png"}
+              src={images.logo || "/images/logo.gif"}
+              unoptimized
               alt={company.name || "信藤建設"}
               width={140}
               height={35}

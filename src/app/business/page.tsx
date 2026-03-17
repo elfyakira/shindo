@@ -39,17 +39,13 @@ function MainBusinessSection() {
         <FadeInUp>
           <div className="text-left">
             <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
-              公共事業を中心とした、<br />
-              地域インフラ整備
+              公共事業を中心とした、地域インフラ整備
             </h2>
             <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-              信藤建設は、三重県北勢・中勢エリアを中心に、公共事業を通じた地域インフラの整備に取り組んでいます。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-              河川の護岸工事や道路舗装、堤防工事、上下水道工事、石油化学プラントの土木工事など、幅広い分野で実績を積み重ねてまいりました。
+              信藤建設は、三重県北勢・中勢エリアを中心に、河川の護岸工事や道路舗装工事、堤防工事、橋下部工事、上下水道工事などの公共事業を主軸とした総合建設業として、地域のインフラ整備に携わっています。また、石油化学プラントにおける土木工事など、民間工事にも対応し、土木工事一式・建築工事一式・舗装工事一式をはじめ、多様な工種において計画から施工まで一貫した対応を行っています。
             </p>
             <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
-              私たちは、目に見えにくいところで地域を支えるインフラ整備こそ、本当に大切な仕事だと考えています。安全で品質の高い施工を心がけ、地域の皆様に信頼される建設会社を目指しています。
+              こうした事業を通じて地域と関わる中で、インフラ整備にとどまらず、環境への配慮や次世代への取り組みも建設業の役割の一つであると考え、太陽光発電事業への取り組みや、現場見学・出前授業、清掃活動などの活動も行っています。
             </p>
             <div className="flex items-end justify-between mt-10">
               <Link
@@ -76,48 +72,27 @@ function MainBusinessSection() {
 }
 
 // ============================================================
-// Green Background Sections (Solar, Site Visit, Cleaning)
+// Solar Section — 太陽光発電事業
 // ============================================================
-const OTHER_BUSINESSES = [
-  {
-    title: "太陽光発電事業",
-    description: "信藤建設では、再生可能エネルギーの普及に貢献するため、太陽光発電事業にも取り組んでいます。地域の遊休地を活用した太陽光発電所の設置・運営を通じて、クリーンエネルギーの供給と地域経済の活性化に貢献しています。",
-    image: "/images/generated/solar.jpg",
-  },
-  {
-    title: "現場見学・出前授業",
-    description: "地域の学校や団体を対象に、建設現場の見学会や出前授業を実施しています。建設業の魅力や地域インフラの重要性を伝え、次世代の担い手育成に貢献しています。",
-    image: "/images/generated/mentoring_scene.jpg",
-  },
-  {
-    title: "清掃活動",
-    description: "地域貢献活動の一環として、定期的に地域の清掃活動を実施しています。道路や河川周辺の清掃を通じて、美しい街づくりと環境保全に取り組んでいます。",
-    image: "/images/generated/team_photo.jpg",
-  },
-];
-
-function OtherBusinessSections() {
-  const solar = OTHER_BUSINESSES[0];
-  const smallItems = OTHER_BUSINESSES.slice(1);
+function SolarSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
-        {/* Solar - full width */}
         <FadeInUp>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 py-12 lg:py-16 border-t border-b border-gray-200">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             <div className="w-full lg:w-1/2">
               <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6">
-                {solar.title}
+                太陽光発電事業
               </h3>
               <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
-                {solar.description}
+                信藤建設では、太陽光発電事業にも取り組んでいます。太陽光発電は、化石燃料を使用せず、発電時にCO2などの温室効果ガスを排出しない発電方式です。太陽光という再生可能エネルギーを活用することで、資源の制約が少なく、環境負荷の低い電力供給が可能となります。建設事業によるインフラ整備とあわせて、エネルギーの再生利用を進めることで、環境保全に配慮した事業活動を行っています。
               </p>
             </div>
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
-                  src={solar.image}
-                  alt={solar.title}
+                  src="/images/generated/solar.jpg"
+                  alt="太陽光発電事業"
                   fill
                   className="object-cover"
                 />
@@ -125,11 +100,38 @@ function OtherBusinessSections() {
             </div>
           </div>
         </FadeInUp>
+      </div>
+    </section>
+  );
+}
 
-        {/* Education & Community - side by side */}
+// ============================================================
+// Community Section — 地域貢献活動
+// ============================================================
+const COMMUNITY_ITEMS = [
+  {
+    title: "現場見学・出前授業",
+    description: "信藤建設では、地域との取り組みの一環として、小学校や保育園への出前授業や、子どもたちを現場に迎えての見学受け入れを行っています。建設業の役割や仕事の内容について説明するほか、砂やセメントを実際に混ぜるコンクリート製作など、体験を通して建設の仕事を学んでもらう取り組みを実施しています。",
+    image: "/images/outreach/KSKY6948.JPG",
+  },
+  {
+    title: "清掃活動",
+    description: "鈴鹿川クリーン大作戦をはじめ、自治体や建設業協会が実施する各種ボランティア活動に参加し、三重県北勢・中勢エリアの河川や道路の清掃活動に取り組んでいます。日頃、工事を通じて関わっている地域の環境を維持するため、継続的に清掃活動を行っています。",
+    image: "/images/cleanup/NCM_0040.JPG",
+  },
+];
+
+function CommunitySection() {
+  return (
+    <section className="py-16 lg:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">地域貢献活動</h2>
+        </FadeInUp>
+
         <FadeInUp delay={0.1}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 py-12 lg:py-16">
-            {smallItems.map((item, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {COMMUNITY_ITEMS.map((item, index) => (
               <div key={index}>
                 <div className="relative aspect-[4/3] rounded overflow-hidden mb-6">
                   <Image
@@ -150,13 +152,12 @@ function OtherBusinessSections() {
           </div>
         </FadeInUp>
 
-        {/* View all button */}
-        <FadeInUp delay={0.2} className="text-center">
+        <FadeInUp delay={0.2} className="text-center mt-12">
           <Link
             href="/community"
             className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
-            <span>View all</span>
+            <span>詳しく見る</span>
             <span>→</span>
           </Link>
         </FadeInUp>
@@ -173,7 +174,8 @@ export default function BusinessPage() {
     <>
       <HeroSection />
       <MainBusinessSection />
-      <OtherBusinessSections />
+      <SolarSection />
+      <CommunitySection />
     </>
   );
 }

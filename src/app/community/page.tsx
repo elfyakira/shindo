@@ -57,56 +57,146 @@ function IntroSection() {
 }
 
 // ============================================================
-// Activities
+// Outreach Class Section — 現場見学・出前授業
 // ============================================================
-const ACTIVITIES = [
-  {
-    title: "太陽光発電事業",
-    description: "信藤建設では、再生可能エネルギーの普及に貢献するため、太陽光発電事業にも取り組んでいます。地域の遊休地を活用した太陽光発電所の設置・運営を通じて、クリーンエネルギーの供給と地域経済の活性化に貢献しています。",
-    image: "/images/generated/solar.jpg",
-  },
-  {
-    title: "現場見学・出前授業",
-    description: "地域の学校や団体を対象に、建設現場の見学会や出前授業を実施しています。重機の操作体験や測量体験などを通じて、建設業の魅力や地域インフラの重要性を伝え、次世代の担い手育成に貢献しています。",
-    image: "/images/generated/mentoring_scene.jpg",
-  },
-  {
-    title: "清掃活動",
-    description: "地域貢献活動の一環として、定期的に地域の清掃活動を実施しています。道路や河川周辺の清掃を通じて、美しい街づくりと環境保全に取り組んでいます。社員一人ひとりが地域の一員として、日常的に地域環境への意識を持って活動しています。",
-    image: "/images/generated/team_photo.jpg",
-  },
+const OUTREACH_PHOTOS = [
+  { src: "/images/outreach/CPGM3039.JPG", alt: "教室での出前授業の様子" },
+  { src: "/images/outreach/HNPE9378.JPG", alt: "安全装備の紹介・体験" },
+  { src: "/images/outreach/HALD7187.JPG", alt: "建設業についてのワークシート学習" },
+  { src: "/images/outreach/KSKY6948.JPG", alt: "測量機器を使った体験学習" },
+  { src: "/images/outreach/IMGP0383.JPG", alt: "コンクリート練り体験" },
+  { src: "/images/outreach/RIMG0969.JPG", alt: "左官体験・モルタル仕上げ" },
+  { src: "/images/outreach/RIMG1291.JPG", alt: "屋外でのコンクリート体験学習" },
+  { src: "/images/outreach/PA210026.JPG", alt: "鈴鹿川での現場見学会" },
+  { src: "/images/outreach/PA210031.JPG", alt: "重機の見学・操作体験" },
+  { src: "/images/outreach/RIMG1491.JPG", alt: "高所作業車での体験" },
+  { src: "/images/outreach/RIMG1285.JPG", alt: "高所作業車の搭乗体験" },
+  { src: "/images/outreach/DJI_0053.JPG", alt: "学校グラウンドでの高所作業車デモンストレーション" },
+  { src: "/images/outreach/RIMG0944.JPG", alt: "ドローン飛行デモンストレーション" },
+  { src: "/images/outreach/RIMG0936.JPG", alt: "VR機器を使った建設現場体験" },
+  { src: "/images/outreach/RIMG1303.JPG", alt: "出前授業の集合写真" },
+  { src: "/images/outreach/DJI_0082.JPG", alt: "出前授業の記念撮影（ドローン空撮）" },
 ];
 
-function ActivitiesSection() {
+function OutreachSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Activities</h2>
-          <span className="section-label">活動内容</span>
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">現場見学・出前授業</h2>
         </FadeInUp>
 
-        <div className="border-t border-gray-200">
-          {ACTIVITIES.map((item, index) => (
-            <FadeInUp key={index} delay={index * 0.1}>
-              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 py-12 lg:py-16 border-b border-gray-200">
-                <div className="w-full lg:w-1/2">
-                  <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6">
-                    {item.title}
-                  </h3>
-                  <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
-                    {item.description}
+        {/* 紹介テキスト */}
+        <FadeInUp className="mb-12 lg:mb-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <div className="w-full lg:w-1/2">
+              <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6">
+                建設の仕事を、<br className="hidden lg:block" />
+                子どもたちに届ける。
+              </h3>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
+                信藤建設では、地域の小学校を中心に現場見学会や出前授業を積極的に実施しています。「建設業ってどんな仕事？」という素朴な疑問に答えながら、子どもたちにものづくりの楽しさやインフラの大切さを伝えています。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                教室での座学だけでなく、実際の建設現場や学校のグラウンドを活用した体験型プログラムを実施。測量機器の操作体験、コンクリートの練り混ぜ体験、高所作業車への搭乗体験、ドローンやVRを使った最新技術の紹介など、五感で学べるプログラムを提供しています。
+              </p>
+            </div>
+            <div className="w-full lg:w-1/2 lg:pt-[calc(1.6em*2+1.5rem)]">
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
+                河川工事の現場では、鈴鹿川の堤防を間近に見学しながら、地域の安全を守るインフラ整備の重要性を学ぶ機会を設けています。重機の迫力を目の前で体感することで、建設業への興味と理解を深めてもらっています。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                こうした活動を通じて、次世代を担う子どもたちに建設業の魅力を伝え、地域の未来を支える人材の育成に貢献していきます。子どもたちの目が輝く瞬間に出会えることが、私たちにとっても大きなやりがいです。
+              </p>
+            </div>
+          </div>
+        </FadeInUp>
+
+        {/* フォトギャラリー */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+          {OUTREACH_PHOTOS.map((photo, index) => (
+            <FadeInUp key={index} delay={index * 0.05}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden group">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
+                  <p className="text-white text-[12px] p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {photo.alt}
                   </p>
                 </div>
-                <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-[4/3] rounded overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+              </div>
+            </FadeInUp>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// Cleanup Activity Section — 清掃活動
+// ============================================================
+const CLEANUP_PHOTOS = [
+  { src: "/images/cleanup/NCM_0040.JPG", alt: "道路周辺の清掃活動" },
+  { src: "/images/cleanup/DSCF5420.JPG", alt: "歩道の除草・清掃作業" },
+  { src: "/images/cleanup/DSCF5437.JPG", alt: "歩道植栽周りの清掃" },
+  { src: "/images/cleanup/DSCF5417.JPG", alt: "街路樹周辺の美化活動" },
+  { src: "/images/cleanup/DSCF3976.JPG", alt: "歩道の植栽手入れ" },
+  { src: "/images/cleanup/cleanup-2024.JPG", alt: "道路沿いの歩道清掃" },
+  { src: "/images/cleanup/DSCF2597.JPG", alt: "道路脇のゴミ拾い活動" },
+  { src: "/images/cleanup/DSCF2598.JPG", alt: "道路沿いの清掃パトロール" },
+  { src: "/images/cleanup/suzukagawa-clean.png", alt: "鈴鹿川クリーン作戦" },
+  { src: "/images/cleanup/P6080009.JPG", alt: "河川敷の漂着物撤去" },
+];
+
+function CleanupSection() {
+  return (
+    <section className="py-16 lg:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">清掃活動</h2>
+        </FadeInUp>
+
+        <FadeInUp className="mb-12 lg:mb-16">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <div className="w-full lg:w-1/2">
+              <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6">
+                地域の美化は、<br className="hidden lg:block" />
+                私たちの日常です。
+              </h3>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                信藤建設では、地域貢献活動の一環として定期的に清掃活動を実施しています。道路沿いの歩道清掃や植栽の手入れ、河川敷のゴミ拾いなど、活動の範囲は多岐にわたります。
+              </p>
+            </div>
+            <div className="w-full lg:w-1/2 lg:pt-[calc(1.6em*2+1.5rem)]">
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                鈴鹿川クリーン作戦への参加をはじめ、河川敷に流れ着いた漂着物の撤去や、道路周辺の美化パトロールにも取り組んでいます。社員一人ひとりが地域の一員として、日常的に地域環境への意識を持ち、美しい街づくりと環境保全に貢献しています。
+              </p>
+            </div>
+          </div>
+        </FadeInUp>
+
+        {/* フォトギャラリー */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
+          {CLEANUP_PHOTOS.map((photo, index) => (
+            <FadeInUp key={index} delay={index * 0.05}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden group">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
+                  <p className="text-white text-[12px] p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {photo.alt}
+                  </p>
                 </div>
               </div>
             </FadeInUp>
@@ -125,7 +215,8 @@ export default function CommunityPage() {
     <>
       <HeroSection />
       <IntroSection />
-      <ActivitiesSection />
+      <OutreachSection />
+      <CleanupSection />
     </>
   );
 }
