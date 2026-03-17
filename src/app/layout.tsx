@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { seo, company, contact, locations } from "@/lib/site";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
 
 // JSON-LD構造化データ
 const jsonLd = {
@@ -129,7 +137,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className={montserrat.className}>
         <Header />
         <main>{children}</main>
         <Footer />

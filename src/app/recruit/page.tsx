@@ -2,20 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FadeInUp } from "@/components/animations";
 
 // ============================================================
 // Hero Section
 // ============================================================
 function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <div className="absolute inset-0 z-0">
@@ -30,13 +23,8 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1
-          className={`text-[40px] lg:text-[72px] font-bold text-white tracking-wider transition-all duration-800 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          RECRUIT
-        </h1>
+        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Recruit</h1>
+        <p className="text-sm text-white/80 tracking-wider">採用情報</p>
       </div>
     </section>
   );
@@ -50,17 +38,31 @@ function MessageSection() {
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-[24px] lg:text-[32px] font-bold text-text-primary leading-[1.6] mb-8">
-              地域のインフラを支える仕事に、<br />
-              あなたも参加しませんか。
-            </h2>
-            <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-6">
-              信藤建設は、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んでいます。
-            </p>
-            <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
-              河川護岸、道路舗装、上下水道工事など、目に見えにくいところで地域を支える仕事を、一緒にやりませんか。
-            </p>
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-[4/3] rounded overflow-hidden">
+                <Image
+                  src="/images/generated/mentoring_scene.jpg"
+                  alt="採用メッセージ"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Message</h2>
+              <span className="section-label">採用メッセージ</span>
+              <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mt-6 mb-6">
+                地域のインフラを支える仕事に、<br />
+                あなたも参加しませんか。
+              </h3>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
+                信藤建設は、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んでいます。
+              </p>
+              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                河川護岸、道路舗装、上下水道工事など、目に見えにくいところで地域を支える仕事を、一緒にやりませんか。
+              </p>
+            </div>
           </div>
         </FadeInUp>
       </div>
@@ -81,22 +83,23 @@ function JoinTeamSection() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#1B5E3A]/80" />
+        <div className="absolute inset-0 bg-[#1E5F4A]/80" />
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp className="text-center text-white">
-          <p className="text-[40px] lg:text-[64px] font-bold leading-[1.2] mb-8">
+        <FadeInUp>
+          <h2 className="text-[40px] lg:text-[64px] font-bold text-white leading-[1.2] mb-8">
             Join our team
-          </p>
+          </h2>
           <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-10">
             私たちは、地域のインフラを支える仲間を募集しています。
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#8BC34A] text-white px-10 py-4 rounded font-medium hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
-            エントリーする
+            <span>エントリーする</span>
+            <span>→</span>
           </Link>
         </FadeInUp>
       </div>
@@ -136,21 +139,21 @@ function RequirementsSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp className="text-center mb-12 lg:mb-16">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Requirements</h2>
           <span className="section-label">募集要項</span>
-          <h2 className="text-[24px] lg:text-[32px] font-bold text-text-primary">Requirements</h2>
         </FadeInUp>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <FadeInUp delay={0.1}>
-            <h3 className="text-xl font-semibold text-primary mb-6">{REQUIREMENTS.newGrad.title}</h3>
+            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">{REQUIREMENTS.newGrad.title}</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
               {REQUIREMENTS.newGrad.items.map((item, i) => (
                 <div key={i} className="flex border-b border-gray-100 last:border-b-0">
-                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-3 lg:py-4 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
+                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-3 lg:py-4 text-[14px] lg:text-[15px] text-text-primary">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary">
                     {item.value}
                   </div>
                 </div>
@@ -159,14 +162,14 @@ function RequirementsSection() {
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
-            <h3 className="text-xl font-semibold text-primary mb-6">{REQUIREMENTS.midCareer.title}</h3>
+            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">{REQUIREMENTS.midCareer.title}</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
               {REQUIREMENTS.midCareer.items.map((item, i) => (
                 <div key={i} className="flex border-b border-gray-100 last:border-b-0">
-                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-3 lg:py-4 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
+                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-3 lg:py-4 text-[14px] lg:text-[15px] text-text-primary">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary">
                     {item.value}
                   </div>
                 </div>
@@ -194,12 +197,12 @@ function FAQSection() {
   return (
     <section className="py-16 lg:py-24 bg-bg-light">
       <div className="max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp className="text-center mb-12 lg:mb-16">
+        <FadeInUp className="mb-12 lg:mb-16">
+          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">FAQ</h2>
           <span className="section-label">よくある質問</span>
-          <h2 className="text-[24px] lg:text-[32px] font-bold text-text-primary">FAQ</h2>
         </FadeInUp>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl space-y-4">
           {FAQS.map((faq, i) => (
             <FadeInUp key={i} delay={i * 0.1}>
               <div className="bg-white rounded overflow-hidden">
@@ -235,23 +238,22 @@ function FAQSection() {
 // ============================================================
 function CTASection() {
   return (
-    <section className="py-16 lg:py-20 bg-primary">
-      <div className="max-w-narrow mx-auto px-6 lg:px-12 text-center">
+    <section className="py-16 lg:py-24 bg-[#1E5F4A]">
+      <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
-          <h2 className="text-[24px] lg:text-[32px] font-bold text-white mb-4">
+          <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">
             ご応募お待ちしています
           </h2>
-          <p className="text-[14px] lg:text-[15px] text-white/80 mb-8 lg:mb-10">
+          <p className="text-[14px] lg:text-[15px] text-white/80 mb-10">
             まずはお気軽にご連絡ください。
           </p>
-
           <Link
             href="/contact"
-            className="inline-block bg-[#8BC34A] text-white px-12 py-4 rounded font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
           >
-            エントリーフォームへ
+            <span>エントリーフォーム</span>
+            <span>→</span>
           </Link>
-
           <p className="mt-6 text-sm text-white/70">
             お電話でのお問い合わせ: 059-345-3171
           </p>

@@ -17,7 +17,34 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-8">
+      {/* Contact Section */}
+      <div className="max-w-container mx-auto px-6 lg:px-12 pt-16 lg:pt-24 pb-16 lg:pb-24">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+          <div className="w-full lg:w-1/3">
+            <div className="relative aspect-[4/3] rounded overflow-hidden">
+              <Image
+                src="/images/generated/company-bg.jpg"
+                alt="お問い合わせ"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <Link href="/contact" className="flex items-center gap-6 mb-6 group">
+              <h2 className="text-[32px] lg:text-[48px] font-bold text-white">Contact us</h2>
+              <span className="text-white text-2xl group-hover:translate-x-2 transition-transform">→</span>
+            </Link>
+            <p className="text-[14px] lg:text-[15px] text-white/70 leading-[2]">
+              信藤建設へのお問い合わせご質問は<br />
+              こちらのフォームよりお気軽にお問い合わせください。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Navigation */}
+      <div className="max-w-container mx-auto px-6 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-8 border-t border-white/20">
         {/* PC: 2 columns */}
         <div className="hidden lg:flex lg:justify-between lg:items-start mb-12">
           {/* Left: Logo + Company Info */}

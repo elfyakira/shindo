@@ -36,10 +36,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          '"Noto Sans JP"',
-          '"Hiragino Kaku Gothic ProN"',
-          '"Hiragino Sans"',
-          "Meiryo",
+          "Montserrat",
           "sans-serif",
         ],
       },
