@@ -12,10 +12,10 @@ function HeroSection() {
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/business-hero.jpg"
+          src="/images/generated/cases-hero.jpg"
           alt="施工実績"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />

@@ -80,7 +80,7 @@ export default function AwardsPage() {
                     src={award.image}
                     alt={award.title}
                     fill
-                    className="object-cover"
+                    className={award.vertical ? "object-contain" : "object-cover"}
                   />
                 </div>
               </FadeInUp>

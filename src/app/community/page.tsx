@@ -11,7 +11,7 @@ function HeroSection() {
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/business-hero.jpg"
+          src="/images/generated/community-hero.jpg"
           alt="地域貢献活動"
           fill
           className="object-cover"
@@ -78,6 +78,13 @@ const OUTREACH_PHOTOS = [
   { src: "/images/outreach/DJI_0082.JPG", alt: "出前授業の記念撮影（ドローン空撮）" },
 ];
 
+const HIGHSCHOOL_PHOTOS = [
+  { src: "/images/community/highschool/20260129_142401_(2).jpg", alt: "高校出前授業の様子1" },
+  { src: "/images/community/highschool/20260209_132704_(2).jpg", alt: "高校出前授業の様子2" },
+  { src: "/images/community/highschool/20260209_140500_(2).jpg", alt: "高校出前授業の様子3" },
+  { src: "/images/community/highschool/20260209_140833_(2).jpg", alt: "高校出前授業の様子4" },
+];
+
 function OutreachSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
@@ -115,6 +122,31 @@ function OutreachSection() {
         {/* フォトギャラリー */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
           {OUTREACH_PHOTOS.map((photo, index) => (
+            <FadeInUp key={index} delay={index * 0.05}>
+              <div className="relative aspect-[4/3] rounded overflow-hidden group">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end">
+                  <p className="text-white text-[12px] p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {photo.alt}
+                  </p>
+                </div>
+              </div>
+            </FadeInUp>
+          ))}
+        </div>
+
+        {/* 高校の出前授業 */}
+        <FadeInUp className="mt-16 lg:mt-20 mb-8">
+          <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary">高校の出前授業の様子</h3>
+        </FadeInUp>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+          {HIGHSCHOOL_PHOTOS.map((photo, index) => (
             <FadeInUp key={index} delay={index * 0.05}>
               <div className="relative aspect-[4/3] rounded overflow-hidden group">
                 <Image

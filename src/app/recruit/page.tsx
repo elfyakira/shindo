@@ -97,54 +97,109 @@ function JoinTeamSection() {
 }
 
 // ============================================================
-// Interview Video Section
-// ============================================================
-function InterviewSection() {
-  return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">スタッフインタビュー</h2>
-        </FadeInUp>
-
-        <FadeInUp>
-          <div className="relative aspect-video bg-gray-100 rounded overflow-hidden flex items-center justify-center">
-            {/* TODO: 動画が用意でき次第差し替え */}
-            <p className="text-text-secondary text-[15px]">動画準備中</p>
-          </div>
-        </FadeInUp>
-      </div>
-    </section>
-  );
-}
-
-// ============================================================
 // Requirements Section
 // ============================================================
-const REQUIREMENTS = {
-  newGrad: {
-    title: "新卒採用",
-    items: [
-      { label: "募集職種", value: "土木施工管理" },
-      { label: "応募資格", value: "高校卒業以上" },
-      { label: "給与", value: "当社規定による" },
-      { label: "勤務地", value: "三重県四日市市" },
-      { label: "勤務時間", value: "8:00〜17:00" },
-      { label: "休日", value: "日曜、祝日、第2・4土曜日、他" },
-    ],
+const REQUIREMENTS_NEW_GRAD = [
+  {
+    label: "応募資格",
+    value: (
+      <>
+        <p>未経験可</p>
+        <p>普通自動車免許（AT限定不可）/ PC基本操作（Word・Excel）</p>
+      </>
+    ),
   },
-  midCareer: {
-    title: "中途採用",
-    items: [
-      { label: "募集職種", value: "土木施工管理" },
-      { label: "応募資格", value: "経験者優遇・資格保有者歓迎" },
-      { label: "給与", value: "経験・能力を考慮の上、決定" },
-      { label: "勤務地", value: "三重県四日市市" },
-      { label: "勤務時間", value: "8:00〜17:00" },
-      { label: "休日", value: "日曜、祝日、第2・4土曜日、他" },
-    ],
+  {
+    label: "歓迎スキル",
+    value: (
+      <>
+        <p>・土木施工管理技士（1〜2級）</p>
+        <p>・建築施工管理技士（1〜2級）</p>
+        <p>・土木・建築現場での実務経験5年以上</p>
+      </>
+    ),
   },
-};
+  {
+    label: "給与",
+    value: (
+      <>
+        <p>月給 250,000円〜400,000円</p>
+        <p>賞与 年2回（6月・11月）＋決算賞与（業績による）</p>
+      </>
+    ),
+  },
+  { label: "勤務地", value: "三重県四日市市川合町2番地" },
+  {
+    label: "勤務時間",
+    value: (
+      <>
+        <p>8:15〜17:15（実働8h）</p>
+        <p>休憩：12:00〜13:00 ＋ 午前午後に30分ずつ</p>
+      </>
+    ),
+  },
+  {
+    label: "休日",
+    value: (
+      <>
+        <p>完全週休2日制（土日祝休み）/ 年間休日126日</p>
+        <p>夏季・年末年始・有給・慶弔・育児・介護休暇</p>
+      </>
+    ),
+  },
+];
+
+const REQUIREMENTS_MID_CAREER = [
+  {
+    label: "応募資格",
+    value: (
+      <>
+        <p>未経験可</p>
+        <p>普通自動車免許（AT限定不可）</p>
+      </>
+    ),
+  },
+  {
+    label: "歓迎スキル",
+    value: (
+      <>
+        <p>■ 車両系建設機械運転技能講習</p>
+        <p>■ 玉掛け技能講習</p>
+        <p>■ 小型移動式クレーン運転技能講習</p>
+        <p>■ フォークリフト運転技能講習</p>
+        <p>■ 足場の組立て等作業経験</p>
+      </>
+    ),
+  },
+  {
+    label: "給与",
+    value: (
+      <>
+        <p>月給 190,000円〜410,000円</p>
+        <p>賞与 年2回（6月・11月）＋決算賞与（業績による）</p>
+      </>
+    ),
+  },
+  { label: "勤務地", value: "三重県四日市市川合町2番地" },
+  {
+    label: "勤務時間",
+    value: (
+      <>
+        <p>8:15〜17:15（実働8h）</p>
+        <p>休憩：12:00〜13:00 ＋ 午前午後に30分ずつ</p>
+      </>
+    ),
+  },
+  {
+    label: "休日",
+    value: (
+      <>
+        <p>完全週休2日制（土日祝休み）/ 年間休日126日</p>
+        <p>夏季・年末年始・有給・慶弔・育児・介護休暇</p>
+      </>
+    ),
+  },
+];
 
 function RequirementsSection() {
   return (
@@ -155,16 +210,16 @@ function RequirementsSection() {
           <span className="section-label">募集要項</span>
         </FadeInUp>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <FadeInUp delay={0.1}>
-            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">{REQUIREMENTS.newGrad.title}</h3>
+            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">施工管理</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
-              {REQUIREMENTS.newGrad.items.map((item, i) => (
-                <div key={i} className="flex border-b border-gray-100 last:border-b-0">
-                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
+              {REQUIREMENTS_NEW_GRAD.map((item, i) => (
+                <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
+                  <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary leading-[1.8]">
                     {item.value}
                   </div>
                 </div>
@@ -173,14 +228,14 @@ function RequirementsSection() {
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
-            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">{REQUIREMENTS.midCareer.title}</h3>
+            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">現場作業員</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
-              {REQUIREMENTS.midCareer.items.map((item, i) => (
-                <div key={i} className="flex border-b border-gray-100 last:border-b-0">
-                  <div className="w-28 lg:w-32 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
+              {REQUIREMENTS_MID_CAREER.map((item, i) => (
+                <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
+                  <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary leading-[1.8]">
                     {item.value}
                   </div>
                 </div>
@@ -188,6 +243,20 @@ function RequirementsSection() {
             </div>
           </FadeInUp>
         </div>
+
+        <FadeInUp>
+          <div className="mt-12 lg:mt-16 text-center">
+            <a
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
+            >
+              <span>リクルートサイトへ</span>
+              <span>→</span>
+            </a>
+          </div>
+        </FadeInUp>
       </div>
     </section>
   );
@@ -283,7 +352,7 @@ export default function RecruitPage() {
       <HeroSection />
       <MessageSection />
       <JoinTeamSection />
-      <InterviewSection />
+
       <RequirementsSection />
       <FAQSection />
       <CTASection />

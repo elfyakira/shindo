@@ -346,7 +346,6 @@ function CompanySection() {
 // ============================================================
 const RECRUIT_MENU = [
   { title: "採用メッセージ", href: "/recruit#message" },
-  { title: "スタッフインタビュー", href: "/recruit#interview" },
   { title: "募集要項", href: "/recruit#requirements" },
   { title: "よくある質問", href: "/recruit#faq" },
 ];
@@ -355,6 +354,21 @@ function RecruitSection() {
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
+        {/* セクションタイトル */}
+        <FadeInUp>
+          <div className="mb-8 lg:mb-12">
+            <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Recruit</h2>
+            <span className="section-label">採用情報</span>
+          </div>
+        </FadeInUp>
+
+        {/* 採用PV動画スペース（準備中） */}
+        <FadeInUp>
+          <div className="relative w-full aspect-video mb-12 lg:mb-16 rounded overflow-hidden bg-gray-100 flex items-center justify-center">
+            <p className="text-gray-400 text-lg">採用PV（準備中）</p>
+          </div>
+        </FadeInUp>
+
         <FadeInUp>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="w-full lg:w-1/2">
@@ -368,8 +382,8 @@ function RecruitSection() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Recruit</h2>
-              <span className="section-label">採用情報</span>
+              <p className="text-[24px] lg:text-[32px] font-bold text-text-primary mb-2">Join Our Team</p>
+              <span className="section-label">共に街をつくる仲間へ</span>
               <div className="mt-8 border-t border-gray-300">
                 {RECRUIT_MENU.map((item, index) => (
                   <Link
