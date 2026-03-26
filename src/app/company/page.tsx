@@ -40,10 +40,10 @@ function CeoMessageSection() {
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
-                  src="/images/generated/ceo_portrait.jpg"
+                  src="/images/ceo-greeting.jpg"
                   alt="代表"
                   fill
-                  className="object-cover"
+                  className="object-cover" style={{ transform: 'scale(2) translateY(5%)' }}
                 />
               </div>
             </div>

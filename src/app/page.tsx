@@ -60,10 +60,17 @@ function AboutIntroSection() {
                 確かな技術や品質管理は、あくまで手段。<br className="hidden lg:block" />
                 その先にあるのは、地域の安全と安心を守り続けるという使命です。
               </p>
-              <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-8">
                 ISO取得に裏付けられた施工品質と、地域に向き合う真摯な姿勢を両立しながら、<br className="hidden lg:block" />
                 私たちは公共事業に取り組んできました。
               </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              >
+                <span>詳しく見る</span>
+                <span>→</span>
+              </Link>
             </div>
             <div className="grid grid-cols-3 gap-6 mt-10 lg:mt-0 lg:translate-y-4 w-full lg:w-[500px] flex-shrink-0">
               <Image
