@@ -54,9 +54,7 @@ export default function Header() {
               alt={company.name || "信藤建設"}
               width={180}
               height={45}
-              className={`transition-all duration-300 ${
-                isScrolled ? "" : "brightness-0 invert"
-              }`}
+              className="transition-all duration-300"
             />
           </Link>
 
