@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, M_PLUS_Rounded_1c } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +10,13 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-montserrat",
+});
+
+const mplusRounded = M_PLUS_Rounded_1c({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+  variable: "--font-mplus-rounded",
 });
 
 // JSON-LD構造化データ
@@ -119,7 +126,7 @@ export const metadata: Metadata = {
 
 // Viewport
 export const viewport: Viewport = {
-  themeColor: "#1B5E3A",
+  themeColor: "#16a637",
   width: "device-width",
   initialScale: 1,
 };
@@ -137,7 +144,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className} ${mplusRounded.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -62,7 +62,7 @@ function PageHeader() {
     <section className="relative h-[50vh] min-h-[400px] flex items-center">
       <HeroBackground className="absolute inset-0 z-0">
         <Image src="/images/service-hero.jpg" alt="事業内容" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-[#1E5F4A]/80" />
+        <div className="absolute inset-0 bg-[#16a637]/80" />
       </HeroBackground>
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <FadeInUp>
@@ -121,15 +121,15 @@ function ServiceDetail({
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <span className="text-[48px] lg:text-[64px] font-bold text-[#1E5F4A]/20">{number}</span>
+              <span className="text-[48px] lg:text-[64px] font-bold text-[#16a637]/20">{number}</span>
               <h2 className="text-[24px] lg:text-[32px] font-bold text-text-primary mt-2">{title}</h2>
-              <p className="mt-4 text-sm lg:text-base text-[#1E5F4A] font-medium">{subtitle}</p>
+              <p className="mt-4 text-sm lg:text-base text-[#16a637] font-medium">{subtitle}</p>
               <div className="mt-6 text-[14px] lg:text-[15px] text-text-secondary leading-[2] space-y-4">
                 {description.map((para, i) => <p key={i}>{para}</p>)}
               </div>
               <ul className="mt-6 space-y-2">
                 {features.map((feature, i) => (
-                  <li key={i} className="text-sm text-text-secondary leading-[2] before:content-['•'] before:mr-2 before:text-[#1E5F4A]">
+                  <li key={i} className="text-sm text-text-secondary leading-[2] before:content-['•'] before:mr-2 before:text-[#16a637]">
                     {feature}
                   </li>
                 ))}
@@ -137,7 +137,7 @@ function ServiceDetail({
               <div className="mt-8">
                 <Link
                   href={ctaLink}
-                  className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+                  className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
                 >
                   <span>{ctaText}</span>
                   <span>→</span>
@@ -163,7 +163,7 @@ function FlowSection() {
         <StaggerContainer className="grid lg:grid-cols-6 gap-4 lg:gap-6">
           {FLOW_STEPS.map((item, index) => (
             <div key={index} className="py-4 lg:py-0 border-b border-gray-200 lg:border-b-0 last:border-b-0">
-              <span className="text-xs font-semibold text-[#1E5F4A]">{item.step}</span>
+              <span className="text-xs font-semibold text-[#16a637]">{item.step}</span>
               <h3 className="mt-2 text-[15px] lg:text-base font-semibold text-text-primary">{item.title}</h3>
               <p className="mt-2 text-[13px] text-text-secondary leading-[1.6]">{item.description}</p>
             </div>
@@ -192,7 +192,7 @@ function WorksSection() {
                 <Image src={work.image} alt={work.name} fill className="object-cover" />
               </div>
               <div className="mt-3">
-                <span className="text-xs font-semibold text-[#1E5F4A]">{work.category}</span>
+                <span className="text-xs font-semibold text-[#16a637]">{work.category}</span>
                 <h3 className="mt-1 text-base font-semibold text-text-primary">{work.name}</h3>
                 <p className="mt-1 text-[13px] text-text-secondary">{work.location} / {work.year}</p>
               </div>
@@ -206,7 +206,7 @@ function WorksSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#1E5F4A]">
+    <section className="py-16 lg:py-24 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">お気軽にご相談ください</h2>
@@ -219,7 +219,7 @@ function CTASection() {
           <p className="text-sm text-white/70 mb-10">受付時間: {contact.hours || "9:00〜18:00"}</p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
             <span>お問い合わせ</span>
             <span>→</span>

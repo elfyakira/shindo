@@ -91,7 +91,7 @@ const HISTORY = [
 
 function HistorySection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#1E5F4A]">
+    <section className="py-16 lg:py-24 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">History</h2>
@@ -144,7 +144,7 @@ const COMPANY_INFO = [
 
 function CompanyInfoSection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#1E5F4A]">
+    <section className="py-16 lg:py-24 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Overview</h2>

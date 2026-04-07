@@ -34,7 +34,7 @@ function HeroSection() {
 // ============================================================
 function MainBusinessSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#1E5F4A]">
+    <section className="py-20 lg:py-32 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -50,7 +50,7 @@ function MainBusinessSection() {
             <div className="flex items-end justify-between mt-10">
               <Link
                 href="/business/cases"
-                className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+                className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
               >
                 <span>施工実績を見る</span>
                 <span>→</span>
@@ -155,7 +155,7 @@ function CommunitySection() {
         <FadeInUp delay={0.2} className="text-center mt-12">
           <Link
             href="/community"
-            className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+            className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
             <span>詳しく見る</span>
             <span>→</span>

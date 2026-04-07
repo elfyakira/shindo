@@ -18,7 +18,7 @@ type ContactType = (typeof CONTACT_TYPES)[number]["id"];
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#1E5F4A]">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Contact</h1>
         <p className="text-sm text-white/80 tracking-wider">お問い合わせ</p>
@@ -85,7 +85,7 @@ function ContactForm() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+            className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
             <span>トップページへ</span>
             <span>→</span>
@@ -112,8 +112,8 @@ function ContactForm() {
                 onClick={() => setSelectedType(type.id)}
                 className={`p-4 lg:p-5 rounded-full text-sm lg:text-[15px] text-center transition-colors ${
                   selectedType === type.id
-                    ? "bg-[#1E5F4A] text-white"
-                    : "bg-white text-text-primary border border-gray-200 hover:border-[#1E5F4A]"
+                    ? "bg-[#16a637] text-white"
+                    : "bg-white text-text-primary border border-gray-200 hover:border-[#16a637]"
                 }`}
               >
                 {type.label}
@@ -136,7 +136,7 @@ function ContactForm() {
                   type="text"
                   name="name"
                   placeholder={selectedType === "recruit" ? "例）山田 太郎" : "例）株式会社サンプル 山田太郎"}
-                  className={`w-full h-12 px-4 border rounded text-base ${errors.name ? "border-red-600" : "border-gray-200"} focus:border-[#1E5F4A] focus:outline-none transition-colors`}
+                  className={`w-full h-12 px-4 border rounded text-base ${errors.name ? "border-red-600" : "border-gray-200"} focus:border-[#16a637] focus:outline-none transition-colors`}
                 />
                 {errors.name && <p className="mt-1 text-[13px] text-red-600">{errors.name}</p>}
               </div>
@@ -151,7 +151,7 @@ function ContactForm() {
                   name="phone"
                   inputMode="numeric"
                   placeholder="例）000-000-0000"
-                  className={`w-full h-12 px-4 border rounded text-base ${errors.phone ? "border-red-600" : "border-gray-200"} focus:border-[#1E5F4A] focus:outline-none transition-colors`}
+                  className={`w-full h-12 px-4 border rounded text-base ${errors.phone ? "border-red-600" : "border-gray-200"} focus:border-[#16a637] focus:outline-none transition-colors`}
                 />
                 {errors.phone && <p className="mt-1 text-[13px] text-red-600">{errors.phone}</p>}
               </div>
@@ -165,7 +165,7 @@ function ContactForm() {
                   type="email"
                   name="email"
                   placeholder="例）info@example.com"
-                  className={`w-full h-12 px-4 border rounded text-base ${errors.email ? "border-red-600" : "border-gray-200"} focus:border-[#1E5F4A] focus:outline-none transition-colors`}
+                  className={`w-full h-12 px-4 border rounded text-base ${errors.email ? "border-red-600" : "border-gray-200"} focus:border-[#16a637] focus:outline-none transition-colors`}
                 />
                 {errors.email && <p className="mt-1 text-[13px] text-red-600">{errors.email}</p>}
               </div>
@@ -180,7 +180,7 @@ function ContactForm() {
                     type="text"
                     name="address"
                     placeholder="例）東京都渋谷区..."
-                    className="w-full h-12 px-4 border border-gray-200 rounded text-base focus:border-[#1E5F4A] focus:outline-none transition-colors"
+                    className="w-full h-12 px-4 border border-gray-200 rounded text-base focus:border-[#16a637] focus:outline-none transition-colors"
                   />
                 </div>
               )}
@@ -193,7 +193,7 @@ function ContactForm() {
                   </label>
                   <select
                     name="jobType"
-                    className="w-full h-12 px-4 border border-gray-200 rounded text-base focus:border-[#1E5F4A] focus:outline-none transition-colors"
+                    className="w-full h-12 px-4 border border-gray-200 rounded text-base focus:border-[#16a637] focus:outline-none transition-colors"
                   >
                     <option value="general">一般職</option>
                     <option value="other">その他</option>
@@ -216,7 +216,7 @@ function ContactForm() {
                   name="message"
                   rows={5}
                   placeholder={selectedType === "recruit" ? "100文字程度でOKです" : "ご相談内容、ご質問などをご記入ください"}
-                  className={`w-full px-4 py-3 border rounded text-base resize-y ${errors.message ? "border-red-600" : "border-gray-200"} focus:border-[#1E5F4A] focus:outline-none transition-colors`}
+                  className={`w-full px-4 py-3 border rounded text-base resize-y ${errors.message ? "border-red-600" : "border-gray-200"} focus:border-[#16a637] focus:outline-none transition-colors`}
                 />
                 {errors.message && <p className="mt-1 text-[13px] text-red-600">{errors.message}</p>}
               </div>
@@ -225,7 +225,7 @@ function ContactForm() {
                 <label className="flex items-start gap-2">
                   <input type="checkbox" name="agree" className={`mt-1 w-4 h-4 ${errors.agree ? "ring-2 ring-red-600" : ""}`} />
                   <span className="text-sm text-text-primary">
-                    <Link href="/privacy" target="_blank" className="text-[#1E5F4A] underline hover:opacity-80">プライバシーポリシー</Link>に同意する
+                    <Link href="/privacy" target="_blank" className="text-[#16a637] underline hover:opacity-80">プライバシーポリシー</Link>に同意する
                   </span>
                 </label>
                 {errors.agree && <p className="mt-1 text-[13px] text-red-600">{errors.agree}</p>}
@@ -238,7 +238,7 @@ function ContactForm() {
                   className={`inline-flex items-center justify-between px-8 py-3 rounded-full text-sm font-medium w-56 transition-opacity ${
                     isSubmitting
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-[#1E5F4A] text-white hover:opacity-90"
+                      : "bg-[#16a637] text-white hover:opacity-90"
                   }`}
                 >
                   <span>{isSubmitting ? "送信中..." : "送信する"}</span>
@@ -262,7 +262,7 @@ function PhoneSection() {
           <span className="section-label">お電話でのお問い合わせ</span>
           <a
             href={`tel:${contact.phoneTel || contact.phone?.replace(/-/g, "")}`}
-            className="block text-[28px] lg:text-[40px] font-bold text-[#1E5F4A] mt-6 mb-2"
+            className="block text-[28px] lg:text-[40px] font-bold text-[#16a637] mt-6 mb-2"
           >
             {contact.phoneFormatted || contact.phone || "000-000-0000"}
           </a>

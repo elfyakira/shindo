@@ -14,7 +14,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#1E5F4A]">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
         <div className="relative z-10 w-full px-6 lg:px-[10%]">
           <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Privacy Policy</h1>
           <p className="text-sm text-white/80 tracking-wider">プライバシーポリシー</p>

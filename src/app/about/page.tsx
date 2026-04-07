@@ -35,7 +35,7 @@ function HeroSection() {
 // ============================================================
 function AboutContentSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#1E5F4A]">
+    <section className="py-20 lg:py-32 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -141,7 +141,7 @@ function AwardsSection() {
           <div className="mt-6">
             <Link
               href="/awards"
-              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
             >
               <span>View all</span>
               <span>→</span>
@@ -201,7 +201,7 @@ function BlogSection() {
           <div className="mt-6">
             <Link
               href="/news"
-              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
             >
               <span>View all</span>
               <span>→</span>

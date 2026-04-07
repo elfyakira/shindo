@@ -35,7 +35,7 @@ function HeroSection() {
 // ============================================================
 function MessageSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#1E5F4A]">
+    <section className="py-20 lg:py-32 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -72,7 +72,7 @@ function JoinTeamSection() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#1E5F4A]/80" />
+        <div className="absolute inset-0 bg-[#16a637]/80" />
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
@@ -85,7 +85,7 @@ function JoinTeamSection() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
             <span>エントリーする</span>
             <span>→</span>
@@ -212,7 +212,7 @@ function RequirementsSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <FadeInUp delay={0.1}>
-            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">施工管理</h3>
+            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6">施工管理</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
               {REQUIREMENTS_NEW_GRAD.map((item, i) => (
                 <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
@@ -228,7 +228,7 @@ function RequirementsSection() {
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
-            <h3 className="text-[20px] font-semibold text-[#1E5F4A] mb-6">現場作業員</h3>
+            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6">現場作業員</h3>
             <div className="bg-white border border-gray-100 rounded overflow-hidden">
               {REQUIREMENTS_MID_CAREER.map((item, i) => (
                 <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
@@ -250,7 +250,7 @@ function RequirementsSection() {
               href="https://example.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
+              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
             >
               <span>リクルートサイトへ</span>
               <span>→</span>
@@ -318,7 +318,7 @@ function FAQSection() {
 // ============================================================
 function CTASection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#1E5F4A]">
+    <section className="py-16 lg:py-24 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">
@@ -329,7 +329,7 @@ function CTASection() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
+            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
           >
             <span>エントリーフォーム</span>
             <span>→</span>

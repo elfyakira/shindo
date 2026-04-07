@@ -25,7 +25,19 @@ function HeroSection() {
         </video>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/70 animate-bounce">
+      <div className="absolute bottom-24 left-6 lg:left-20 z-10 flex flex-col gap-2">
+        <p className="slam-in-1 text-[28px] sm:text-[40px] lg:text-[60px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
+          建設がすき。
+        </p>
+        <p className="slam-in-2 text-[28px] sm:text-[40px] lg:text-[60px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
+          この地域がすき。
+        </p>
+        <p className="slam-in-3 text-[20px] sm:text-[28px] lg:text-[40px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
+          だから、必要なものを本気でつくる。
+        </p>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/70 animate-bounce z-10">
         <span className="text-xs tracking-wider">Scroll</span>
         <svg className="w-4 h-4 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -40,62 +52,55 @@ function HeroSection() {
 // ============================================================
 function AboutIntroSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#1E5F4A]">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="py-20 lg:py-32 bg-[#16a637]">
+      <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
+        <div>
+          <p
+            className="inline-block bg-white text-[#16a637] text-[28px] sm:text-[40px] lg:text-[64px] font-bold italic leading-[1.3] mb-4 font-[var(--font-mplus-rounded)] whitespace-nowrap px-4 py-2 opacity-0 animate-[slideInLeft_0.6s_ease-out_0.2s_forwards]"
+          >
+            建設がすき。この地域がすき。
+          </p>
+          <br />
+          <p
+            className="inline-block bg-white text-[#16a637] text-[24px] lg:text-[40px] font-bold italic leading-[1.4] mb-10 font-[var(--font-mplus-rounded)] px-4 py-2 opacity-0 animate-[slideInLeft_0.6s_ease-out_0.6s_forwards]"
+          >
+            だから、必要なものを本気でつくる。
+          </p>
+        </div>
         <FadeInUp>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:gap-12">
-            <div className="text-left lg:flex-1">
-              <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
-                We Build<br />
-                What Matters.
-              </h2>
-              <p className="text-[16px] lg:text-[18px] text-white leading-[1.8] mb-8">
-                地域にとって、本当に必要なものをつくる。
-              </p>
-              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-                信藤建設が大切にしているのは、<br className="hidden lg:block" />
-                「なぜこの工事を行うのか」という目的意識です。
-              </p>
-              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
-                確かな技術や品質管理は、あくまで手段。<br className="hidden lg:block" />
-                その先にあるのは、地域の安全と安心を守り続けるという使命です。
-              </p>
-              <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-8">
-                ISO取得に裏付けられた施工品質と、地域に向き合う真摯な姿勢を両立しながら、<br className="hidden lg:block" />
-                私たちは公共事業に取り組んできました。
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-              >
-                <span>詳しく見る</span>
-                <span>→</span>
-              </Link>
-            </div>
-            <div className="grid grid-cols-3 gap-6 mt-10 lg:mt-0 lg:translate-y-4 w-full lg:w-[500px] flex-shrink-0">
-              <Image
-                src="/images/generated/iso-cert-01.png"
-                alt="ISO認証書類"
-                width={200}
-                height={280}
-                className="w-full h-auto"
-              />
-              <Image
-                src="/images/generated/iso14001-cert.png"
-                alt="ISO14001認証書類"
-                width={200}
-                height={280}
-                className="w-full h-auto"
-              />
-              <Image
-                src="/images/generated/iso45001-cert.png"
-                alt="ISO45001認証書類"
-                width={200}
-                height={280}
-                className="w-full h-auto"
-              />
-            </div>
+          <p className="text-[16px] lg:text-[28px] text-white leading-[2] mb-10 font-[var(--font-mplus-rounded)] text-justify">
+            なぜこの工事を行うのか。その意味を考え抜き、一つひとつの現場に向き合う。技術や品質は、満たして当たり前。その先にあるのは、地域の暮らしを守り続ける責任です。ISO取得に裏付けられた施工品質とともに、私たちは今日も、このまちの未来をつくっています。
+          </p>
+          <div className="grid grid-cols-3 gap-6 mb-10 max-w-[500px]">
+            <Image
+              src="/images/generated/iso-cert-01.png"
+              alt="ISO認証書類"
+              width={200}
+              height={280}
+              className="w-full h-auto"
+            />
+            <Image
+              src="/images/generated/iso14001-cert.png"
+              alt="ISO14001認証書類"
+              width={200}
+              height={280}
+              className="w-full h-auto"
+            />
+            <Image
+              src="/images/generated/iso45001-cert.png"
+              alt="ISO45001認証書類"
+              width={200}
+              height={280}
+              className="w-full h-auto"
+            />
           </div>
+          <Link
+            href="/about"
+            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+          >
+            <span>詳しく見る</span>
+            <span>→</span>
+          </Link>
         </FadeInUp>
       </div>
     </section>
@@ -152,7 +157,7 @@ function BusinessSection() {
               </p>
               <Link
                 href="/business"
-                className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+                className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
               >
                 <span>View all</span>
                 <span>→</span>
@@ -173,7 +178,7 @@ function AwardsSection() {
   const doubled = [...awards, ...awards];
   return (
     <section className="relative pt-16 lg:pt-24 pb-16 lg:pb-24 overflow-hidden">
-      <div className="absolute inset-0 top-[60%] bg-[#1E5F4A]" />
+      <div className="absolute inset-0 top-[60%] bg-[#16a637]" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-16 lg:mb-20">
           <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Awards</h2>
@@ -181,7 +186,7 @@ function AwardsSection() {
           <div className="mt-6">
             <Link
               href="/awards"
-              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
             >
               <span>View all</span>
               <span>→</span>
@@ -216,7 +221,7 @@ function AwardsSection() {
 function CasesSection() {
   const doubled = [...ALL_CASES, ...ALL_CASES];
   return (
-    <section className="py-16 lg:py-24 bg-[#1E5F4A] overflow-hidden">
+    <section className="py-16 lg:py-24 bg-[#16a637] overflow-hidden">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Cases</h2>
@@ -224,7 +229,7 @@ function CasesSection() {
           <div className="mt-6">
             <Link
               href="/business/cases"
-              className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
             >
               <span>View all</span>
               <span>→</span>
@@ -334,7 +339,7 @@ function CompanySection() {
                 </p>
                 <Link
                   href="/company"
-                  className="inline-flex items-center justify-between bg-white text-[#1E5F4A] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+                  className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
                 >
                   <span>View more</span>
                   <span>→</span>
@@ -447,7 +452,7 @@ function BlogSection() {
           <div className="mt-6">
             <Link
               href="/news"
-              className="inline-flex items-center justify-between bg-[#1E5F4A] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
+              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
             >
               <span>View all</span>
               <span>→</span>

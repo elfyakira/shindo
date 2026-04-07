@@ -40,12 +40,8 @@ export default function Header() {
   return (
     <>
       {/* PC Header */}
-      <header
-        className={`hidden lg:block fixed top-0 left-0 right-0 z-[1000] h-20 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-header" : "bg-transparent"
-        }`}
-      >
-        <div className="flex items-center justify-between h-full px-12">
+      <header className="hidden lg:block fixed top-0 left-0 right-0 z-[1000] py-4 px-12">
+        <div className="flex items-center justify-between h-16 bg-white/90 backdrop-blur-sm rounded-full px-8 shadow-header">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -64,9 +60,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[15px] font-medium transition-colors duration-200 hover:opacity-70 ${
-                  isScrolled ? "text-text-primary" : "text-white"
-                }`}
+                className="text-[15px] font-medium text-text-primary transition-colors duration-200 hover:opacity-70"
               >
                 {item.label}
               </Link>

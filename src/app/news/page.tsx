@@ -30,7 +30,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#1E5F4A]">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">News</h1>
         <p className="text-sm text-white/80 tracking-wider">お知らせ</p>
@@ -56,7 +56,7 @@ function CategoryFilter({
               onClick={() => onSelect(cat.id)}
               className={`px-6 py-3 text-[15px] whitespace-nowrap transition-colors rounded-full ${
                 selected === cat.id
-                  ? "bg-[#1E5F4A] text-white font-semibold"
+                  ? "bg-[#16a637] text-white font-semibold"
                   : "text-text-secondary hover:text-text-primary border border-gray-200"
               }`}
             >

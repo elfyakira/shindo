@@ -31,7 +31,7 @@ export default function AwardsPage() {
       </section>
 
       {/* Introduction + Ceremony Photos */}
-      <section className="py-20 lg:py-32 bg-[#1E5F4A]">
+      <section className="py-20 lg:py-32 bg-[#16a637]">
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <FadeInUp>
             <div className="text-left">
