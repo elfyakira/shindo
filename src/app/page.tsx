@@ -176,7 +176,7 @@ function AboutIntroSection() {
       <DecoShape color="red" width={180} top="-70px" right="8%" direction="top-right" zIndex={15} />
       <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} direction="top-left" zIndex={15} />
       <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} direction="top-right" zIndex={15} />
-      <DecoShape color="red" width={380} bottom="-140px" right="5%" delay={0.2} direction="bottom-right" zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} direction="bottom-right" zIndex={15} />
       <div className="relative max-w-container mx-auto px-6 lg:px-12">
         <WipeInLeft>
           <h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] bg-white px-6 py-0 leading-[0.9] mb-8 uppercase tracking-wide">About us</h2>
@@ -186,8 +186,8 @@ function AboutIntroSection() {
           { text: "だから、必要なものを本気でつくる。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
         ]} className="text-white" />
         <FadeInUp>
-          <p className="text-[16px] lg:text-[28px] text-white leading-[2] mb-10 font-[var(--font-noto)] text-justify">
-            なぜこの工事を行うのか。その意味を考え抜き、一つひとつの現場に向き合う。技術や品質は、満たして当たり前。その先にあるのは、地域の暮らしを守り続ける責任です。ISO取得に裏付けられた施工品質とともに、私たちは今日も、このまちの未来をつくっています。
+          <p className="text-[16px] lg:text-[28px] font-bold text-white leading-[1.6] mb-10 font-[var(--font-noto)] text-justify" style={{ textWrap: "pretty" }}>
+            なぜこの工事を行うのか。その意味を、最後まで考え抜く。建設が好きだから。この地域が好きだから。一つひとつの現場に、本気で向き合う。技術や品質は、満たして当たり前。その先にあるのは、地域の暮らしを守り続けるという責任です。ISO取得に裏付けられた施工品質とともに、私たちは今日も、このまちの未来を本気でつくっています。
           </p>
           <div className="grid grid-cols-3 gap-6 mb-10 max-w-[500px]">
             <Image
@@ -250,7 +250,7 @@ function BusinessSection() {
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       {/* 装飾シェイプ - セクション跨ぎ・大小ミックス */}
       <DecoShape color="green" width={340} top="-140px" right="-60px" direction="top-right" zIndex={3} />
-      <DecoShape color="red" width={240} top="70%" left="-100px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="red" width={100} top="72%" left="-50px" delay={0.1} direction="top-left" zIndex={3} />
       <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} direction="bottom-right" zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
