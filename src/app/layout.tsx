@@ -1,22 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, M_PLUS_Rounded_1c } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { seo, company, contact, locations } from "@/lib/site";
 
-const montserrat = Montserrat({
+const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700", "900"],
   display: "swap",
-  variable: "--font-montserrat",
-});
-
-const mplusRounded = M_PLUS_Rounded_1c({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-  variable: "--font-mplus-rounded",
+  variable: "--font-noto",
 });
 
 // JSON-LD構造化データ
@@ -144,7 +137,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${montserrat.className} ${mplusRounded.variable}`}>
+      <body className={`${notoSansJP.className} ${notoSansJP.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/lib/site";
 import { FadeInUp, StaggerContainer } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 const CATEGORIES = [
@@ -30,10 +32,11 @@ const CATEGORY_LABELS: Record<string, string> = {
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={180} height={65} top="18%" right="6%" rotate={9} direction="top-right" zIndex={6} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={-8} delay={0.2} direction="bottom-left" zIndex={6} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">News</h1>
-        <p className="text-sm text-white/80 tracking-wider">お知らせ</p>
+        <WaveTitle en="News" ja="お知らせ" variant="dark" />
       </div>
     </section>
   );
@@ -77,7 +80,8 @@ function NewsList({ category }: { category: Category }) {
       : newsItems.filter((item) => item.category === category);
 
   return (
-    <section className="pb-16 lg:pb-24 bg-white">
+    <section className="relative pb-16 lg:pb-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={140} height={50} bottom="-25px" right="4%" rotate={11} delay={0.15} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <StaggerContainer as="ul">
           {filteredNews.map((item, index) => {
@@ -104,7 +108,7 @@ function NewsList({ category }: { category: Category }) {
 
         {filteredNews.length === 0 && (
           <FadeInUp>
-            <p className="py-12 text-center text-text-secondary">
+            <p className="py-12 text-center text-black">
               該当するお知らせはありません
             </p>
           </FadeInUp>

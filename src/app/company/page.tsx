@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 // Hero Section
@@ -21,8 +23,7 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Company</h1>
-        <p className="text-sm text-white/80 tracking-wider">会社情報</p>
+        <WaveTitle en="Company" ja="会社情報" variant="dark" />
       </div>
     </section>
   );
@@ -33,7 +34,9 @@ function HeroSection() {
 // ============================================================
 function CeoMessageSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={170} height={60} top="-30px" right="5%" rotate={-9} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="8%" right="2%" rotate={6} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
@@ -48,9 +51,8 @@ function CeoMessageSection() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Message</h2>
-              <span className="section-label">代表あいさつ</span>
-              <div className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mt-6 space-y-4">
+              <WaveTitle en="Message" ja="代表あいさつ" />
+              <div className="text-[14px] lg:text-[15px] text-black leading-[2] mt-6 space-y-4">
                 <p>
                   建設業の重要性は、日本国内においても社会的に最も価値ある業種と言っても過言ではありません。当社は、昭和13年の創業以来、80年余りにわたる歴史を刻むことが出来ました。
                 </p>
@@ -91,11 +93,12 @@ const HISTORY = [
 
 function HistorySection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#16a637]">
+    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={180} height={65} top="-30px" right="6%" rotate={8} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={130} height={48} bottom="5%" right="3%" rotate={-12} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">History</h2>
-          <span className="section-label !text-white/70">沿革</span>
+          <WaveTitle en="History" ja="沿革" variant="dark" />
         </FadeInUp>
 
         <div className="relative ml-36 lg:ml-44">
@@ -147,8 +150,7 @@ function CompanyInfoSection() {
     <section className="py-16 lg:py-24 bg-[#16a637]">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Overview</h2>
-          <span className="section-label !text-white/70">会社概要</span>
+          <WaveTitle en="Overview" ja="会社概要" variant="dark" />
         </FadeInUp>
 
         <FadeInUp delay={0.1}>
@@ -178,20 +180,20 @@ function CompanyInfoSection() {
 // ============================================================
 function AccessSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={140} height={50} top="-25px" left="4%" rotate={-7} direction="top-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="w-full lg:w-1/2">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Access</h2>
-              <span className="section-label">アクセス</span>
+              <WaveTitle en="Access" ja="アクセス" />
               <div className="bg-bg-light rounded p-6 lg:p-8 mt-6">
                 <h3 className="text-lg font-semibold text-text-primary mb-4">本社</h3>
-                <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[1.8] mb-4">
+                <p className="text-[14px] lg:text-[15px] text-black leading-[1.8] mb-4">
                   〒510-0853<br />
                   三重県四日市市川合町2番地
                 </p>
-                <p className="text-[14px] text-text-secondary">
+                <p className="text-[14px] text-black">
                   TEL: 059-345-3171<br />
                   FAX: 059-347-2775
                 </p>

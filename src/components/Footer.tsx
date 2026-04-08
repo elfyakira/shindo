@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import DecoShape from "@/components/DecoShape";
 import { company, contact, locations, images } from "@/lib/site";
 
 const navLinks = [
@@ -16,9 +17,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white">
+    <footer className="relative bg-primary text-white overflow-hidden">
+      {/* 装飾シェイプ */}
+      <DecoShape color="white" width={340} top="-120px" right="-60px" zIndex={1} />
+      <DecoShape color="white" width={240} top="35%" left="-80px" delay={0.1} zIndex={1} />
+      <DecoShape color="white" width={280} bottom="-100px" right="12%" delay={0.2} zIndex={1} />
+      <DecoShape color="red" width={160} top="32%" right="5%" delay={0.15} zIndex={2} />
       {/* Contact Section */}
-      <div className="max-w-container mx-auto px-6 lg:px-12 pt-16 lg:pt-24 pb-16 lg:pb-24">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12 pt-16 lg:pt-24 pb-16 lg:pb-24">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           <div className="w-full lg:w-1/3">
             <div className="relative aspect-[4/3] rounded overflow-hidden">
@@ -32,7 +38,7 @@ export default function Footer() {
           </div>
           <div className="w-full lg:w-2/3">
             <Link href="/contact" className="flex items-center gap-6 mb-6 group">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-white">Contact us</h2>
+              <h2 className="text-[32px] lg:text-[48px] font-black text-white">Contact us</h2>
               <span className="text-white text-2xl group-hover:translate-x-2 transition-transform">→</span>
             </Link>
             <p className="text-[14px] lg:text-[15px] text-white/70 leading-[2]">
@@ -44,7 +50,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Navigation */}
-      <div className="max-w-container mx-auto px-6 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-8 border-t border-white/20">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-8 border-t border-white/20">
         {/* PC: 2 columns */}
         <div className="hidden lg:flex lg:justify-between lg:items-start mb-12">
           {/* Left: Logo + Company Info */}
@@ -59,7 +65,7 @@ export default function Footer() {
                 className="brightness-0 invert"
               />
             </Link>
-            <div className="text-sm text-white/80 leading-relaxed">
+            <div className="text-sm text-white/80 leading-relaxed font-[var(--font-noto)]">
               {hq.zipCode && hq.address && (
                 <p>〒{hq.zipCode} {hq.address}</p>
               )}
@@ -74,7 +80,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/80 hover:text-white transition-colors"
+                className="text-sm text-white/80 hover:text-white transition-colors font-[var(--font-noto)]"
               >
                 {link.label}
               </Link>
@@ -94,7 +100,7 @@ export default function Footer() {
               className="brightness-0 invert"
             />
           </Link>
-          <div className="text-sm text-white/80 leading-relaxed mb-6">
+          <div className="text-sm text-white/80 leading-relaxed mb-6 font-[var(--font-noto)]">
             {hq.zipCode && hq.address && (
               <p>〒{hq.zipCode} {hq.address}</p>
             )}
@@ -106,7 +112,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/80 hover:text-white transition-colors"
+                className="text-sm text-white/80 hover:text-white transition-colors font-[var(--font-noto)]"
               >
                 {link.label}
               </Link>

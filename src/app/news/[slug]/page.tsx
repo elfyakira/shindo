@@ -174,7 +174,7 @@ export default async function NewsDetailPage({
       {/* Content */}
       <section className="pb-10 lg:pb-[60px] bg-white">
         <div className="max-w-[800px] mx-auto px-4">
-          <FadeInUp delay={100} className="text-[15px] lg:text-base text-text-primary leading-[1.9] whitespace-pre-wrap">
+          <FadeInUp delay={100} className="text-[15px] lg:text-base text-black leading-[1.9] whitespace-pre-wrap">
             {news.content}
           </FadeInUp>
         </div>

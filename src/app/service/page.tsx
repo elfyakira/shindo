@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { site, contact } from "@/lib/site";
 import { FadeInUp, StaggerContainer, HeroBackground } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 const SERVICES_OVERVIEW = [
@@ -59,15 +61,16 @@ const WORKS_FALLBACK = [
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-hidden">
       <HeroBackground className="absolute inset-0 z-0">
         <Image src="/images/service-hero.jpg" alt="事業内容" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-[#16a637]/80" />
       </HeroBackground>
+      <DecoShape color="red" width={180} height={65} top="15%" right="6%" rotate={10} direction="top-right" zIndex={6} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={-6} delay={0.2} direction="bottom-left" zIndex={6} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <FadeInUp>
-          <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Service</h1>
-          <p className="text-sm text-white/80 tracking-wider">事業内容</p>
+          <WaveTitle en="Service" ja="事業内容" variant="dark" />
         </FadeInUp>
       </div>
     </section>
@@ -83,7 +86,7 @@ function ServiceOverview() {
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <p className="text-[15px] lg:text-lg text-text-primary">
+          <p className="text-[15px] lg:text-lg text-black">
             私たちは、お客様のあらゆるニーズにお応えします。
           </p>
         </FadeInUp>
@@ -124,12 +127,12 @@ function ServiceDetail({
               <span className="text-[48px] lg:text-[64px] font-bold text-[#16a637]/20">{number}</span>
               <h2 className="text-[24px] lg:text-[32px] font-bold text-text-primary mt-2">{title}</h2>
               <p className="mt-4 text-sm lg:text-base text-[#16a637] font-medium">{subtitle}</p>
-              <div className="mt-6 text-[14px] lg:text-[15px] text-text-secondary leading-[2] space-y-4">
+              <div className="mt-6 text-[14px] lg:text-[15px] text-black leading-[2] space-y-4">
                 {description.map((para, i) => <p key={i}>{para}</p>)}
               </div>
               <ul className="mt-6 space-y-2">
                 {features.map((feature, i) => (
-                  <li key={i} className="text-sm text-text-secondary leading-[2] before:content-['•'] before:mr-2 before:text-[#16a637]">
+                  <li key={i} className="text-sm text-black leading-[2] before:content-['•'] before:mr-2 before:text-[#16a637]">
                     {feature}
                   </li>
                 ))}
@@ -153,11 +156,12 @@ function ServiceDetail({
 
 function FlowSection() {
   return (
-    <section className="py-16 lg:py-24 bg-bg-light">
+    <section className="relative py-16 lg:py-24 bg-bg-light overflow-hidden">
+      <DecoShape color="green" width={160} height={58} top="-30px" right="5%" rotate={-9} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={110} height={42} bottom="10%" left="2%" rotate={11} delay={0.15} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Flow</h2>
-          <span className="section-label">ご依頼の流れ</span>
+          <WaveTitle en="Flow" ja="ご依頼の流れ" />
         </FadeInUp>
 
         <StaggerContainer className="grid lg:grid-cols-6 gap-4 lg:gap-6">
@@ -165,7 +169,7 @@ function FlowSection() {
             <div key={index} className="py-4 lg:py-0 border-b border-gray-200 lg:border-b-0 last:border-b-0">
               <span className="text-xs font-semibold text-[#16a637]">{item.step}</span>
               <h3 className="mt-2 text-[15px] lg:text-base font-semibold text-text-primary">{item.title}</h3>
-              <p className="mt-2 text-[13px] text-text-secondary leading-[1.6]">{item.description}</p>
+              <p className="mt-2 text-[13px] text-black leading-[1.6]">{item.description}</p>
             </div>
           ))}
         </StaggerContainer>
@@ -181,8 +185,7 @@ function WorksSection() {
     <section id="works" className="py-16 lg:py-24 bg-white scroll-mt-20">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Works</h2>
-          <span className="section-label">実績紹介</span>
+          <WaveTitle en="Works" ja="実績紹介" />
         </FadeInUp>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -206,7 +209,9 @@ function WorksSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#16a637]">
+    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={150} height={55} top="-25px" left="5%" rotate={-7} direction="top-left" zIndex={5} />
+      <DecoShape color="red" width={130} height={48} bottom="-30px" right="6%" rotate={9} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">お気軽にご相談ください</h2>

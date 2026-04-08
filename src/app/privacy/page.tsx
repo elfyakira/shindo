@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { company, contact, locations } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 const EFFECTIVE_DATE = "20XX年XX月XX日";
 
@@ -14,35 +16,38 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-hidden">
+        <DecoShape color="red" width={180} height={65} top="15%" right="6%" rotate={9} direction="top-right" zIndex={6} />
+        <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={-7} delay={0.2} direction="bottom-left" zIndex={6} />
         <div className="relative z-10 w-full px-6 lg:px-[10%]">
-          <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Privacy Policy</h1>
-          <p className="text-sm text-white/80 tracking-wider">プライバシーポリシー</p>
+          <WaveTitle en="Privacy Policy" ja="プライバシーポリシー" variant="dark" />
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+        <DecoShape color="green" width={150} height={55} top="-25px" right="4%" rotate={-8} direction="top-right" zIndex={5} />
+        <DecoShape color="red" width={110} height={42} bottom="-25px" right="3%" rotate={11} delay={0.15} direction="bottom-right" zIndex={5} />
         <div className="max-w-container mx-auto px-6 lg:px-12">
           <FadeInUp className="max-w-3xl">
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-8">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-8">
               {companyName}（以下、「当社」）は、お客様の個人情報を適切に保護することを重要な社会的責務と認識し、以下のとおり個人情報保護方針を定め、これを遵守いたします。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">1. 個人情報の定義</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               個人情報とは、氏名、住所、電話番号、メールアドレスなど、特定の個人を識別できる情報をいいます。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">2. 個人情報の収集</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               当社は、お問い合わせフォーム、採用エントリーフォーム等を通じて、お客様の個人情報を収集することがあります。収集に際しては、利用目的を明示し、適法かつ公正な手段により行います。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">3. 個人情報の利用目的</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-4">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-4">
               当社は、収集した個人情報を以下の目的で利用いたします。
             </p>
-            <ul className="list-disc list-inside text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6 space-y-2">
+            <ul className="list-disc list-inside text-[15px] lg:text-base text-black leading-[1.9] mb-6 space-y-2">
               <li>お問い合わせへの回答</li>
               <li>お見積りの作成・送付</li>
               <li>採用選考に関するご連絡</li>
@@ -51,32 +56,32 @@ export default function PrivacyPage() {
             </ul>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">4. 個人情報の第三者提供</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               当社は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">5. 個人情報の安全管理</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               当社は、個人情報の漏洩、滅失、毀損を防止するため、必要かつ適切な安全管理措置を講じます。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">6. 個人情報の開示・訂正・削除</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               お客様ご本人から個人情報の開示、訂正、削除のご請求があった場合は、ご本人確認のうえ、適切に対応いたします。
             </p>
 
             <h2 className="text-[20px] lg:text-[24px] font-bold text-text-primary mt-10 mb-4">7. お問い合わせ</h2>
-            <p className="text-[15px] lg:text-base text-text-primary leading-[1.9] mb-6">
+            <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-6">
               個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。
             </p>
-            <div className="bg-bg-light p-6 rounded-lg text-[15px] lg:text-base text-text-primary leading-[1.9]">
+            <div className="bg-bg-light p-6 rounded-lg text-[15px] lg:text-base text-black leading-[1.9]">
               <p>{companyName}</p>
               <p>{address}</p>
               <p>TEL: {phone}</p>
               <p>メール: {email}</p>
             </div>
 
-            <p className="text-sm text-text-secondary mt-10">制定日: {EFFECTIVE_DATE}</p>
+            <p className="text-sm text-black mt-10">制定日: {EFFECTIVE_DATE}</p>
           </FadeInUp>
         </div>
       </section>

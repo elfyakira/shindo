@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 // Hero Section
@@ -20,8 +22,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Community</h1>
-        <p className="text-sm text-white/80 tracking-wider">地域貢献活動</p>
+        <WaveTitle en="Community" ja="地域貢献活動" variant="dark" />
       </div>
     </section>
   );
@@ -32,7 +33,9 @@ function HeroSection() {
 // ============================================================
 function IntroSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#16a637]">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={180} height={65} top="-30px" left="6%" rotate={9} direction="top-left" zIndex={5} />
+      <DecoShape color="red" width={130} height={48} bottom="-25px" right="7%" rotate={-11} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -81,7 +84,9 @@ const HIGHSCHOOL_PHOTOS = [
 
 function OutreachSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={150} height={55} top="-25px" right="5%" rotate={-7} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={110} height={42} bottom="5%" left="2%" rotate={12} delay={0.15} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">現場見学・出前授業</h2>
@@ -95,18 +100,18 @@ function OutreachSection() {
                 建設の仕事を、<br className="hidden lg:block" />
                 子どもたちに届ける。
               </h3>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2] mb-4">
                 信藤建設では、地域の小学校を中心に現場見学会や出前授業を積極的に実施しています。「建設業ってどんな仕事？」という素朴な疑問に答えながら、子どもたちにものづくりの楽しさやインフラの大切さを伝えています。
               </p>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                 教室での座学だけでなく、実際の建設現場や学校のグラウンドを活用した体験型プログラムを実施。測量機器の操作体験、コンクリートの練り混ぜ体験、高所作業車への搭乗体験、ドローンやVRを使った最新技術の紹介など、五感で学べるプログラムを提供しています。
               </p>
             </div>
             <div className="w-full lg:w-1/2 lg:pt-[calc(1.6em*2+1.5rem)]">
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mb-4">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2] mb-4">
                 河川工事の現場では、鈴鹿川の堤防を間近に見学しながら、地域の安全を守るインフラ整備の重要性を学ぶ機会を設けています。重機の迫力を目の前で体感することで、建設業への興味と理解を深めてもらっています。
               </p>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                 こうした活動を通じて、次世代を担う子どもたちに建設業の魅力を伝え、地域の未来を支える人材の育成に貢献していきます。子どもたちの目が輝く瞬間に出会えることが、私たちにとっても大きなやりがいです。
               </p>
             </div>
@@ -182,7 +187,9 @@ const CLEANUP_PHOTOS = [
 
 function CleanupSection() {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="relative py-16 lg:py-24 bg-gray-50 overflow-hidden">
+      <DecoShape color="green" width={140} height={50} top="-25px" left="4%" rotate={-8} direction="top-left" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" right="5%" rotate={10} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">清掃活動</h2>
@@ -195,12 +202,12 @@ function CleanupSection() {
                 地域の美化は、<br className="hidden lg:block" />
                 私たちの日常です。
               </h3>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                 信藤建設では、地域貢献活動の一環として定期的に清掃活動を実施しています。道路沿いの歩道清掃や植栽の手入れ、河川敷のゴミ拾いなど、活動の範囲は多岐にわたります。
               </p>
             </div>
             <div className="w-full lg:w-1/2 lg:pt-[calc(1.6em*2+1.5rem)]">
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                 鈴鹿川クリーン作戦への参加をはじめ、河川敷に流れ着いた漂着物の撤去や、道路周辺の美化パトロールにも取り組んでいます。社員一人ひとりが地域の一員として、日常的に地域環境への意識を持ち、美しい街づくりと環境保全に貢献しています。
               </p>
             </div>

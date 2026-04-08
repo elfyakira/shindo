@@ -4,12 +4,127 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FadeInUp } from "@/components/animations";
+import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
 import { ALL_CASES } from "@/lib/cases";
 
 // ============================================================
+// WipeInLeft - スクロールで画面に入ったらワイプ開始
+// ============================================================
+function WipeInLeft({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`inline-block wipe-in-left ${isVisible ? "is-visible" : ""}`}>
+      {children}
+    </div>
+  );
+}
+
+// ============================================================
+// WaveButton - ホバーで文字が波打つボタン
+// ============================================================
+function WaveButton({ href, text, variant = "light" }: { href: string; text: string; variant?: "light" | "dark" }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const colors = variant === "light"
+    ? "bg-white text-[#16a637]"
+    : "bg-[#16a637] text-white";
+
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center justify-between ${colors} text-lg font-bold px-12 py-5 rounded-full hover:scale-110 transition-transform duration-300 w-72`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span className="flex">
+        {text.split("").map((char, i) => (
+          <span
+            key={i}
+            className="inline-block transition-transform"
+            style={isHovered ? {
+              animation: `wave 0.4s ease-in-out ${i * 0.05}s`,
+            } : undefined}
+          >
+            {char === " " ? "\u00A0" : char}
+          </span>
+        ))}
+      </span>
+      <span>→</span>
+    </Link>
+  );
+}
+
+// ============================================================
+// CharByCharLines - スクロールで画面に入ったら一文字ずつアニメーション
+// ============================================================
+function CharByCharLines({ lines, className = "" }: {
+  lines: { text: string; size: string; startDelay: number }[];
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="flex flex-col gap-2 mb-10">
+      {lines.map((line, lineIdx) => (
+        <p key={lineIdx} className={`${line.size} italic leading-[1.4] font-[var(--font-noto)] font-black ${className}`}>
+          {line.text.split("").map((char, charIdx) => (
+            <span
+              key={charIdx}
+              className={`inline-block ${isVisible ? "char-in" : "opacity-0"}`}
+              style={isVisible ? { animationDelay: `${line.startDelay + charIdx * 0.06}s` } : undefined}
+            >
+              {char}
+            </span>
+          ))}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================
 // Hero Section
 // ============================================================
+const HERO_LINES = [
+  { text: "建設がすき。", size: "text-[56px] sm:text-[88px] lg:text-[120px]", startDelay: 0.5 },
+  { text: "この地域がすき。", size: "text-[56px] sm:text-[88px] lg:text-[120px]", startDelay: 1.5 },
+];
+
 function HeroSection() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center">
@@ -25,16 +140,20 @@ function HeroSection() {
         </video>
       </div>
 
-      <div className="absolute bottom-24 left-6 lg:left-20 z-10 flex flex-col gap-2">
-        <p className="slam-in-1 text-[28px] sm:text-[40px] lg:text-[60px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
-          建設がすき。
-        </p>
-        <p className="slam-in-2 text-[28px] sm:text-[40px] lg:text-[60px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
-          この地域がすき。
-        </p>
-        <p className="slam-in-3 text-[20px] sm:text-[28px] lg:text-[40px] font-bold italic leading-[1.3] text-[#16a637]" style={{ fontFamily: "var(--font-mplus-rounded)" }}>
-          だから、必要なものを本気でつくる。
-        </p>
+      <div className="absolute top-[55%] left-[6%] lg:left-[8%] z-10 flex flex-col gap-3" style={{ textShadow: "2px 2px 16px rgba(0,0,0,0.4), 0 0 30px rgba(0,0,0,0.2)" }}>
+        {HERO_LINES.map((line, lineIdx) => (
+          <p key={lineIdx} className={`${line.size} italic leading-[1.2] text-white font-[var(--font-noto)] font-black`}>
+            {line.text.split("").map((char, charIdx) => (
+              <span
+                key={charIdx}
+                className="char-in inline-block"
+                style={{ animationDelay: `${line.startDelay + charIdx * 0.06}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </p>
+        ))}
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/70 animate-bounce z-10">
@@ -52,23 +171,22 @@ function HeroSection() {
 // ============================================================
 function AboutIntroSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#16a637]">
-      <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
-        <div>
-          <p
-            className="inline-block bg-white text-[#16a637] text-[28px] sm:text-[40px] lg:text-[64px] font-bold italic leading-[1.3] mb-4 font-[var(--font-mplus-rounded)] whitespace-nowrap px-4 py-2 opacity-0 animate-[slideInLeft_0.6s_ease-out_0.2s_forwards]"
-          >
-            建設がすき。この地域がすき。
-          </p>
-          <br />
-          <p
-            className="inline-block bg-white text-[#16a637] text-[24px] lg:text-[40px] font-bold italic leading-[1.4] mb-10 font-[var(--font-mplus-rounded)] px-4 py-2 opacity-0 animate-[slideInLeft_0.6s_ease-out_0.6s_forwards]"
-          >
-            だから、必要なものを本気でつくる。
-          </p>
-        </div>
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
+      {/* 装飾シェイプ - ヒーローに被らないように内側配置 */}
+      <DecoShape color="red" width={180} top="-70px" right="8%" direction="top-right" zIndex={15} />
+      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} direction="top-left" zIndex={15} />
+      <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} direction="top-right" zIndex={15} />
+      <DecoShape color="red" width={380} bottom="-140px" right="5%" delay={0.2} direction="bottom-right" zIndex={15} />
+      <div className="relative max-w-container mx-auto px-6 lg:px-12">
+        <WipeInLeft>
+          <h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] bg-white px-6 py-0 leading-[0.9] mb-8 uppercase tracking-wide">About us</h2>
+        </WipeInLeft>
+        <CharByCharLines lines={[
+          { text: "建設がすき。この地域がすき。", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
+          { text: "だから、必要なものを本気でつくる。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
+        ]} className="text-white" />
         <FadeInUp>
-          <p className="text-[16px] lg:text-[28px] text-white leading-[2] mb-10 font-[var(--font-mplus-rounded)] text-justify">
+          <p className="text-[16px] lg:text-[28px] text-white leading-[2] mb-10 font-[var(--font-noto)] text-justify">
             なぜこの工事を行うのか。その意味を考え抜き、一つひとつの現場に向き合う。技術や品質は、満たして当たり前。その先にあるのは、地域の暮らしを守り続ける責任です。ISO取得に裏付けられた施工品質とともに、私たちは今日も、このまちの未来をつくっています。
           </p>
           <div className="grid grid-cols-3 gap-6 mb-10 max-w-[500px]">
@@ -94,13 +212,7 @@ function AboutIntroSection() {
               className="w-full h-auto"
             />
           </div>
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-          >
-            <span>詳しく見る</span>
-            <span>→</span>
-          </Link>
+          <WaveButton href="/about" text="View all" />
         </FadeInUp>
       </div>
     </section>
@@ -135,12 +247,16 @@ const BUSINESS_ITEMS = [
 
 function BusinessSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      {/* 装飾シェイプ - セクション跨ぎ・大小ミックス */}
+      <DecoShape color="green" width={340} top="-140px" right="-60px" direction="top-right" zIndex={3} />
+      <DecoShape color="red" width={240} top="70%" left="-100px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} direction="bottom-right" zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
             <div className="w-full lg:w-1/2">
-              <div className="relative aspect-[4/3] rounded overflow-hidden">
+              <div className="relative h-full min-h-[400px] rounded overflow-hidden">
                 <Image
                   src="/images/generated/business-hero.jpg"
                   alt="事業内容"
@@ -150,18 +266,21 @@ function BusinessSection() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Business</h2>
-              <span className="section-label text-text-secondary">事業内容</span>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2] mt-6 mb-8">
-                信藤建設は、三重県北勢・中勢エリアを中心に、河川・道路・舗装・上下水道・港湾などの公共事業を主軸とした地域インフラ整備を行う総合建設会社です。公共工事をはじめ、民間工事にも対応し、計画から施工まで一貫した体制で幅広い工事に取り組んでいます。また、インフラ整備にとどまらず、太陽光発電事業や地域と関わる各種活動にも取り組んでいます。
+              <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-1 uppercase tracking-wide">Business</h2></WipeInLeft>
+              <p className="text-[14px] lg:text-[16px] font-bold text-[#16a637] leading-[1.4] mb-6 font-[var(--font-noto)]">事業内容</p>
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2] mb-8">
+                信藤建設は、三重県北勢・中勢エリアを中心に、<br />
+                河川・道路・舗装・上下水道・港湾などの公共事業を担い、<br />
+                地域インフラを支えてきた総合建設会社です。
+                <br /><br />
+                公共工事を主軸に、民間工事にも対応し、<br />
+                計画から施工まで一貫した体制で、幅広い工事に本気で向き合っています。
+                <br /><br />
+                さらに、インフラ整備にとどまらず、<br />
+                太陽光発電事業や地域と関わる活動にも取り組みながら、<br />
+                この地域に必要とされ続ける会社であり続けます。
               </p>
-              <Link
-                href="/business"
-                className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-              >
-                <span>View all</span>
-                <span>→</span>
-              </Link>
+              <WaveButton href="/business" text="View all" variant="dark" />
             </div>
           </div>
         </FadeInUp>
@@ -177,20 +296,18 @@ function AwardsSection() {
   const awards = ALL_AWARDS.filter((a) => !a.vertical);
   const doubled = [...awards, ...awards];
   return (
-    <section className="relative pt-16 lg:pt-24 pb-16 lg:pb-24 overflow-hidden">
+    <section className="relative pt-16 lg:pt-24 pb-16 lg:pb-24 overflow-visible">
       <div className="absolute inset-0 top-[60%] bg-[#16a637]" />
+      {/* 装飾シェイプ */}
+      <DecoShape color="red" width={300} top="-120px" right="-80px" direction="top-right" zIndex={6} />
+      <DecoShape color="green" width={240} top="50%" left="-100px" delay={0.1} direction="top-left" zIndex={6} />
+      <DecoShape color="red" width={260} bottom="-100px" right="12%" delay={0.2} direction="bottom-right" zIndex={6} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-16 lg:mb-20">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Awards</h2>
-          <span className="section-label">各種表彰</span>
+          <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-1 uppercase tracking-wide">Awards</h2></WipeInLeft>
+          <p className="text-[14px] lg:text-[16px] font-bold text-[#16a637] leading-[1.4] mb-6 font-[var(--font-noto)]">各種表彰</p>
           <div className="mt-6">
-            <Link
-              href="/awards"
-              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+            <WaveButton href="/awards" text="View all" variant="dark" />
           </div>
         </FadeInUp>
       </div>
@@ -221,19 +338,16 @@ function AwardsSection() {
 function CasesSection() {
   const doubled = [...ALL_CASES, ...ALL_CASES];
   return (
-    <section className="py-16 lg:py-24 bg-[#16a637] overflow-hidden">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
+      {/* 装飾シェイプ */}
+      <DecoShape color="red" width={280} top="-120px" right="-80px" direction="top-right" zIndex={15} />
+      <DecoShape color="white" width={220} top="10%" left="-90px" delay={0.1} direction="top-left" zIndex={15} />
+      <div className="relative max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Cases</h2>
-          <span className="section-label !text-white">施工実績</span>
+          <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-white leading-[0.9] mb-1 uppercase tracking-wide">Cases</h2></WipeInLeft>
+          <p className="text-[14px] lg:text-[16px] font-bold text-white leading-[1.4] mb-6 font-[var(--font-noto)]">施工実績</p>
           <div className="mt-6">
-            <Link
-              href="/business/cases"
-              className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+            <WaveButton href="/business/cases" text="View all" variant="light" />
           </div>
         </FadeInUp>
       </div>
@@ -330,20 +444,18 @@ function CompanySection() {
                 </div>
               </div>
               <div className="w-full lg:w-1/2">
-                <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">
-                  Company
-                </h2>
-                <span className="section-label !text-white/70">会社案内</span>
+                <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-white leading-[0.9] mb-1 uppercase tracking-wide">Company</h2></WipeInLeft>
+                <p className="text-[14px] lg:text-[16px] font-bold text-white leading-[1.4] mb-6 font-[var(--font-noto)]">会社案内</p>
                 <p className="text-[14px] lg:text-[15px] text-white/90 leading-[2] mt-6 mb-8">
-                  信藤建設は、昭和13年の創業以来、三重県北勢・中勢エリアを中心に公共事業を通じて地域の暮らしを支えてまいりました。今後も総合建設企業として、地域にとって本当に必要なものを形にしてまいります。
+                  信藤建設は、昭和13年の創業以来、<br />
+                  三重県北勢・中勢エリアを中心に、<br />
+                  公共事業を通じて地域の暮らしを支え続けてきました。
+                  <br /><br />
+                  これからも、建設の仕事に本気で向き合い、<br />
+                  この地域にとって本当に必要なものを、<br />
+                  責任をもって形にし続けていきます。
                 </p>
-                <Link
-                  href="/company"
-                  className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-                >
-                  <span>View more</span>
-                  <span>→</span>
-                </Link>
+                <WaveButton href="/company" text="View all" variant="light" />
               </div>
             </div>
           </div>
@@ -364,13 +476,17 @@ const RECRUIT_MENU = [
 
 function RecruitSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      {/* 装飾シェイプ */}
+      <DecoShape color="green" width={340} top="-140px" right="-80px" direction="top-right" zIndex={3} />
+      <DecoShape color="red" width={260} top="40%" left="-100px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="red" width={180} bottom="-80px" right="4%" delay={0.2} direction="bottom-right" zIndex={4} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         {/* セクションタイトル */}
         <FadeInUp>
           <div className="mb-8 lg:mb-12">
-            <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Recruit</h2>
-            <span className="section-label">採用情報</span>
+            <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-1 uppercase tracking-wide">Recruit</h2></WipeInLeft>
+            <p className="text-[14px] lg:text-[16px] font-bold text-[#16a637] leading-[1.4] mb-6 font-[var(--font-noto)]">採用情報</p>
           </div>
         </FadeInUp>
 
@@ -394,8 +510,8 @@ function RecruitSection() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <p className="text-[24px] lg:text-[32px] font-bold text-text-primary mb-2">Join Our Team</p>
-              <span className="section-label">共に街をつくる仲間へ</span>
+              <p className="text-[24px] lg:text-[32px] font-black text-text-primary mb-2">Join Our Team</p>
+              <p className="text-[14px] lg:text-[16px] font-bold text-[#16a637] leading-[1.4] mb-6 font-[var(--font-noto)]">共に街をつくる仲間へ</p>
               <div className="mt-8 border-t border-gray-300">
                 {RECRUIT_MENU.map((item, index) => (
                   <Link
@@ -445,18 +561,16 @@ const BLOG_POSTS = [
 
 function BlogSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      {/* 装飾シェイプ */}
+      <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} />
+      <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="green" width={380} bottom="-120px" right="15%" delay={0.2} direction="bottom-right" zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Blog</h2>
+          <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-4 uppercase tracking-wide">Blog</h2></WipeInLeft>
           <div className="mt-6">
-            <Link
-              href="/news"
-              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+            <WaveButton href="/news" text="View all" variant="dark" />
           </div>
         </FadeInUp>
 

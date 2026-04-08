@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
 
 // ============================================================
@@ -23,8 +25,7 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">About</h1>
-        <p className="text-sm text-white/80 tracking-wider">私たちについて</p>
+        <WaveTitle en="About" ja="私たちについて" variant="dark" />
       </div>
     </section>
   );
@@ -35,7 +36,9 @@ function HeroSection() {
 // ============================================================
 function AboutContentSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#16a637]">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={180} height={65} top="-30px" right="6%" rotate={-8} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={10} delay={0.2} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -87,13 +90,12 @@ const STRENGTHS = [
 
 function StrengthsSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={160} height={55} top="-25px" right="4%" rotate={6} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={110} height={42} bottom="8%" left="2%" rotate={-12} delay={0.15} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">
-            Strengths
-          </h2>
-          <span className="section-label">信藤建設の強み</span>
+          <WaveTitle en="Strengths" ja="信藤建設の強み" />
         </FadeInUp>
 
         <div className="border-t border-gray-200">
@@ -104,7 +106,7 @@ function StrengthsSection() {
                   <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6 whitespace-pre-line">
                     {item.title}
                   </h3>
-                  <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                  <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                     {item.description}
                   </p>
                 </div>
@@ -133,11 +135,11 @@ function StrengthsSection() {
 function AwardsSection() {
   const awards = ALL_AWARDS.slice(0, 6);
   return (
-    <section id="awards" className="py-16 lg:py-24 bg-white">
+    <section id="awards" className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={140} height={50} top="-30px" left="6%" rotate={-6} direction="top-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Awards</h2>
-          <span className="section-label">各種表彰</span>
+          <WaveTitle en="Awards" ja="各種表彰" />
           <div className="mt-6">
             <Link
               href="/awards"
@@ -197,7 +199,7 @@ function BlogSection() {
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Blog</h2>
+          <WaveTitle en="Blog" />
           <div className="mt-6">
             <Link
               href="/news"

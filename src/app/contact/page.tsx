@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { company, contact } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 const CONTACT_TYPES = [
@@ -18,10 +20,11 @@ type ContactType = (typeof CONTACT_TYPES)[number]["id"];
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637]">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={180} height={65} top="16%" right="6%" rotate={-9} direction="top-right" zIndex={6} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={10} delay={0.2} direction="bottom-left" zIndex={6} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Contact</h1>
-        <p className="text-sm text-white/80 tracking-wider">お問い合わせ</p>
+        <WaveTitle en="Contact" ja="お問い合わせ" variant="dark" />
       </div>
     </section>
   );
@@ -80,7 +83,7 @@ function ContactForm() {
           <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-6">
             ありがとうございます
           </h2>
-          <p className="text-[15px] text-text-secondary leading-[1.8] mb-10">
+          <p className="text-[15px] text-black leading-[1.8] mb-10">
             お問い合わせを受け付けました。<br />担当者より折り返しご連絡いたします。
           </p>
           <Link
@@ -96,10 +99,12 @@ function ContactForm() {
   }
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={140} height={50} top="-25px" right="3%" rotate={-7} direction="top-right" zIndex={1} />
+      <DecoShape color="red" width={110} height={42} bottom="8%" right="2%" rotate={11} delay={0.2} direction="bottom-right" zIndex={1} />
+      <div className="relative max-w-container mx-auto px-6 lg:px-12 z-[2]">
         <FadeInUp className="mb-12">
-          <p className="text-[15px] text-text-secondary leading-[1.8]">
+          <p className="text-[15px] text-black leading-[1.8]">
             お気軽にお問い合わせください。
           </p>
         </FadeInUp>
@@ -255,18 +260,19 @@ function ContactForm() {
 
 function PhoneSection() {
   return (
-    <section className="py-16 lg:py-24 bg-bg-light">
+    <section className="relative py-16 lg:py-24 bg-bg-light overflow-hidden">
+      <DecoShape color="green" width={150} height={55} top="-25px" right="5%" rotate={8} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="6%" rotate={-10} delay={0.2} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Phone</h2>
-          <span className="section-label">お電話でのお問い合わせ</span>
+          <WaveTitle en="Phone" ja="お電話でのお問い合わせ" />
           <a
             href={`tel:${contact.phoneTel || contact.phone?.replace(/-/g, "")}`}
             className="block text-[28px] lg:text-[40px] font-bold text-[#16a637] mt-6 mb-2"
           >
             {contact.phoneFormatted || contact.phone || "000-000-0000"}
           </a>
-          <p className="text-sm text-text-secondary">
+          <p className="text-sm text-black">
             受付時間: {contact.hours || "9:00〜18:00"}
           </p>
         </FadeInUp>

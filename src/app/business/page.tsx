@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 // Hero Section
@@ -22,8 +24,7 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Business</h1>
-        <p className="text-sm text-white/80 tracking-wider">事業内容</p>
+        <WaveTitle en="Business" ja="事業内容" variant="dark" />
       </div>
     </section>
   );
@@ -34,7 +35,9 @@ function HeroSection() {
 // ============================================================
 function MainBusinessSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#16a637]">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={200} height={70} top="-35px" left="5%" rotate={8} direction="top-left" zIndex={5} />
+      <DecoShape color="red" width={130} height={48} bottom="-30px" right="7%" rotate={-10} delay={0.25} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -76,7 +79,8 @@ function MainBusinessSection() {
 // ============================================================
 function SolarSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={150} height={55} top="-25px" right="5%" rotate={-7} direction="top-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
@@ -84,7 +88,7 @@ function SolarSection() {
               <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6">
                 太陽光発電事業
               </h3>
-              <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+              <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                 信藤建設では、太陽光発電事業にも取り組んでいます。太陽光発電は、化石燃料を使用せず、発電時にCO2などの温室効果ガスを排出しない発電方式です。太陽光という再生可能エネルギーを活用することで、資源の制約が少なく、環境負荷の低い電力供給が可能となります。建設事業によるインフラ整備とあわせて、エネルギーの再生利用を進めることで、環境保全に配慮した事業活動を行っています。
               </p>
             </div>
@@ -123,7 +127,9 @@ const COMMUNITY_ITEMS = [
 
 function CommunitySection() {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="relative py-16 lg:py-24 bg-gray-50 overflow-hidden">
+      <DecoShape color="red" width={120} height={45} top="-25px" left="3%" rotate={12} delay={0.1} direction="top-left" zIndex={5} />
+      <DecoShape color="green" width={170} height={60} bottom="-30px" right="4%" rotate={-5} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">地域貢献活動</h2>
@@ -144,7 +150,7 @@ function CommunitySection() {
                 <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-4">
                   {item.title}
                 </h3>
-                <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[2]">
+                <p className="text-[14px] lg:text-[15px] text-black leading-[2]">
                   {item.description}
                 </p>
               </div>
@@ -157,7 +163,7 @@ function CommunitySection() {
             href="/community"
             className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
           >
-            <span>詳しく見る</span>
+            <span>View all</span>
             <span>→</span>
           </Link>
         </FadeInUp>

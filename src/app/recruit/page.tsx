@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FadeInUp } from "@/components/animations";
+import WaveTitle from "@/components/WaveTitle";
+import DecoShape from "@/components/DecoShape";
 
 // ============================================================
 // Hero Section
@@ -23,8 +25,7 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <h1 className="text-[32px] lg:text-[48px] font-bold text-white mb-2">Recruit</h1>
-        <p className="text-sm text-white/80 tracking-wider">採用情報</p>
+        <WaveTitle en="Recruit" ja="採用情報" variant="dark" />
       </div>
     </section>
   );
@@ -35,7 +36,9 @@ function HeroSection() {
 // ============================================================
 function MessageSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#16a637]">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={190} height={68} top="-35px" right="6%" rotate={-8} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="-25px" left="7%" rotate={10} delay={0.2} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
@@ -77,9 +80,7 @@ function JoinTeamSection() {
 
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
-          <h2 className="text-[40px] lg:text-[64px] font-bold text-white leading-[1.2] mb-8">
-            Join our team
-          </h2>
+          <WaveTitle en="Join our team" variant="dark" className="mb-8" />
           <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-10">
             私たちは、地域のインフラを支える仲間を募集しています。
           </p>
@@ -203,11 +204,12 @@ const REQUIREMENTS_MID_CAREER = [
 
 function RequirementsSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
+      <DecoShape color="green" width={150} height={55} top="-30px" right="4%" rotate={7} direction="top-right" zIndex={5} />
+      <DecoShape color="red" width={110} height={42} bottom="-25px" left="3%" rotate={-11} delay={0.15} direction="bottom-left" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">Requirements</h2>
-          <span className="section-label">募集要項</span>
+          <WaveTitle en="Requirements" ja="募集要項" />
         </FadeInUp>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
@@ -219,7 +221,7 @@ function RequirementsSection() {
                   <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary leading-[1.8]">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-black leading-[1.8]">
                     {item.value}
                   </div>
                 </div>
@@ -235,7 +237,7 @@ function RequirementsSection() {
                   <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
                     {item.label}
                   </div>
-                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-text-primary leading-[1.8]">
+                  <div className="flex-1 px-4 py-4 lg:py-5 text-[14px] lg:text-[15px] text-black leading-[1.8]">
                     {item.value}
                   </div>
                 </div>
@@ -278,8 +280,7 @@ function FAQSection() {
     <section className="py-16 lg:py-24 bg-bg-light">
       <div className="max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-text-primary mb-2">FAQ</h2>
-          <span className="section-label">よくある質問</span>
+          <WaveTitle en="FAQ" ja="よくある質問" />
         </FadeInUp>
 
         <div className="max-w-3xl space-y-4">
@@ -299,7 +300,7 @@ function FAQSection() {
                 </button>
                 {openIndex === i && (
                   <div className="px-5 pb-5">
-                    <p className="text-[14px] lg:text-[15px] text-text-secondary leading-[1.8]">
+                    <p className="text-[14px] lg:text-[15px] text-black leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
@@ -318,7 +319,9 @@ function FAQSection() {
 // ============================================================
 function CTASection() {
   return (
-    <section className="py-16 lg:py-24 bg-[#16a637]">
+    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-hidden">
+      <DecoShape color="red" width={160} height={58} top="-25px" left="6%" rotate={-9} direction="top-left" zIndex={5} />
+      <DecoShape color="red" width={120} height={45} bottom="10%" right="3%" rotate={11} delay={0.2} direction="bottom-right" zIndex={5} />
       <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">

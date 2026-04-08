@@ -60,7 +60,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[15px] font-medium text-text-primary transition-colors duration-200 hover:opacity-70"
+                className="text-[15px] font-medium text-text-primary transition-colors duration-200 hover:opacity-70 font-[var(--font-noto)]"
               >
                 {item.label}
               </Link>
@@ -129,7 +129,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="block h-14 leading-[56px] px-6 text-lg text-text-primary border-b border-gray-100 transition-colors hover:text-primary"
+              className="block h-14 leading-[56px] px-6 text-lg text-text-primary border-b border-gray-100 transition-colors hover:text-primary font-[var(--font-noto)]"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
