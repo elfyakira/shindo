@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
+import WaveButton from "@/components/WaveButton";
+import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
 
 // ============================================================
@@ -12,17 +13,21 @@ import DecoShape from "@/components/DecoShape";
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-visible">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/recruit-hero.jpg"
+          src="/images/generated/recruit-hero.png"
           alt="RECRUIT"
           fill
-          className="object-cover object-[center_20%]"
+          className="object-cover object-[15%_10%]"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
+
+      <DecoShape color="red" width={170} top="14%" right="6%" zIndex={6} />
+      <DecoShape color="white" width={120} bottom="-25px" left="6%" delay={0.15} zIndex={6} />
+      <DecoShape color="green" width={110} top="62%" right="14%" delay={0.2} zIndex={6} />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Recruit" ja="採用情報" variant="dark" />
@@ -36,16 +41,20 @@ function HeroSection() {
 // ============================================================
 function MessageSection() {
   return (
-    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
-      <DecoShape color="red" width={190} height={68} top="-35px" right="6%" rotate={-8} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={120} height={45} bottom="-25px" left="7%" rotate={10} delay={0.2} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
+      <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="red" width={160} top="72%" right="3%" delay={0.15} zIndex={15} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
-            <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
-              地域のインフラを支える仕事に、<br />
-              あなたも参加しませんか。
-            </h2>
+            <CharByCharLines
+              lines={[
+                { text: "地域のインフラを支える仕事に、", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
+                { text: "あなたも参加しませんか。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
+              ]}
+              className="text-white"
+            />
             <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
               信藤建設は、三重県四日市市を拠点に、公共事業を中心とした地域インフラ整備に取り組んでいます。
             </p>
@@ -84,13 +93,7 @@ function JoinTeamSection() {
           <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-10">
             私たちは、地域のインフラを支える仲間を募集しています。
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-          >
-            <span>エントリーする</span>
-            <span>→</span>
-          </Link>
+          <WaveButton href="/contact" text="エントリーする" variant="light" />
         </FadeInUp>
       </div>
     </section>
@@ -204,10 +207,11 @@ const REQUIREMENTS_MID_CAREER = [
 
 function RequirementsSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <DecoShape color="green" width={150} height={55} top="-30px" right="4%" rotate={7} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={110} height={42} bottom="-25px" left="3%" rotate={-11} delay={0.15} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="Requirements" ja="募集要項" />
         </FadeInUp>
@@ -248,15 +252,14 @@ function RequirementsSection() {
 
         <FadeInUp>
           <div className="mt-12 lg:mt-16 text-center">
-            <a
+            <WaveButton
               href="https://example.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
-            >
-              <span>リクルートサイトへ</span>
-              <span>→</span>
-            </a>
+              text="リクルートサイトへ"
+              variant="dark"
+              className="mx-auto"
+            />
           </div>
         </FadeInUp>
       </div>
@@ -277,8 +280,11 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 lg:py-24 bg-bg-light">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-bg-light overflow-visible">
+      <DecoShape color="green" width={300} top="-120px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={100} top="50%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={240} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="FAQ" ja="よくある質問" />
         </FadeInUp>
@@ -319,10 +325,8 @@ function FAQSection() {
 // ============================================================
 function CTASection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-hidden">
-      <DecoShape color="red" width={160} height={58} top="-25px" left="6%" rotate={-9} direction="top-left" zIndex={5} />
-      <DecoShape color="red" width={120} height={45} bottom="10%" right="3%" rotate={11} delay={0.2} direction="bottom-right" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12 text-center">
+    <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
           <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">
             ご応募お待ちしています
@@ -330,13 +334,7 @@ function CTASection() {
           <p className="text-[14px] lg:text-[15px] text-white/80 mb-10">
             まずはお気軽にご連絡ください。
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-between bg-white text-[#16a637] text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56 mx-auto"
-          >
-            <span>エントリーフォーム</span>
-            <span>→</span>
-          </Link>
+          <WaveButton href="/contact" text="エントリーフォーム" variant="light" className="mx-auto" />
           <p className="mt-6 text-sm text-white/70">
             お電話でのお問い合わせ: 059-345-3171
           </p>

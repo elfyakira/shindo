@@ -5,6 +5,7 @@ import Link from "next/link";
 import { company, contact } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
+import WaveButton from "@/components/WaveButton";
 import DecoShape from "@/components/DecoShape";
 
 // ============================================================
@@ -20,9 +21,10 @@ type ContactType = (typeof CONTACT_TYPES)[number]["id"];
 // ============================================================
 function PageHeader() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-hidden">
-      <DecoShape color="red" width={180} height={65} top="16%" right="6%" rotate={-9} direction="top-right" zIndex={6} />
-      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={10} delay={0.2} direction="bottom-left" zIndex={6} />
+    <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-visible">
+      <DecoShape color="red" width={180} top="14%" right="6%" zIndex={15} />
+      <DecoShape color="white" width={140} bottom="-30px" left="6%" delay={0.15} zIndex={15} />
+      <DecoShape color="green" width={110} top="65%" right="14%" delay={0.2} zIndex={15} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Contact" ja="お問い合わせ" variant="dark" />
       </div>
@@ -86,23 +88,18 @@ function ContactForm() {
           <p className="text-[15px] text-black leading-[1.8] mb-10">
             お問い合わせを受け付けました。<br />担当者より折り返しご連絡いたします。
           </p>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-          >
-            <span>トップページへ</span>
-            <span>→</span>
-          </Link>
+          <WaveButton href="/" text="トップページへ" variant="dark" />
         </div>
       </section>
     );
   }
 
   return (
-    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <DecoShape color="green" width={140} height={50} top="-25px" right="3%" rotate={-7} direction="top-right" zIndex={1} />
-      <DecoShape color="red" width={110} height={42} bottom="8%" right="2%" rotate={11} delay={0.2} direction="bottom-right" zIndex={1} />
-      <div className="relative max-w-container mx-auto px-6 lg:px-12 z-[2]">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
+      <div className="relative max-w-container mx-auto px-6 lg:px-12 z-10">
         <FadeInUp className="mb-12">
           <p className="text-[15px] text-black leading-[1.8]">
             お気軽にお問い合わせください。
@@ -237,18 +234,12 @@ function ContactForm() {
               </div>
 
               <div className="pt-6">
-                <button
+                <WaveButton
                   type="submit"
                   disabled={isSubmitting}
-                  className={`inline-flex items-center justify-between px-8 py-3 rounded-full text-sm font-medium w-56 transition-opacity ${
-                    isSubmitting
-                      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-[#16a637] text-white hover:opacity-90"
-                  }`}
-                >
-                  <span>{isSubmitting ? "送信中..." : "送信する"}</span>
-                  <span>→</span>
-                </button>
+                  text={isSubmitting ? "送信中..." : "送信する"}
+                  variant="dark"
+                />
               </div>
             </form>
           </div>
@@ -260,10 +251,11 @@ function ContactForm() {
 
 function PhoneSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-bg-light overflow-hidden">
-      <DecoShape color="green" width={150} height={55} top="-25px" right="5%" rotate={8} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={120} height={45} bottom="-25px" left="6%" rotate={-10} delay={0.2} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-bg-light overflow-visible">
+      <DecoShape color="green" width={300} top="-120px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={110} top="50%" left="-40px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <WaveTitle en="Phone" ja="お電話でのお問い合わせ" />
           <a

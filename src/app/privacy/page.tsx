@@ -16,18 +16,20 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-hidden">
-        <DecoShape color="red" width={180} height={65} top="15%" right="6%" rotate={9} direction="top-right" zIndex={6} />
-        <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={-7} delay={0.2} direction="bottom-left" zIndex={6} />
+      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-visible">
+        <DecoShape color="red" width={180} top="14%" right="6%" zIndex={15} />
+        <DecoShape color="white" width={140} bottom="-30px" left="6%" delay={0.15} zIndex={15} />
+        <DecoShape color="green" width={110} top="65%" right="14%" delay={0.2} zIndex={15} />
         <div className="relative z-10 w-full px-6 lg:px-[10%]">
           <WaveTitle en="Privacy Policy" ja="プライバシーポリシー" variant="dark" />
         </div>
       </section>
 
-      <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-        <DecoShape color="green" width={150} height={55} top="-25px" right="4%" rotate={-8} direction="top-right" zIndex={5} />
-        <DecoShape color="red" width={110} height={42} bottom="-25px" right="3%" rotate={11} delay={0.15} direction="bottom-right" zIndex={5} />
-        <div className="max-w-container mx-auto px-6 lg:px-12">
+      <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+        <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+        <DecoShape color="red" width={100} top="45%" left="-50px" delay={0.1} zIndex={3} />
+        <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
+        <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
           <FadeInUp className="max-w-3xl">
             <p className="text-[15px] lg:text-base text-black leading-[1.9] mb-8">
               {companyName}（以下、「当社」）は、お客様の個人情報を適切に保護することを重要な社会的責務と認識し、以下のとおり個人情報保護方針を定め、これを遵守いたします。

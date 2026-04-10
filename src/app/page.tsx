@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FadeInUp } from "@/components/animations";
 import DecoShape from "@/components/DecoShape";
+import WaveButton from "@/components/WaveButton";
+import CharByCharLines from "@/components/CharByCharLines";
 import { ALL_AWARDS } from "@/lib/awards";
 import { ALL_CASES } from "@/lib/cases";
 
@@ -39,84 +41,7 @@ function WipeInLeft({ children }: { children: React.ReactNode }) {
 }
 
 // ============================================================
-// WaveButton - ホバーで文字が波打つボタン
-// ============================================================
-function WaveButton({ href, text, variant = "light" }: { href: string; text: string; variant?: "light" | "dark" }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const colors = variant === "light"
-    ? "bg-white text-[#16a637]"
-    : "bg-[#16a637] text-white";
-
-  return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-between ${colors} text-lg font-bold px-12 py-5 rounded-full hover:scale-110 transition-transform duration-300 w-72`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <span className="flex">
-        {text.split("").map((char, i) => (
-          <span
-            key={i}
-            className="inline-block transition-transform"
-            style={isHovered ? {
-              animation: `wave 0.4s ease-in-out ${i * 0.05}s`,
-            } : undefined}
-          >
-            {char === " " ? "\u00A0" : char}
-          </span>
-        ))}
-      </span>
-      <span>→</span>
-    </Link>
-  );
-}
-
-// ============================================================
 // CharByCharLines - スクロールで画面に入ったら一文字ずつアニメーション
-// ============================================================
-function CharByCharLines({ lines, className = "" }: {
-  lines: { text: string; size: string; startDelay: number }[];
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} className="flex flex-col gap-2 mb-10">
-      {lines.map((line, lineIdx) => (
-        <p key={lineIdx} className={`${line.size} italic leading-[1.4] font-[var(--font-noto)] font-black ${className}`}>
-          {line.text.split("").map((char, charIdx) => (
-            <span
-              key={charIdx}
-              className={`inline-block ${isVisible ? "char-in" : "opacity-0"}`}
-              style={isVisible ? { animationDelay: `${line.startDelay + charIdx * 0.06}s` } : undefined}
-            >
-              {char}
-            </span>
-          ))}
-        </p>
-      ))}
-    </div>
-  );
-}
-
 // ============================================================
 // Hero Section
 // ============================================================
@@ -565,7 +490,6 @@ function BlogSection() {
       {/* 装飾シェイプ */}
       <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} />
       <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} />
-      <DecoShape color="green" width={380} bottom="-120px" right="15%" delay={0.2} direction="bottom-right" zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-4 uppercase tracking-wide">Blog</h2></WipeInLeft>

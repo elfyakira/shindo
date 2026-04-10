@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
+import WaveButton from "@/components/WaveButton";
+import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
 
@@ -12,7 +14,7 @@ import { ALL_AWARDS } from "@/lib/awards";
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-visible">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/about-hero.jpg"
@@ -23,6 +25,10 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
+
+      <DecoShape color="red" width={170} top="15%" right="6%" zIndex={6} />
+      <DecoShape color="white" width={130} bottom="-20px" left="4%" delay={0.15} zIndex={6} />
+      <DecoShape color="green" width={110} top="60%" right="14%" delay={0.2} zIndex={6} />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="About" ja="私たちについて" variant="dark" />
@@ -36,16 +42,21 @@ function HeroSection() {
 // ============================================================
 function AboutContentSection() {
   return (
-    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
-      <DecoShape color="red" width={180} height={65} top="-30px" right="6%" rotate={-8} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={120} height={45} bottom="-25px" left="8%" rotate={10} delay={0.2} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
+      <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
+      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} zIndex={15} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
-            <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
-              地域にとって本当に必要な公共事業に、<br />
-              誠実に向き合う建設会社です。
-            </h2>
+            <CharByCharLines
+              lines={[
+                { text: "地域にとって本当に必要な公共事業に、", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
+                { text: "誠実に向き合う建設会社です。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
+              ]}
+              className="text-white"
+            />
             <p className="text-[14px] lg:text-[15px] text-white leading-[2] mb-6">
               信藤建設は、昭和13年の創業以来、公共事業を中心とした建設事業を通じて地域の安全と安心を支えてきた総合建設会社です。
             </p>
@@ -53,7 +64,7 @@ function AboutContentSection() {
               河川・道路・上下水道などの社会インフラ整備を主軸に、官公庁および関係機関からのご要請に応え、計画立案から施工、品質管理に至るまで、一つひとつの工事に責任を持って取り組んできました。
             </p>
             <p className="text-[14px] lg:text-[15px] text-white leading-[2]">
-              88年にわたる歩みの中で培ってきたのは、施工実績や技術力だけではありません。発注者との信頼関係を大切にし、長期的な視点で地域と向き合い続けてきた姿勢そのものです。今後も信藤建設は、公共事業を担うパートナーとしての責任を果たしながら、地域社会の発展に貢献してまいります。
+              88年にわたる歩みの中で培ってきたのは、施工実績や技術力だけではありません。発注者との信頼関係を大切にし、長期的な視点で地域と向き合い続けてきた姿勢そのものです。これからも信藤建設は、公共事業を担うパートナーとしての責任を胸に、地域社会の未来に、本気で応え続けていきます。
             </p>
             <div className="flex justify-end mt-10">
               <div className="relative w-48 lg:w-64 aspect-[4/3] rounded overflow-hidden">
@@ -90,10 +101,11 @@ const STRENGTHS = [
 
 function StrengthsSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <DecoShape color="green" width={160} height={55} top="-25px" right="4%" rotate={6} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={110} height={42} bottom="8%" left="2%" rotate={-12} delay={0.15} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="Strengths" ja="信藤建設の強み" />
         </FadeInUp>
@@ -135,19 +147,14 @@ function StrengthsSection() {
 function AwardsSection() {
   const awards = ALL_AWARDS.slice(0, 6);
   return (
-    <section id="awards" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <DecoShape color="green" width={140} height={50} top="-30px" left="6%" rotate={-6} direction="top-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section id="awards" className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={300} top="-120px" left="-60px" zIndex={3} />
+      <DecoShape color="red" width={110} top="55%" right="-40px" delay={0.1} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <WaveTitle en="Awards" ja="各種表彰" />
           <div className="mt-6">
-            <Link
-              href="/awards"
-              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+            <WaveButton href="/awards" text="View all" variant="dark" />
           </div>
         </FadeInUp>
 
@@ -196,18 +203,15 @@ const BLOG_POSTS = [
 
 function BlogSection() {
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={320} top="-120px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={120} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="red" width={140} top="10px" right="20%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <WaveTitle en="Blog" />
           <div className="mt-6">
-            <Link
-              href="/news"
-              className="inline-flex items-center justify-between bg-[#16a637] text-white text-sm font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity w-56"
-            >
-              <span>View all</span>
-              <span>→</span>
-            </Link>
+            <WaveButton href="/news" text="View all" variant="dark" />
           </div>
         </FadeInUp>
 

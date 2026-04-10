@@ -10,7 +10,7 @@ import DecoShape from "@/components/DecoShape";
 // ============================================================
 function HeroSection() {
   return (
-    <section className="relative h-[50vh] min-h-[400px] flex items-center">
+    <section className="relative h-[50vh] min-h-[400px] flex items-center overflow-visible">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/community-hero.jpg"
@@ -21,6 +21,9 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
+      <DecoShape color="red" width={170} top="14%" right="6%" zIndex={6} />
+      <DecoShape color="white" width={120} bottom="-25px" left="6%" delay={0.15} zIndex={6} />
+      <DecoShape color="green" width={110} top="62%" right="14%" delay={0.2} zIndex={6} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Community" ja="地域貢献活動" variant="dark" />
       </div>
@@ -33,10 +36,12 @@ function HeroSection() {
 // ============================================================
 function IntroSection() {
   return (
-    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-hidden">
-      <DecoShape color="red" width={180} height={65} top="-30px" left="6%" rotate={9} direction="top-left" zIndex={5} />
-      <DecoShape color="red" width={130} height={48} bottom="-25px" right="7%" rotate={-11} delay={0.2} direction="bottom-right" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
+      <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="red" width={160} top="72%" right="3%" delay={0.15} zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="6%" delay={0.2} zIndex={15} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
             <h2 className="text-[28px] lg:text-[40px] font-bold text-white leading-[1.4] mb-4">
@@ -84,10 +89,11 @@ const HIGHSCHOOL_PHOTOS = [
 
 function OutreachSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <DecoShape color="green" width={150} height={55} top="-25px" right="5%" rotate={-7} direction="top-right" zIndex={5} />
-      <DecoShape color="red" width={110} height={42} bottom="5%" left="2%" rotate={12} delay={0.15} direction="bottom-left" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-white overflow-visible">
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">現場見学・出前授業</h2>
         </FadeInUp>
@@ -187,10 +193,11 @@ const CLEANUP_PHOTOS = [
 
 function CleanupSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-gray-50 overflow-hidden">
-      <DecoShape color="green" width={140} height={50} top="-25px" left="4%" rotate={-8} direction="top-left" zIndex={5} />
-      <DecoShape color="red" width={120} height={45} bottom="-25px" right="5%" rotate={10} delay={0.2} direction="bottom-right" zIndex={5} />
-      <div className="max-w-container mx-auto px-6 lg:px-12">
+    <section className="relative py-16 lg:py-24 bg-gray-50 overflow-visible">
+      <DecoShape color="green" width={300} top="-120px" left="-60px" zIndex={3} />
+      <DecoShape color="red" width={110} top="50%" right="-40px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={240} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-text-primary">清掃活動</h2>
         </FadeInUp>
