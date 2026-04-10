@@ -33,22 +33,36 @@ export default function FloatingBanners() {
       }`}
       aria-hidden={!isVisible}
     >
-      <Image
-        src="/images/banners/banner-1.png"
-        alt=""
-        width={1280}
-        height={720}
-        className="w-56 lg:w-80 h-auto rounded shadow-lg"
-        priority={false}
-      />
-      <Image
-        src="/images/banners/banner-2.png"
-        alt=""
-        width={1280}
-        height={720}
-        className="w-56 lg:w-80 h-auto rounded shadow-lg"
-        priority={false}
-      />
+      <a
+        href="https://clients.itszai.jp/4e7a417a4f413d3d/job/100?ref=true&utm_source=https%3A%2F%2Fwww.shindou-kk.co.jp%2F"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <Image
+          src="/images/banners/banner-1.png"
+          alt="採用情報を見る"
+          width={1280}
+          height={720}
+          className="w-56 lg:w-80 h-auto rounded shadow-lg"
+          priority={false}
+        />
+      </a>
+      <a
+        href="https://clients.itszai.jp/4e7a417a4f413d3d/job/101?ref=true&utm_source=https%3A%2F%2Fwww.shindou-kk.co.jp%2F"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <Image
+          src="/images/banners/banner-2.png"
+          alt="採用情報を見る"
+          width={1280}
+          height={720}
+          className="w-56 lg:w-80 h-auto rounded shadow-lg"
+          priority={false}
+        />
+      </a>
     </div>
   );
 }
