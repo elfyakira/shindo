@@ -415,10 +415,16 @@ function RecruitSection() {
           </div>
         </FadeInUp>
 
-        {/* 採用PV動画スペース（準備中） */}
+        {/* 採用PV動画 */}
         <FadeInUp>
-          <div className="relative w-full aspect-video mb-12 lg:mb-16 rounded overflow-hidden bg-gray-100 flex items-center justify-center">
-            <p className="text-gray-400 text-lg">採用PV（準備中）</p>
+          <div className="relative w-full aspect-video mb-12 lg:mb-16 rounded overflow-hidden bg-black">
+            <video
+              src="/videos/recruit-pv.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
+            />
           </div>
         </FadeInUp>
 
