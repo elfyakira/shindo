@@ -43,15 +43,15 @@ function MessageSection() {
   return (
     <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
       <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
-      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="72%" right="3%" delay={0.15} zIndex={15} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
             <CharByCharLines
               lines={[
-                { text: "地域のインフラを支える仕事に、", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
-                { text: "あなたも参加しませんか。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
+                { text: "地域のインフラを支える仕事に、", size: "text-[20px] lg:text-[40px] whitespace-nowrap", startDelay: 0.3 },
+                { text: "あなたも参加しませんか。", size: "text-[20px] lg:text-[40px] whitespace-nowrap", startDelay: 1.5 },
               ]}
               className="text-white"
             />
@@ -281,7 +281,7 @@ function FAQSection() {
 
   return (
     <section className="relative py-16 lg:py-24 bg-bg-light overflow-visible">
-      <DecoShape color="green" width={300} top="-120px" right="-60px" zIndex={3} />
+      <DecoShape color="green" width={300} top="-120px" right="-60px" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={100} top="50%" left="-50px" delay={0.1} zIndex={3} />
       <DecoShape color="green" width={240} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">

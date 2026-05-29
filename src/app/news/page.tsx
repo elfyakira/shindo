@@ -34,7 +34,7 @@ function PageHeader() {
   return (
     <section className="relative h-[50vh] min-h-[400px] flex items-center bg-[#16a637] overflow-visible">
       <DecoShape color="red" width={180} top="14%" right="6%" zIndex={15} />
-      <DecoShape color="white" width={140} bottom="-30px" left="6%" delay={0.15} zIndex={15} />
+      <DecoShape color="white" width={140} bottom="-30px" left="6%" delay={0.15} zIndex={15} className="hidden lg:block" />
       <DecoShape color="green" width={110} top="65%" right="14%" delay={0.2} zIndex={15} />
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="News" ja="お知らせ" variant="dark" />
@@ -60,7 +60,7 @@ function CategoryFilter({
               onClick={() => onSelect(cat.id)}
               className={`px-6 py-3 text-[15px] whitespace-nowrap transition-colors rounded-full ${
                 selected === cat.id
-                  ? "bg-[#16a637] text-white font-semibold"
+                  ? "bg-[#16a637] text-white font-semibold border border-transparent"
                   : "text-text-secondary hover:text-text-primary border border-gray-200"
               }`}
             >
@@ -82,8 +82,8 @@ function NewsList({ category }: { category: Category }) {
 
   return (
     <section className="relative pb-16 lg:pb-24 bg-white overflow-visible">
-      <DecoShape color="green" width={300} top="-40px" right="-60px" zIndex={3} />
-      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="green" width={300} top="-40px" right="-60px" zIndex={3} className="hidden lg:block" />
+      <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="green" width={240} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <StaggerContainer as="ul">

@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-primary text-white overflow-hidden">
       {/* 装飾シェイプ */}
-      <DecoShape color="white" width={240} top="35%" left="-80px" delay={0.1} zIndex={1} />
+      <DecoShape color="white" width={240} top="35%" left="-80px" delay={0.1} zIndex={1} className="hidden lg:block" />
       <DecoShape color="white" width={280} bottom="-100px" right="12%" delay={0.2} zIndex={1} />
       <DecoShape color="red" width={160} top="32%" right="5%" delay={0.15} zIndex={2} />
       {/* Contact Section */}

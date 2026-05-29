@@ -8,34 +8,65 @@ type Direction = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 interface DecoShapeProps {
   color?: "green" | "red" | "white";
   width?: number;
+  /** スマホ（lg未満）でのみ適用する幅。未指定なら width を使用 */
+  mobileWidth?: number;
   /** @deprecated height is auto-calculated from width based on SVG aspect ratio */
   height?: number;
   top?: string;
   left?: string;
   right?: string;
   bottom?: string;
+  /** スマホ（lg未満）でのみ適用する位置。未指定なら通常の値を使用 */
+  mobileTop?: string;
+  mobileLeft?: string;
+  mobileRight?: string;
+  mobileBottom?: string;
   rotate?: number;
   delay?: number;
   direction?: Direction;
   zIndex?: number;
   flip?: boolean;
+  className?: string;
 }
 
 export default function DecoShape({
   color = "green",
   width = 300,
+  mobileWidth,
   top,
   left,
   right,
   bottom,
+  mobileTop,
+  mobileLeft,
+  mobileRight,
+  mobileBottom,
   rotate = 0,
   delay = 0,
   direction = "top-left",
   zIndex = 5,
   flip = false,
+  className,
 }: DecoShapeProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const hasMobileOverride =
+    mobileWidth !== undefined ||
+    mobileTop !== undefined ||
+    mobileLeft !== undefined ||
+    mobileRight !== undefined ||
+    mobileBottom !== undefined;
+
+  useEffect(() => {
+    if (!hasMobileOverride) return;
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, [hasMobileOverride]);
 
   useEffect(() => {
     const el = ref.current;
@@ -60,8 +91,9 @@ export default function DecoShape({
       ? "/images/shapes/shape-white.svg"
       : "/images/shapes/shape-red.svg";
 
+  const effectiveWidth = isMobile && mobileWidth !== undefined ? mobileWidth : width;
   const aspectRatio = color === "red" ? 629 / 340 : 641 / 333;
-  const height = width / aspectRatio;
+  const height = effectiveWidth / aspectRatio;
 
   // 全シェイプ右斜め下から登場
   void direction;
@@ -71,11 +103,11 @@ export default function DecoShape({
 
   const style: CSSProperties = {
     position: "absolute",
-    top,
-    left,
-    right,
-    bottom,
-    width: `${width}px`,
+    top: isMobile && mobileTop !== undefined ? mobileTop : top,
+    left: isMobile && mobileLeft !== undefined ? mobileLeft : left,
+    right: isMobile && mobileRight !== undefined ? mobileRight : right,
+    bottom: isMobile && mobileBottom !== undefined ? mobileBottom : bottom,
+    width: `${effectiveWidth}px`,
     height: `${height}px`,
     transform: isVisible ? visibleTransform : hiddenTransform,
     opacity: isVisible ? 1 : 0,
@@ -85,8 +117,8 @@ export default function DecoShape({
   };
 
   return (
-    <div ref={ref} style={style} aria-hidden="true">
-      <Image src={src} alt="" width={width} height={height} unoptimized />
+    <div ref={ref} style={style} className={className} aria-hidden="true">
+      <Image src={src} alt="" width={effectiveWidth} height={height} unoptimized />
     </div>
   );
 }

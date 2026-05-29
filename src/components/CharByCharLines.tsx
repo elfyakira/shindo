@@ -35,19 +35,24 @@ export default function CharByCharLines({
           key={lineIdx}
           className={`${line.size} italic leading-[1.4] font-[var(--font-noto)] font-black ${className}`}
         >
-          {line.text.split("").map((char, charIdx) => (
-            <span
-              key={charIdx}
-              className={`inline-block ${isVisible ? "char-in" : "opacity-0"}`}
-              style={
-                isVisible
-                  ? { animationDelay: `${line.startDelay + charIdx * 0.06}s` }
-                  : undefined
-              }
-            >
-              {char}
-            </span>
-          ))}
+          {line.text.split("").map((char, charIdx) =>
+            char === "\n" ? (
+              // "\n" はスマホのみの改行（PCでは改行しない）
+              <br key={charIdx} className="lg:hidden" />
+            ) : (
+              <span
+                key={charIdx}
+                className={`inline-block ${isVisible ? "char-in" : "opacity-0"}`}
+                style={
+                  isVisible
+                    ? { animationDelay: `${line.startDelay + charIdx * 0.06}s` }
+                    : undefined
+                }
+              >
+                {char}
+              </span>
+            )
+          )}
         </p>
       ))}
     </div>

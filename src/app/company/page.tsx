@@ -40,7 +40,7 @@ function CeoMessageSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
-      <DecoShape color="red" width={100} top="50%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="red" width={100} top="50%" left="-50px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
@@ -100,7 +100,7 @@ function HistorySection() {
   return (
     <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
       <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
-      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="72%" right="3%" delay={0.15} zIndex={15} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
@@ -154,9 +154,9 @@ const COMPANY_INFO = [
 function CompanyInfoSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
-      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} zIndex={15} />
-      <DecoShape color="red" width={220} bottom="-100px" right="6%" delay={0.2} zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="6%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="Overview" ja="会社概要" variant="dark" />

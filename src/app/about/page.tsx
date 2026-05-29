@@ -44,15 +44,15 @@ function AboutContentSection() {
   return (
     <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
       <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
-      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} zIndex={15} />
-      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="text-left">
             <CharByCharLines
               lines={[
-                { text: "地域にとって本当に必要な公共事業に、", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
+                { text: "地域にとって\n本当に必要な公共事業に、", size: "text-[24px] lg:text-[40px]", startDelay: 0.3 },
                 { text: "誠実に向き合う建設会社です。", size: "text-[24px] lg:text-[40px]", startDelay: 1.5 },
               ]}
               className="text-white"
@@ -104,7 +104,7 @@ function StrengthsSection() {
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
       <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
-      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="Strengths" ja="信藤建設の強み" />
@@ -148,7 +148,7 @@ function AwardsSection() {
   const awards = ALL_AWARDS.slice(0, 6);
   return (
     <section id="awards" className="relative py-16 lg:py-24 bg-white overflow-visible">
-      <DecoShape color="green" width={300} top="-120px" left="-60px" zIndex={3} />
+      <DecoShape color="green" width={300} mobileWidth={170} top="-120px" left="-60px" zIndex={3} />
       <DecoShape color="red" width={110} top="55%" right="-40px" delay={0.1} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
@@ -205,7 +205,7 @@ function BlogSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       <DecoShape color="green" width={320} top="-120px" right="-60px" zIndex={3} />
-      <DecoShape color="red" width={120} top="40%" left="-50px" delay={0.1} zIndex={3} />
+      <DecoShape color="red" width={120} top="40%" left="-50px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={140} top="10px" right="20%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">

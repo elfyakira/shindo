@@ -26,7 +26,7 @@ export default function FloatingBanners() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 transition-all duration-500 ${
+      className={`fixed bottom-6 right-2 lg:right-6 z-[9999] flex flex-col gap-3 transition-all duration-500 ${
         isVisible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-6 pointer-events-none"
@@ -44,7 +44,7 @@ export default function FloatingBanners() {
           alt="採用情報を見る"
           width={1280}
           height={720}
-          className="w-56 lg:w-80 h-auto rounded shadow-lg"
+          className="w-36 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
           priority={false}
         />
       </a>
@@ -59,7 +59,7 @@ export default function FloatingBanners() {
           alt="採用情報を見る"
           width={1280}
           height={720}
-          className="w-56 lg:w-80 h-auto rounded shadow-lg"
+          className="w-36 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
           priority={false}
         />
       </a>

@@ -12,8 +12,8 @@ import DecoShape from "@/components/DecoShape";
 const CONTACT_TYPES = [
   { id: "service1" as const, label: "サービス1のご相談" },
   { id: "service2" as const, label: "サービス2のご相談" },
-  { id: "recruit" as const, label: "採用に関するお問い合わせ" },
-  { id: "other" as const, label: "その他のお問い合わせ" },
+  { id: "recruit" as const, label: "採用に関する\nお問い合わせ" },
+  { id: "other" as const, label: "その他の\nお問い合わせ" },
 ];
 
 type ContactType = (typeof CONTACT_TYPES)[number]["id"];
@@ -118,7 +118,13 @@ function ContactForm() {
                     : "bg-white text-text-primary border border-gray-200 hover:border-[#16a637]"
                 }`}
               >
-                {type.label}
+                {type.label.split("\n").map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {/* "\n" はスマホのみ改行（PCでは1行） */}
+                    {i < arr.length - 1 ? <br className="lg:hidden" /> : null}
+                  </span>
+                ))}
               </button>
             ))}
           </div>
@@ -233,12 +239,13 @@ function ContactForm() {
                 {errors.agree && <p className="mt-1 text-[13px] text-red-600">{errors.agree}</p>}
               </div>
 
-              <div className="pt-6">
+              <div className="pt-6 flex justify-center lg:justify-start">
                 <WaveButton
                   type="submit"
                   disabled={isSubmitting}
                   text={isSubmitting ? "送信中..." : "送信する"}
                   variant="dark"
+                  className="!w-64 lg:!w-72"
                 />
               </div>
             </form>
@@ -253,7 +260,7 @@ function PhoneSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-bg-light overflow-visible">
       <DecoShape color="green" width={300} top="-120px" right="-60px" zIndex={3} />
-      <DecoShape color="red" width={110} top="50%" left="-40px" delay={0.1} zIndex={3} />
+      <DecoShape color="red" width={110} top="50%" left="-40px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="green" width={220} bottom="-140px" right="10%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>

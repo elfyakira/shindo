@@ -46,8 +46,8 @@ function WipeInLeft({ children }: { children: React.ReactNode }) {
 // Hero Section
 // ============================================================
 const HERO_LINES = [
-  { text: "建設がすき。", size: "text-[56px] sm:text-[88px] lg:text-[120px]", startDelay: 0.5 },
-  { text: "この地域がすき。", size: "text-[56px] sm:text-[88px] lg:text-[120px]", startDelay: 1.5 },
+  { text: "建設がすき。", size: "text-[40px] sm:text-[88px] lg:text-[120px]", startDelay: 0.5 },
+  { text: "この地域がすき。", size: "text-[40px] sm:text-[88px] lg:text-[120px]", startDelay: 1.5 },
 ];
 
 function HeroSection() {
@@ -98,10 +98,10 @@ function AboutIntroSection() {
   return (
     <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
       {/* 装飾シェイプ - ヒーローに被らないように内側配置 */}
-      <DecoShape color="red" width={180} top="-70px" right="8%" direction="top-right" zIndex={15} />
-      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} direction="top-left" zIndex={15} />
+      <DecoShape color="red" width={180} top="-70px" right="8%" direction="top-right" zIndex={15} className="hidden lg:block" />
+      <DecoShape color="white" width={220} top="45%" left="-90px" delay={0.1} direction="top-left" zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="75%" right="3%" delay={0.15} direction="top-right" zIndex={15} />
-      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} direction="bottom-right" zIndex={15} />
+      <DecoShape color="red" width={220} bottom="-100px" right="5%" delay={0.2} direction="bottom-right" zIndex={15} className="hidden lg:block" />
       <div className="relative max-w-container mx-auto px-6 lg:px-12">
         <WipeInLeft>
           <h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] bg-white px-6 py-0 leading-[0.9] mb-8 uppercase tracking-wide">About us</h2>
@@ -174,9 +174,9 @@ function BusinessSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       {/* 装飾シェイプ - セクション跨ぎ・大小ミックス */}
-      <DecoShape color="green" width={340} top="-140px" right="-60px" direction="top-right" zIndex={3} />
-      <DecoShape color="red" width={100} top="72%" left="-50px" delay={0.1} direction="top-left" zIndex={3} />
-      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} direction="bottom-right" zIndex={3} />
+      <DecoShape color="green" width={340} top="-140px" right="-60px" direction="top-right" zIndex={3} className="hidden lg:block" />
+      <DecoShape color="red" width={100} mobileWidth={78} top="72%" left="-50px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-180px" right="8%" delay={0.2} direction="bottom-right" zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
@@ -265,9 +265,9 @@ function CasesSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
       {/* 装飾シェイプ */}
-      <DecoShape color="red" width={280} top="-120px" right="-80px" direction="top-right" zIndex={15} />
-      <DecoShape color="white" width={220} top="10%" left="-90px" delay={0.1} direction="top-left" zIndex={15} />
-      <div className="relative max-w-container mx-auto px-6 lg:px-12">
+      <DecoShape color="red" width={280} top="-120px" right="-80px" direction="top-right" zIndex={3} />
+      <DecoShape color="white" width={220} top="10%" left="-90px" delay={0.1} direction="top-left" zIndex={15} className="hidden lg:block" />
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-white leading-[0.9] mb-1 uppercase tracking-wide">Cases</h2></WipeInLeft>
           <p className="text-[14px] lg:text-[16px] font-bold text-white leading-[1.4] mb-6 font-[var(--font-noto)]">施工実績</p>
@@ -358,7 +358,7 @@ function CompanySection() {
         >
           <div className="max-w-container mx-auto px-6 lg:px-12 w-full">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-              <div className="w-full lg:w-1/2">
+              <div className="hidden lg:block w-full lg:w-1/2">
                 <div className="relative aspect-[4/3] rounded overflow-hidden">
                   <Image
                     src="/images/generated/company-bg.jpg"
@@ -369,7 +369,7 @@ function CompanySection() {
                 </div>
               </div>
               <div className="w-full lg:w-1/2">
-                <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-white leading-[0.9] mb-1 uppercase tracking-wide">Company</h2></WipeInLeft>
+                <WipeInLeft><h2 className="inline-block text-[48px] lg:text-[96px] font-black text-white leading-[0.9] mb-1 uppercase tracking-wide">Company</h2></WipeInLeft>
                 <p className="text-[14px] lg:text-[16px] font-bold text-white leading-[1.4] mb-6 font-[var(--font-noto)]">会社案内</p>
                 <p className="text-[14px] lg:text-[15px] text-white/90 leading-[2] mt-6 mb-8">
                   信藤建設は、昭和13年の創業以来、<br />
@@ -403,9 +403,9 @@ function RecruitSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       {/* 装飾シェイプ */}
-      <DecoShape color="green" width={340} top="-140px" right="-80px" direction="top-right" zIndex={3} />
+      <DecoShape color="green" width={340} top="-140px" right="-80px" direction="top-right" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={260} top="40%" left="-100px" delay={0.1} direction="top-left" zIndex={3} />
-      <DecoShape color="red" width={180} bottom="-80px" right="4%" delay={0.2} direction="bottom-right" zIndex={4} />
+      <DecoShape color="red" width={180} bottom="-80px" right="4%" mobileRight="-6%" delay={0.2} direction="bottom-right" zIndex={4} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         {/* セクションタイトル */}
         <FadeInUp>
@@ -494,8 +494,8 @@ function BlogSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
       {/* 装飾シェイプ */}
-      <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} />
-      <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} />
+      <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} className="hidden lg:block" />
+      <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-10 lg:mb-16">
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-4 uppercase tracking-wide">Blog</h2></WipeInLeft>
