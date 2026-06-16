@@ -44,7 +44,7 @@ export default function FloatingBanners() {
           alt="採用情報を見る"
           width={1280}
           height={720}
-          className="w-36 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
+          className="w-28 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
           priority={false}
         />
       </a>
@@ -59,7 +59,7 @@ export default function FloatingBanners() {
           alt="採用情報を見る"
           width={1280}
           height={720}
-          className="w-36 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
+          className="w-28 sm:w-56 lg:w-80 h-auto rounded shadow-lg"
           priority={false}
         />
       </a>

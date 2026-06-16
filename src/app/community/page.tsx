@@ -38,7 +38,7 @@ function IntroSection() {
   return (
     <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
       <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
-      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} />
+      <DecoShape color="white" width={220} top="40%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
       <DecoShape color="red" width={160} top="72%" right="3%" delay={0.15} zIndex={15} />
       <DecoShape color="red" width={220} bottom="-100px" right="6%" delay={0.2} zIndex={15} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">

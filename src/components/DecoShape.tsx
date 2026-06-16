@@ -60,13 +60,12 @@ export default function DecoShape({
     mobileBottom !== undefined;
 
   useEffect(() => {
-    if (!hasMobileOverride) return;
     const mq = window.matchMedia("(max-width: 1023px)");
     const update = () => setIsMobile(mq.matches);
     update();
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
-  }, [hasMobileOverride]);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -113,7 +112,8 @@ export default function DecoShape({
     opacity: isVisible ? 1 : 0,
     transition: `transform 1s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.8s ease-out ${delay}s`,
     pointerEvents: "none",
-    zIndex,
+    // スマホ（lg未満）では文字・写真（z-10）の後ろに配置する
+    zIndex: isMobile ? Math.min(zIndex, 1) : zIndex,
   };
 
   return (

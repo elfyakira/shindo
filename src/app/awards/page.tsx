@@ -28,7 +28,7 @@ export default function AwardsPage() {
         </div>
         <DecoShape color="red" width={170} top="14%" right="6%" zIndex={6} />
         <DecoShape color="green" width={120} bottom="-25px" right="14%" delay={0.15} zIndex={6} />
-        <DecoShape color="red" width={110} bottom="10%" left="4%" delay={0.2} zIndex={6} />
+        <DecoShape color="red" width={110} bottom="10%" left="4%" delay={0.2} zIndex={6} className="hidden lg:block" />
         <div className="relative z-10 w-full px-6 lg:px-[10%]">
           <WaveTitle en="Awards" ja="各種表彰" variant="dark" />
         </div>
@@ -37,7 +37,7 @@ export default function AwardsPage() {
       {/* Introduction + Ceremony Photos */}
       <section className="relative py-20 lg:py-32 bg-[#16a637] overflow-visible">
         <DecoShape color="red" width={180} top="-70px" right="8%" zIndex={15} />
-        <DecoShape color="white" width={220} top="35%" left="-90px" delay={0.1} zIndex={15} />
+        <DecoShape color="white" width={220} top="35%" left="-90px" delay={0.1} zIndex={15} className="hidden lg:block" />
         <DecoShape color="red" width={160} top="70%" right="3%" delay={0.15} zIndex={15} />
         <DecoShape color="red" width={220} bottom="-100px" right="6%" delay={0.2} zIndex={15} />
         <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
@@ -56,7 +56,7 @@ export default function AwardsPage() {
           </FadeInUp>
 
           <FadeInUp className="mt-12 lg:mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
               {AWARD_PHOTOS.map((photo, index) => (
                 <div key={index} className="relative aspect-[4/3] rounded overflow-hidden">
                   <Image
@@ -82,7 +82,7 @@ export default function AwardsPage() {
             <WaveTitle en="Certificates" ja="表彰状一覧" />
           </FadeInUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
             {ALL_AWARDS.map((award, index) => (
               <FadeInUp key={index} delay={index * 0.05}>
                 <div className={`relative rounded overflow-hidden bg-gray-100 ${award.vertical ? "aspect-[3/4]" : "aspect-[4/3]"}`}>

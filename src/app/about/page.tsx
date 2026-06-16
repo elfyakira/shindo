@@ -158,7 +158,7 @@ function AwardsSection() {
           </div>
         </FadeInUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
           {awards.map((award, index) => (
             <FadeInUp key={index} delay={index * 0.05}>
               <div className="relative aspect-[4/3] rounded overflow-hidden bg-gray-100">

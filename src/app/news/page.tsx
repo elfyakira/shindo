@@ -95,9 +95,9 @@ function NewsList({ category }: { category: Category }) {
                   href={`/news/${item.slug}`}
                   className="flex items-center justify-between py-6 lg:py-8 hover:opacity-70 transition-opacity"
                 >
-                  <div className="flex items-center gap-4 lg:gap-6">
-                    <span className="text-sm text-text-secondary w-24">{item.date}</span>
-                    <span className="text-xs font-semibold px-3 py-1 bg-gray-100 rounded-full text-text-primary">
+                  <div className="flex items-center gap-3 lg:gap-6">
+                    <span className="text-sm text-text-secondary w-[88px] flex-shrink-0">{item.date}</span>
+                    <span className="text-xs font-semibold py-1 bg-gray-100 rounded-full text-text-primary text-center whitespace-nowrap flex-shrink-0 w-16 lg:w-20">
                       {categoryLabel}
                     </span>
                     <span className="text-[15px] text-text-primary">{item.title}</span>
