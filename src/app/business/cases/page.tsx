@@ -23,9 +23,9 @@ function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <DecoShape color="red" width={170} top="12%" right="6%" zIndex={6} />
+      <DecoShape color="red" width={170} top="12%" right="6%" zIndex={6} className="hidden lg:block" />
       <DecoShape color="green" width={120} bottom="-25px" right="14%" delay={0.15} zIndex={6} />
-      <DecoShape color="red" width={110} bottom="12%" left="4%" delay={0.2} zIndex={6} />
+      <DecoShape color="red" width={110} bottom="12%" left="4%" delay={0.2} zIndex={6} className="hidden lg:block" />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Cases" ja="施工実績" variant="dark" />
@@ -40,11 +40,11 @@ function HeroSection() {
 function CasesGridSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
-      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={100} top="45%" left="-50px" delay={0.1} zIndex={3} />
       <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {ALL_CASES.map((item, index) => (
             <FadeInUp key={index} delay={index * 0.03}>
               <div className="group">

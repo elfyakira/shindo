@@ -208,9 +208,9 @@ const REQUIREMENTS_MID_CAREER = [
 function RequirementsSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
-      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={100} top="40%" left="-50px" delay={0.1} zIndex={3} />
-      <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
+      <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-12 lg:mb-16">
           <WaveTitle en="Requirements" ja="募集要項" />
