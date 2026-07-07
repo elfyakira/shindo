@@ -78,5 +78,21 @@
     "title": "",
     "image": "",
     "message": []
+  },
+  "googleForm": {
+    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScT4XEeqkcC-GMeHOZlIfEX5hLxb23SEHIVDaQaFJBBDerzzA/formResponse",
+    "entries": {
+      "type": "entry.1142371055",
+      "name": "entry.1442173314",
+      "phone": "entry.1904609825",
+      "email": "entry.1079050425",
+      "message": "entry.1543559964",
+      "agree": "entry.1879854357"
+    },
+    "typeLabels": {
+      "general": "一般お問い合わせ",
+      "recruit": "採用お問い合わせ"
+    },
+    "agreeValue": "同意"
   }
 }
