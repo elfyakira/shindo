@@ -17,12 +17,6 @@ const CATEGORIES = [
 
 type Category = (typeof CATEGORIES)[number]["id"];
 
-const NEWS_FALLBACK = [
-  { date: "2024.01.15", category: "news" as const, title: "ホームページをリニューアルしました", slug: "1" },
-  { date: "2024.01.10", category: "works" as const, title: "〇〇プロジェクトが完了しました", slug: "2" },
-  { date: "2024.01.05", category: "recruit" as const, title: "採用情報を更新しました", slug: "3" },
-];
-
 const CATEGORY_LABELS: Record<string, string> = {
   news: "お知らせ",
   works: "実績",
@@ -74,11 +68,10 @@ function CategoryFilter({
 }
 
 function NewsList({ category }: { category: Category }) {
-  const newsItems = site.news.length > 0 ? site.news : NEWS_FALLBACK;
   const filteredNews =
     category === "all"
-      ? newsItems
-      : newsItems.filter((item) => item.category === category);
+      ? site.news
+      : site.news.filter((item) => item.category === category);
 
   return (
     <section className="relative pb-16 lg:pb-24 bg-white overflow-visible">

@@ -469,27 +469,6 @@ function RecruitSection() {
 // ============================================================
 // Blog Section
 // ============================================================
-const BLOG_POSTS = [
-  {
-    date: "2026.01.01",
-    title: "ブログタイトル1",
-    image: "/images/generated/completed_building_sky.jpg",
-    slug: "1",
-  },
-  {
-    date: "2026.01.01",
-    title: "ブログタイトル2",
-    image: "/images/generated/completed_building_sky.jpg",
-    slug: "2",
-  },
-  {
-    date: "2026.01.01",
-    title: "ブログタイトル3",
-    image: "/images/generated/completed_building_sky.jpg",
-    slug: "3",
-  },
-];
-
 function BlogSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
@@ -497,33 +476,12 @@ function BlogSection() {
       <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp className="mb-10 lg:mb-16">
+        <FadeInUp>
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-4 uppercase tracking-wide">Blog</h2></WipeInLeft>
           <div className="mt-6">
             <WaveButton href="/news" text="View all" variant="dark" />
           </div>
         </FadeInUp>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {BLOG_POSTS.map((post, index) => (
-            <FadeInUp key={index} delay={index * 0.1}>
-              <Link href={`/news/${post.slug}`} className="block group">
-                <div className="relative aspect-[16/10] rounded overflow-hidden mb-4">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <p className="text-xs text-text-secondary mb-2">{post.date}</p>
-                <h3 className="text-[15px] font-medium text-text-primary group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-              </Link>
-            </FadeInUp>
-          ))}
-        </div>
       </div>
     </section>
   );
