@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { company, images } from "@/lib/site";
 
@@ -14,6 +15,9 @@ const navItems = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -60,7 +64,10 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[15px] font-medium text-text-primary transition-colors duration-200 hover:opacity-70 font-[var(--font-noto)]"
+                className={`text-[15px] font-medium transition-colors duration-200 hover:opacity-70 font-[var(--font-noto)] ${
+                  isActive(item.href) ? "text-primary" : "text-text-primary"
+                }`}
+                aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
               </Link>
@@ -129,7 +136,10 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="block h-14 leading-[56px] px-6 text-lg text-text-primary border-b border-gray-100 transition-colors hover:text-primary font-[var(--font-noto)]"
+              className={`block h-14 leading-[56px] px-6 text-lg border-b border-gray-100 transition-colors hover:text-primary font-[var(--font-noto)] ${
+                isActive(item.href) ? "text-primary" : "text-text-primary"
+              }`}
+              aria-current={isActive(item.href) ? "page" : undefined}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
