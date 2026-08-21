@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -58,6 +59,9 @@ const jsonLd = {
   ],
   slogan: "We Build What Matters.",
 };
+
+// Google Analytics 測定ID
+const GA_MEASUREMENT_ID = "G-1RX659M2DE";
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl || "https://www.shindou-kk.co.jp"),
@@ -143,6 +147,21 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingBanners />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
