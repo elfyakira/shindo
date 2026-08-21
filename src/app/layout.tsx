@@ -89,6 +89,11 @@ export const metadata: Metadata = {
     },
   },
 
+  // Google Search Console 所有権確認
+  verification: {
+    google: "X7Bzh_i5VgMxy4dzgTQqE_Dna3umUoUUSrZeSIVQ2cY",
+  },
+
   // OGP
   openGraph: {
     title: "信藤建設 | We Build What Matters.",
