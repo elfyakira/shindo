@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { company, contact } from "@/lib/site";
+import { events } from "@/lib/analytics";
 import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
 import WaveButton from "@/components/WaveButton";
@@ -93,6 +94,7 @@ function ContactForm() {
         );
         return;
       }
+      events.formSubmit("shindo_hp_contact");
       setIsSubmitted(true);
     } catch {
       setErrors({ general: "送信中にエラーが発生しました。時間をおいて再度お試しください。" });
