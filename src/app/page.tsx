@@ -238,9 +238,9 @@ function AwardsSection() {
       </div>
 
       <div className="relative z-10">
-        <div className="flex gap-6 animate-scroll-left">
+        <div className="flex gap-4 lg:gap-6 animate-scroll-left">
           {doubled.map((award, index) => (
-            <div key={index} className="flex-shrink-0 w-[280px] lg:w-[350px]">
+            <div key={index} className="flex-shrink-0 w-[170px] lg:w-[350px]">
               <div className="relative aspect-[4/3] rounded overflow-hidden bg-gray-100">
                 <Image
                   src={award.image}
@@ -278,12 +278,12 @@ function CasesSection() {
       </div>
 
       <div className="relative">
-        <div className="flex gap-6 animate-scroll-left">
+        <div className="flex gap-4 lg:gap-6 animate-scroll-left">
           {doubled.map((item, index) => (
             <Link
               key={index}
               href="/business/cases"
-              className="block group flex-shrink-0 w-[280px] lg:w-[350px]"
+              className="block group flex-shrink-0 w-[170px] lg:w-[350px]"
             >
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
