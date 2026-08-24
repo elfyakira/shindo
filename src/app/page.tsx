@@ -238,7 +238,7 @@ function AwardsSection() {
       </div>
 
       <div className="relative z-10">
-        <div className="flex gap-4 lg:gap-6 animate-scroll-left">
+        <div className="flex gap-4 lg:gap-6 animate-scroll-left-fast">
           {doubled.map((award, index) => (
             <div key={index} className="flex-shrink-0 w-[170px] lg:w-[350px]">
               <div className="relative aspect-[4/3] rounded overflow-hidden bg-gray-100">

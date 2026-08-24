@@ -334,6 +334,23 @@ body {
   animation: scroll-left 60s linear infinite;
 }
 
+/* Awards の横スクロールは少し速め */
+.animate-scroll-left-fast {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-left-fast:hover {
+  animation-play-state: paused;
+}
+
 .animate-scroll-left:hover {
   animation-play-state: paused;
+}
+
+/* スマホはさらに速め(Awards / Cases 共通) */
+@media (max-width: 1023px) {
+  .animate-scroll-left,
+  .animate-scroll-left-fast {
+    animation-duration: 25s;
+  }
 }
