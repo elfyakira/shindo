@@ -328,7 +328,7 @@ function CTASection() {
     <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
-          <h2 className="text-[32px] lg:text-[48px] font-bold text-white mb-4">
+          <h2 className="text-[24px] lg:text-[48px] font-bold text-white mb-4 whitespace-nowrap lg:whitespace-normal">
             ご応募お待ちしています
           </h2>
           <p className="text-[14px] lg:text-[15px] text-white/80 mb-10">

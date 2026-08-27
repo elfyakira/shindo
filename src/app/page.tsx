@@ -225,8 +225,8 @@ function AwardsSection() {
       <div className="absolute inset-0 top-[60%] bg-[#16a637]" />
       {/* 装飾シェイプ */}
       <DecoShape color="red" width={300} top="-120px" right="-80px" direction="top-right" zIndex={6} />
-      <DecoShape color="green" width={240} top="50%" left="-100px" delay={0.1} direction="top-left" zIndex={6} />
-      <DecoShape color="red" width={260} bottom="-100px" right="12%" delay={0.2} direction="bottom-right" zIndex={6} />
+      <DecoShape color="green" width={240} top="50%" left="-100px" delay={0.1} direction="top-left" zIndex={6} className="hidden lg:block" />
+      <DecoShape color="red" width={260} mobileWidth={60} bottom="-100px" right="12%" delay={0.2} direction="bottom-right" zIndex={6} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
         <FadeInUp className="mb-16 lg:mb-20">
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-1 uppercase tracking-wide">Awards</h2></WipeInLeft>
@@ -429,7 +429,7 @@ function RecruitSection() {
         </FadeInUp>
 
         <FadeInUp>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+          <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 items-start">
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image

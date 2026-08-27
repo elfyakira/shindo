@@ -112,7 +112,7 @@ function StrengthsSection() {
         <div className="border-t border-gray-200">
           {STRENGTHS.map((item, index) => (
             <FadeInUp key={index} delay={index * 0.1}>
-              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 py-12 lg:py-16 border-b border-gray-200">
+              <div className={`flex flex-col lg:flex-row gap-8 lg:gap-12 py-12 lg:py-16 border-gray-200 ${index === STRENGTHS.length - 1 ? "border-b-0 lg:border-b" : "border-b"}`}>
                 <div className="w-full lg:w-1/2">
                   <h3 className="text-[20px] lg:text-[24px] font-bold text-text-primary leading-[1.6] mb-6 whitespace-pre-line">
                     {item.title}

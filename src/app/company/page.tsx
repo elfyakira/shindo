@@ -24,7 +24,7 @@ function HeroSection() {
 
       <DecoShape color="red" width={170} top="14%" right="6%" zIndex={6} />
       <DecoShape color="white" width={120} bottom="-25px" left="6%" delay={0.15} zIndex={6} />
-      <DecoShape color="green" width={110} top="62%" right="14%" delay={0.2} zIndex={6} />
+      <DecoShape color="green" width={110} top="62%" right="14%" delay={0.2} zIndex={6} className="hidden lg:block" />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Company" ja="会社情報" variant="dark" />
@@ -39,7 +39,7 @@ function HeroSection() {
 function CeoMessageSection() {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-visible">
-      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} />
+      <DecoShape color="green" width={340} top="-140px" right="-60px" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={100} top="50%" left="-50px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
