@@ -1,56 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { site, company } from "@/lib/site";
+import { site } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
+import WaveButton from "@/components/WaveButton";
 
 // ============================================================
-// 📝 コンテンツデータ（構成案に基づいて編集してください）
+// 📝 記事データは data/site.json の news で管理
 // ============================================================
 
-// サンプルニュースデータ（実際はCMSやsite.jsonから取得）
-const newsData: Record<
-  string,
-  { date: string; category: string; categoryLabel: string; title: string; content: string }
-> = {
-  "1": {
-    date: "2024.01.15",
-    category: "news",
-    categoryLabel: "お知らせ",
-    title: "ホームページをリニューアルしました",
-    content: `この度、ホームページをリニューアルいたしました。
-
-より見やすく、使いやすいサイトを目指して、
-デザインと構成を一新しました。
-
-当社の事業内容、採用情報など、
-最新の情報をわかりやすくお届けしてまいります。
-
-今後ともよろしくお願いいたします。`,
-  },
-  "2": {
-    date: "2024.01.10",
-    category: "works",
-    categoryLabel: "実績",
-    title: "〇〇プロジェクトが完了しました",
-    content: `〇〇プロジェクトが完了いたしました。
-
-詳細はこちらのページをご覧ください。
-
-今後とも、お客様のご期待に応えられるよう、
-品質の高いサービスをお届けしてまいります。`,
-  },
-  "3": {
-    date: "2024.01.05",
-    category: "recruit",
-    categoryLabel: "採用",
-    title: "採用情報を更新しました",
-    content: `採用情報を更新いたしました。
-
-当社では、一緒に働いてくださる方を募集しています。
-
-詳細は採用ページをご覧ください。
-お気軽にお問い合わせください。`,
-  },
+const CATEGORY_LABELS: Record<string, string> = {
+  news: "お知らせ",
+  works: "実績",
+  recruit: "採用",
 };
 
 // 関連リンク
@@ -73,12 +36,10 @@ const relatedLinks: Record<string, { label: string; href: string }[]> = {
 // ページ設定
 // ============================================================
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  // site.jsonのnewsを使用、なければサンプルデータのslugを返す
-  if (site.news.length > 0) {
-    return site.news.map((item) => ({ slug: item.slug }));
-  }
-  return [{ slug: "1" }, { slug: "2" }, { slug: "3" }];
+  return site.news.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({
@@ -87,24 +48,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-
-  // site.jsonから検索
-  const siteNews = site.news.find((item) => item.slug === slug);
-  if (siteNews) {
-    return {
-      title: `${siteNews.title}｜お知らせ｜${site.seo.titleSuffix || "企業サイト"}`,
-      description: siteNews.title,
-    };
-  }
-
-  // サンプルデータから検索
-  const news = newsData[slug];
+  const news = site.news.find((item) => item.slug === slug);
   if (!news) {
     return { title: "お知らせが見つかりません" };
   }
   return {
-    title: `${news.title}｜お知らせ｜${site.seo.titleSuffix || "企業サイト"}`,
-    description: news.content.slice(0, 100),
+    title: `${news.title}｜お知らせ${site.seo.titleSuffix}`,
+    description: news.description || news.title,
   };
 }
 
@@ -118,42 +68,19 @@ export default async function NewsDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
-  // site.jsonから検索
-  const siteNews = site.news.find((item) => item.slug === slug);
-
-  // サンプルデータから検索（site.jsonになければ）
-  const news = siteNews
-    ? {
-        date: siteNews.date,
-        category: siteNews.category,
-        categoryLabel: siteNews.category === "news" ? "お知らせ" : siteNews.category === "works" ? "実績" : "採用",
-        title: siteNews.title,
-        content: "詳細内容はこちらに表示されます。\n\nCMSやsite.jsonでコンテンツを管理してください。",
-      }
-    : newsData[slug];
+  const news = site.news.find((item) => item.slug === slug);
 
   if (!news) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-text-primary mb-4">
-            お知らせが見つかりません
-          </h1>
-          <Link href="/news" className="text-navy hover:underline">
-            ← お知らせ一覧に戻る
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
+  const categoryLabel = CATEGORY_LABELS[news.category] || news.category;
   const links = relatedLinks[news.category] || relatedLinks.news;
 
   return (
     <>
-      {/* Page Header */}
-      <section className="py-10 lg:py-[60px] bg-white">
+      {/* Page Header（固定ヘッダー分の上余白を確保） */}
+      <section className="pt-24 pb-10 lg:pt-36 lg:pb-[60px] bg-white">
         <div className="max-w-[800px] mx-auto px-4">
           <FadeInUp>
             <div className="flex items-center gap-3 mb-4">
@@ -161,7 +88,7 @@ export default async function NewsDetailPage({
                 {news.date}
               </span>
               <span className="text-xs font-semibold text-navy px-2 py-0.5 bg-gray-100 rounded">
-                {news.categoryLabel}
+                {categoryLabel}
               </span>
             </div>
             <h1 className="text-2xl lg:text-[32px] font-bold text-text-primary leading-[1.4]">
@@ -171,14 +98,81 @@ export default async function NewsDetailPage({
         </div>
       </section>
 
+      {/* Main Image */}
+      {news.image && (
+        <section className="pb-10 lg:pb-[60px] bg-white">
+          <div className="max-w-[800px] mx-auto px-4">
+            <FadeInUp>
+              <Image
+                src={news.image.src}
+                alt={news.image.alt}
+                width={864}
+                height={864}
+                priority
+                sizes="(min-width: 640px) 560px, 100vw"
+                className="w-full max-w-[560px] h-auto mx-auto rounded-lg"
+              />
+            </FadeInUp>
+          </div>
+        </section>
+      )}
+
       {/* Content */}
-      <section className="pb-10 lg:pb-[60px] bg-white">
-        <div className="max-w-[800px] mx-auto px-4">
-          <FadeInUp delay={100} className="text-[15px] lg:text-base text-black leading-[1.9] whitespace-pre-wrap">
-            {news.content}
-          </FadeInUp>
-        </div>
-      </section>
+      {news.body && news.body.length > 0 && (
+        <section className="pb-10 lg:pb-[60px] bg-white">
+          <div className="max-w-[800px] mx-auto px-4">
+            <FadeInUp delay={100} className="space-y-6 text-[15px] lg:text-base text-black leading-[1.9]">
+              {news.body.map((block, index) =>
+                typeof block === "string" ? (
+                  <p key={index} className="whitespace-pre-line">
+                    {block}
+                  </p>
+                ) : (
+                  <Image
+                    key={index}
+                    src={block.src}
+                    alt={block.alt}
+                    width={864}
+                    height={864}
+                    sizes="(min-width: 640px) 560px, 100vw"
+                    className="w-full max-w-[560px] h-auto mx-auto rounded-lg !my-10"
+                  />
+                )
+              )}
+            </FadeInUp>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      {news.cta && (
+        <section className="pb-10 lg:pb-[60px] bg-white">
+          <div className="max-w-[800px] mx-auto px-4">
+            <FadeInUp className="bg-[#16a637] rounded-lg px-6 py-10 lg:px-12 lg:py-12 text-center">
+              <p className="text-[15px] lg:text-base text-white leading-[1.9] whitespace-pre-line mb-8">
+                {news.cta.text}
+              </p>
+              <WaveButton href={news.cta.href} text={news.cta.label} variant="light" />
+            </FadeInUp>
+          </div>
+        </section>
+      )}
+
+      {/* Signature */}
+      {news.signature && (
+        <section className="pb-10 lg:pb-[60px] bg-white">
+          <div className="max-w-[800px] mx-auto px-4">
+            <FadeInUp className="border-t border-gray-200 pt-8 lg:pt-10">
+              <p className="text-base lg:text-lg font-bold text-text-primary mb-3">
+                {news.signature.heading}
+              </p>
+              <p className="text-[15px] lg:text-base text-black leading-[1.9] whitespace-pre-line">
+                {news.signature.text}
+              </p>
+            </FadeInUp>
+          </div>
+        </section>
+      )}
 
       {/* Related Links */}
       <section className="pb-8 lg:pb-10 bg-white">

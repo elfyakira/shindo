@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = newsItem?.title || "お知らせ詳細";
   const description = newsItem
-    ? `${newsItem.title} - ${company.name}からのお知らせ`
+    ? newsItem.description || `${newsItem.title} - ${company.name}からのお知らせ`
     : `${company.name}からのお知らせ詳細ページ`;
 
   return {
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: company.name,
       locale: "ja_JP",
       type: "article",
+      ...(newsItem?.image && { images: [{ url: newsItem.image.src, alt: newsItem.image.alt }] }),
     },
 
     // === Twitter Card ===
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: `${title}${site.seo.titleSuffix}`,
       description: description,
+      ...(newsItem?.image && { images: [newsItem.image.src] }),
     },
 
     // === Canonical URL (重複コンテンツ対策) ===

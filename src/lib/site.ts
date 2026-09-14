@@ -8,6 +8,11 @@ export interface SEO {
   defaultDescription: string;
 }
 
+export interface NewsImage {
+  src: string;
+  alt: string;
+}
+
 export interface SiteData {
   company: {
     name: string;
@@ -90,6 +95,22 @@ export interface SiteData {
     category: string;
     title: string;
     slug: string;
+    description?: string;
+    // メイン画像（記事上部・OGP に使用）
+    image?: NewsImage;
+    // 本文（文字列＝段落。段落内の改行は \n。オブジェクト＝画像）
+    body?: Array<string | NewsImage>;
+    // 記事内の誘導枠
+    cta?: {
+      text: string;
+      label: string;
+      href: string;
+    };
+    // 記事末尾の署名
+    signature?: {
+      heading: string;
+      text: string;
+    };
   }>;
   recruit: {
     catchphrase: string;

@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.shindou-kk.co.jp";
@@ -52,6 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    ...site.news.map((item) => ({
+      url: `${baseUrl}/news/${item.slug}`,
+      lastModified: new Date(item.date.replace(/\./g, "-")),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+    })),
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
