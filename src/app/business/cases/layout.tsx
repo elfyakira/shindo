@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   // 親(business)のlayoutがtitle templateを上書きするため absolute で指定
@@ -35,5 +37,10 @@ export default function CasesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "事業内容", path: "/business" }, { name: "施工実績", path: "/business/cases" }])} />
+      {children}
+    </>
+  );
 }

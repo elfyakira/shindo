@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
 import WaveButton from "@/components/WaveButton";
+import JsonLd from "@/components/JsonLd";
+import { blogPostingJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 // ============================================================
 // 📝 記事データは data/site.json の news で管理
@@ -79,6 +81,15 @@ export default async function NewsDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          blogPostingJsonLd(news),
+          breadcrumbJsonLd([
+            { name: "お知らせ・ブログ", path: "/news" },
+            { name: news.title, path: `/news/${news.slug}` },
+          ]),
+        ]}
+      />
       {/* Page Header（固定ヘッダー分の上余白を確保） */}
       <section className="pt-24 pb-10 lg:pt-36 lg:pb-[60px] bg-white">
         <div className="max-w-[800px] mx-auto px-4">

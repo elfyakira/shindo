@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, faqJsonLd, jobPostingsJsonLd } from "@/lib/structured-data";
+import { RECRUIT_FAQS } from "@/lib/recruit";
 
 export const metadata: Metadata = {
   title: "Recruit",
@@ -34,5 +37,12 @@ export default function RecruitLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "採用情報", path: "/recruit" }])} />
+      <JsonLd data={jobPostingsJsonLd()} />
+      <JsonLd data={faqJsonLd(RECRUIT_FAQS)} />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "各種表彰 | Awards",
@@ -34,5 +36,10 @@ export default function AwardsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "各種表彰", path: "/awards" }])} />
+      {children}
+    </>
+  );
 }

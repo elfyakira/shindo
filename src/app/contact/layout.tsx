@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -40,5 +42,10 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "お問い合わせ", path: "/contact" }])} />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "地域貢献活動 | Community",
@@ -34,5 +36,10 @@ export default function CommunityLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "地域貢献活動", path: "/community" }])} />
+      {children}
+    </>
+  );
 }

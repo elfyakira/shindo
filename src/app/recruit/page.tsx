@@ -7,6 +7,7 @@ import WaveTitle from "@/components/WaveTitle";
 import WaveButton from "@/components/WaveButton";
 import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
+import { RECRUIT_FAQS } from "@/lib/recruit";
 
 // ============================================================
 // Hero Section
@@ -270,11 +271,7 @@ function RequirementsSection() {
 // ============================================================
 // FAQ Section
 // ============================================================
-const FAQS = [
-  { q: "未経験でも応募できますか？", a: "はい、未経験の方も歓迎しています。入社後は先輩社員が丁寧に指導しますので、安心してご応募ください。" },
-  { q: "資格は必要ですか？", a: "入社時に資格がなくても大丈夫です。入社後に資格取得をサポートする制度があります。" },
-  { q: "職場見学はできますか？", a: "はい、職場見学も随時受け付けています。お気軽にお問い合わせください。" },
-];
+const FAQS = RECRUIT_FAQS;
 
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

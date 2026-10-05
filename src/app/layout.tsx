@@ -5,7 +5,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingBanners from "@/components/FloatingBanners";
-import { seo, company, contact, locations } from "@/lib/site";
+import { seo } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import { organizationJsonLd } from "@/lib/structured-data";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -13,52 +15,6 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
   variable: "--font-noto",
 });
-
-// JSON-LD構造化データ
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.shindou-kk.co.jp/#organization",
-  name: "信藤建設",
-  alternateName: "Shindo Construction",
-  description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備（河川護岸工事、道路舗装、上下水道工事など）に取り組んでいます。",
-  url: "https://www.shindou-kk.co.jp",
-  telephone: "059-345-3171",
-  fax: "059-347-2775",
-  foundingDate: "1938-02",
-  numberOfEmployees: {
-    "@type": "QuantitativeValue",
-    value: 27,
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "川合町2番地",
-    postalCode: "510-0853",
-    addressLocality: "四日市市",
-    addressRegion: "三重県",
-    addressCountry: "JP",
-  },
-  areaServed: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      addressCountry: "JP",
-    },
-    description: "三重県北勢・中勢エリア",
-  },
-  knowsAbout: [
-    "土木工事",
-    "河川護岸工事",
-    "道路舗装工事",
-    "堤防工事",
-    "上下水道工事",
-    "建築工事",
-    "舗装工事",
-    "公共事業",
-    "地域インフラ整備",
-  ],
-  slogan: "We Build What Matters.",
-};
 
 // Google Analytics 測定ID
 const GA_MEASUREMENT_ID = "G-1RX659M2DE";
@@ -142,10 +98,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* 構造化データ：会社情報・Webサイト（全ページ共通） */}
+        <JsonLd data={organizationJsonLd()} />
       </head>
       <body className={`${notoSansJP.className} ${notoSansJP.variable}`}>
         <Header />
