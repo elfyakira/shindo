@@ -30,7 +30,7 @@ function HeroSection() {
       <DecoShape color="green" width={110} top="60%" right="14%" delay={0.2} zIndex={6} />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <WaveTitle en="About" ja="私たちについて" variant="dark" />
+        <WaveTitle en="About" ja="私たちについて" variant="dark" as="h1" />
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export default function AwardsPage() {
         <DecoShape color="green" width={120} bottom="-25px" right="14%" delay={0.15} zIndex={6} />
         <DecoShape color="red" width={110} bottom="10%" left="4%" delay={0.2} zIndex={6} className="hidden lg:block" />
         <div className="relative z-10 w-full px-6 lg:px-[10%]">
-          <WaveTitle en="Awards" ja="各種表彰" variant="dark" />
+          <WaveTitle en="Awards" ja="各種表彰" variant="dark" as="h1" />
         </div>
       </section>
 

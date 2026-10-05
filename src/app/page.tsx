@@ -53,6 +53,7 @@ const HERO_LINES = [
 function HeroSection() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center">
+      <h1 className="sr-only">信藤建設｜三重県四日市市の建設会社（土木・公共事業・地域インフラ整備）</h1>
       <div className="absolute inset-0 z-0">
         <video
           autoPlay

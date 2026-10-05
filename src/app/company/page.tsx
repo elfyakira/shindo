@@ -27,7 +27,7 @@ function HeroSection() {
       <DecoShape color="green" width={110} top="62%" right="14%" delay={0.2} zIndex={6} className="hidden lg:block" />
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
-        <WaveTitle en="Company" ja="会社情報" variant="dark" />
+        <WaveTitle en="Company" ja="会社情報" variant="dark" as="h1" />
       </div>
     </section>
   );

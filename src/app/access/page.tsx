@@ -59,7 +59,7 @@ export default function AccessPage() {
         <DecoShape color="green" width={220} bottom="-160px" right="8%" delay={0.2} zIndex={3} />
         <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
           <FadeInUp className="mb-12 lg:mb-16">
-            <WaveTitle en="Access" ja="アクセス" />
+            <WaveTitle en="Access" ja="アクセス" as="h1" />
           </FadeInUp>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 border-t border-gray-200">

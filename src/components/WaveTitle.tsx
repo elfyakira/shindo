@@ -7,9 +7,11 @@ interface WaveTitleProps {
   ja?: string;
   variant?: "light" | "dark";
   className?: string;
+  // ページの主見出しとして使う場合は "h1"（見た目は同じ、jaを見出しテキストにも含める）
+  as?: "h1" | "h2";
 }
 
-export default function WaveTitle({ en, ja, variant = "light", className = "" }: WaveTitleProps) {
+export default function WaveTitle({ en, ja, variant = "light", className = "", as: Tag = "h2" }: WaveTitleProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,7 +35,7 @@ export default function WaveTitle({ en, ja, variant = "light", className = "" }:
 
   return (
     <div ref={ref} className={className}>
-      <h2 className={`text-[32px] lg:text-[96px] font-black ${titleColor} leading-[0.9] mb-1 uppercase tracking-wide`}>
+      <Tag className={`text-[32px] lg:text-[96px] font-black ${titleColor} leading-[0.9] mb-1 uppercase tracking-wide`}>
         {(() => {
           let charIndex = 0;
           const renderChar = (char: string) => {
@@ -75,9 +77,10 @@ export default function WaveTitle({ en, ja, variant = "light", className = "" }:
             );
           });
         })()}
-      </h2>
+        {Tag === "h1" && ja ? <span className="sr-only">（{ja}）</span> : null}
+      </Tag>
       {ja && (
-        <p className={`text-[14px] lg:text-[16px] font-bold ${titleColor} leading-[1.4] mb-6`}>
+        <p aria-hidden={Tag === "h1" ? true : undefined} className={`text-[14px] lg:text-[16px] font-bold ${titleColor} leading-[1.4] mb-6`}>
           {ja}
         </p>
       )}

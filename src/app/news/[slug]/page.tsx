@@ -23,7 +23,7 @@ const relatedLinks: Record<string, { label: string; href: string }[]> = {
     { label: "お問い合わせ", href: "/contact" },
   ],
   works: [
-    { label: "事業内容", href: "/service" },
+    { label: "事業内容", href: "/business" },
     { label: "お問い合わせ", href: "/contact" },
   ],
   recruit: [

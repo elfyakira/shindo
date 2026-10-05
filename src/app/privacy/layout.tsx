@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `プライバシーポリシー｜${site.seo.titleSuffix || "企業サイト"}`,
-  description: "プライバシーポリシー（個人情報保護方針）について。",
+  title: "プライバシーポリシー",
+  description: "信藤建設のプライバシーポリシー（個人情報保護方針）。お客様からお預かりした個人情報の取り扱いについてご説明します。",
+
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyLayout({

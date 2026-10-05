@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "施工実績",
+  // 親(business)のlayoutがtitle templateを上書きするため absolute で指定
+  title: { absolute: "施工実績 | 信藤建設" },
   description: "信藤建設の施工実績。河川護岸工事、道路舗装工事、上下水道工事など、公共事業を中心とした実績をご紹介します。",
 
   openGraph: {
