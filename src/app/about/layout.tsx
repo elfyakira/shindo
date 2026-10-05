@@ -3,11 +3,11 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "私たちについて｜四日市市の建設会社",
   description: "信藤建設について。地域にとって本当に必要な公共事業に、誠実に向き合う建設会社です。信藤建設の強み、受賞歴をご紹介します。",
 
   openGraph: {
-    title: "About | 信藤建設",
+    title: "私たちについて｜四日市市の建設会社 | 信藤建設",
     description: "信藤建設について。地域にとって本当に必要な公共事業に、誠実に向き合う建設会社です。",
     url: "https://www.shindou-kk.co.jp/about",
     siteName: "信藤建設",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "About | 信藤建設",
+    title: "私たちについて｜四日市市の建設会社 | 信藤建設",
     description: "信藤建設について。地域にとって本当に必要な公共事業に、誠実に向き合う建設会社です。",
   },
 

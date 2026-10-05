@@ -22,7 +22,7 @@ const GA_MEASUREMENT_ID = "G-1RX659M2DE";
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl || "https://www.shindou-kk.co.jp"),
   title: {
-    default: "信藤建設 | We Build What Matters.",
+    default: "信藤建設｜三重県四日市市の建設会社（土木・公共工事）",
     template: `%s | 信藤建設`,
   },
   description: "三重県四日市市の信藤建設。昭和13年創業。公共事業を中心とした地域インフラ整備に取り組んでいます。河川護岸工事、道路舗装、上下水道工事など。",

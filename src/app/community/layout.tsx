@@ -3,11 +3,11 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: "地域貢献活動 | Community",
+  title: "地域貢献活動｜出前授業・現場見学・清掃活動",
   description: "信藤建設の地域貢献活動。現場見学会・出前授業による次世代への技術継承、清掃活動などの環境保全・地域美化活動を通じて、三重県四日市市の地域社会とともに歩んでいます。",
 
   openGraph: {
-    title: "地域貢献活動 | Community | 信藤建設",
+    title: "地域貢献活動｜出前授業・現場見学・清掃活動 | 信藤建設",
     description: "信藤建設の地域貢献活動。現場見学会・出前授業、清掃活動など、地域社会とともに歩む取り組みをご紹介します。",
     url: "https://www.shindou-kk.co.jp/community",
     siteName: "信藤建設",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "地域貢献活動 | Community | 信藤建設",
+    title: "地域貢献活動｜出前授業・現場見学・清掃活動 | 信藤建設",
     description: "信藤建設の地域貢献活動。現場見学会・出前授業、清掃活動など、地域社会とともに歩む取り組みをご紹介します。",
   },
 

@@ -18,7 +18,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/recruit-hero.png"
-          alt="RECRUIT"
+          alt="河川の工事現場に立つ信藤建設の社員"
           fill
           className="object-cover object-[15%_10%]"
           priority
@@ -81,7 +81,7 @@ function JoinTeamSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/recruit-join.jpg"
-          alt="Join our team"
+          alt="工事現場に立つ信藤建設の社員"
           fill
           className="object-cover"
         />

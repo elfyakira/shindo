@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Business",
+  title: "事業内容｜河川・道路・上下水道などの公共工事",
   description: "信藤建設の事業内容。公共事業を中心とした地域インフラ整備、太陽光発電事業、現場見学・出前授業、清掃活動などの地域貢献活動をご紹介します。",
 
   openGraph: {
-    title: "Business | 信藤建設",
+    title: "事業内容｜河川・道路・上下水道などの公共工事 | 信藤建設",
     description: "信藤建設の事業内容。公共事業を中心とした地域インフラ整備をご紹介します。",
     url: "https://www.shindou-kk.co.jp/business",
     siteName: "信藤建設",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Business | 信藤建設",
+    title: "事業内容｜河川・道路・上下水道などの公共工事 | 信藤建設",
     description: "信藤建設の事業内容。公共事業を中心とした地域インフラ整備をご紹介します。",
   },
 

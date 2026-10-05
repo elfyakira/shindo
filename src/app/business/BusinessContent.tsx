@@ -16,7 +16,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/business-hero.jpg"
-          alt="事業内容"
+          alt="道路建設工事で施工中の高架橋の橋脚"
           fill
           className="object-cover"
           priority
@@ -66,7 +66,7 @@ function MainBusinessSection() {
               <div className="relative w-48 lg:w-64 aspect-[4/3] rounded overflow-hidden">
                 <Image
                   src="/images/generated/business-content.jpg"
-                  alt="事業内容"
+                  alt="道路と擁壁の工事現場（空撮）"
                   fill
                   className="object-cover"
                 />
@@ -103,7 +103,7 @@ function SolarSection() {
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
                   src="/images/generated/solar.jpg"
-                  alt="太陽光発電事業"
+                  alt="信藤建設の太陽光発電設備（空撮）"
                   fill
                   className="object-cover"
                 />

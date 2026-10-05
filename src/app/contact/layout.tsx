@@ -5,12 +5,12 @@ import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
   // === 基本SEO ===
-  title: "お問い合わせ | Contact",
+  title: "お問い合わせ｜工事のご相談・採用について",
   description: `${company.name}へのお問い合わせはこちら。ご質問、ご相談、お見積りなど、お気軽にお問い合わせください。`,
 
   // === OpenGraph (SNS共有時) ===
   openGraph: {
-    title: `お問い合わせ | Contact${site.seo.titleSuffix}`,
+    title: "お問い合わせ｜工事のご相談・採用について | 信藤建設",
     description: `${company.name}へのお問い合わせはこちら。ご質問、ご相談、お見積りなど。`,
     url: `${site.seo.siteUrl}/contact`,
     siteName: company.name,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   // === Twitter Card ===
   twitter: {
     card: "summary_large_image",
-    title: `お問い合わせ | Contact${site.seo.titleSuffix}`,
+    title: "お問い合わせ｜工事のご相談・採用について | 信藤建設",
     description: `${company.name}へのお問い合わせはこちら。`,
   },
 

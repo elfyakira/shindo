@@ -15,7 +15,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/cases-hero.jpg"
-          alt="施工実績"
+          alt="水路沿いの護岸工事の施工現場"
           fill
           className="object-cover object-top"
           priority

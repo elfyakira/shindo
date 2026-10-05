@@ -6,9 +6,17 @@ import WaveTitle from "@/components/WaveTitle";
 import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
 
-const AWARD_PHOTOS = [1, 3, 4, 6, 7, 8, 9].map((n) => ({
+const AWARD_PHOTOS = [
+  { n: 1, alt: "令和7年度 北勢国道事務所 災害対策支援功労者表彰式の記念撮影" },
+  { n: 3, alt: "令和7年度 国土交通省中部地方整備局 表彰式の記念撮影" },
+  { n: 4, alt: "令和7年度 北勢流域下水道事務所 優良工事表彰式での表彰状授与" },
+  { n: 6, alt: "令和7年度 北勢流域下水道事務所 優良工事表彰式の記念撮影" },
+  { n: 7, alt: "令和7年度 北勢流域下水道事務所 優良工事表彰式の関係者との記念撮影" },
+  { n: 8, alt: "令和2年度 三重河川国道事務所 優良工事等表彰式の記念撮影" },
+  { n: 9, alt: "令和2年度 三重河川国道事務所 優良工事等表彰式で表彰状を受け取った信藤建設の社員" },
+].map(({ n, alt }) => ({
   image: `/images/awards-photos/photo-${String(n).padStart(2, "0")}.jpg`,
-  alt: `表彰式写真${n}`,
+  alt,
 }));
 
 export default function AwardsPage() {
@@ -19,7 +27,7 @@ export default function AwardsPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/generated/awards-hero.jpg"
-            alt="各種表彰"
+            alt="令和2年度 三重河川国道事務所 優良工事等表彰式の記念撮影"
             fill
             className="object-cover"
             priority

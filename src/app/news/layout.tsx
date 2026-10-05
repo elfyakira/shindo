@@ -3,12 +3,12 @@ import { site, company } from "@/lib/site";
 
 export const metadata: Metadata = {
   // === 基本SEO ===
-  title: "お知らせ | News",
+  title: "お知らせ・ブログ｜四日市市の建設会社の日常",
   description: `${company.name}からのお知らせ一覧。最新ニュース、実績情報、採用情報など、当社の最新情報をお届けします。`,
 
   // === OpenGraph (SNS共有時) ===
   openGraph: {
-    title: `お知らせ | News${site.seo.titleSuffix}`,
+    title: "お知らせ・ブログ｜四日市市の建設会社の日常 | 信藤建設",
     description: `${company.name}からのお知らせ一覧。最新ニュース、実績情報、採用情報など。`,
     url: `${site.seo.siteUrl}/news`,
     siteName: company.name,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // === Twitter Card ===
   twitter: {
     card: "summary_large_image",
-    title: `お知らせ | News${site.seo.titleSuffix}`,
+    title: "お知らせ・ブログ｜四日市市の建設会社の日常 | 信藤建設",
     description: `${company.name}からのお知らせ一覧。最新ニュース、実績情報など。`,
   },
 

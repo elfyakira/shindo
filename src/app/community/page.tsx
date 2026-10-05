@@ -14,7 +14,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/community-hero.jpg"
-          alt="地域貢献活動"
+          alt="道路沿いの清掃活動をする信藤建設の社員"
           fill
           className="object-cover"
           priority

@@ -14,7 +14,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/company-bg.jpg"
-          alt="Company"
+          alt="海沿いの堤防と樋門の工事現場（空撮）"
           fill
           className="object-cover object-[center_30%]"
           priority
@@ -49,7 +49,7 @@ function CeoMessageSection() {
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
                   src="/images/ceo-greeting.jpg"
-                  alt="代表"
+                  alt="代表取締役 伊藤秀樹"
                   fill
                   className="object-cover" style={{ transform: 'scale(2) translateY(5%)' }}
                 />

@@ -62,6 +62,8 @@ function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
+          {/* スマホは軽量版（720p）、PCはフルHD版を読み込む */}
+          <source src="/videos/hero-main-sp.mp4" type="video/mp4" media="(max-width: 767px)" />
           <source src="/videos/hero-main.mp4" type="video/mp4" />
         </video>
       </div>
@@ -118,21 +120,21 @@ function AboutIntroSection() {
           <div className="grid grid-cols-3 gap-6 mb-10 max-w-[500px]">
             <Image
               src="/images/generated/iso-cert-01.png"
-              alt="ISO認証書類"
+              alt="ISO9001:2015 認証登録証（信藤建設株式会社）"
               width={200}
               height={280}
               className="w-full h-auto"
             />
             <Image
               src="/images/generated/iso14001-cert.png"
-              alt="ISO14001認証書類"
+              alt="ISO14001:2015 認証登録証（信藤建設株式会社）"
               width={200}
               height={280}
               className="w-full h-auto"
             />
             <Image
               src="/images/generated/iso45001-cert.png"
-              alt="ISO45001認証書類"
+              alt="ISO45001:2018 認証登録証（信藤建設株式会社）"
               width={200}
               height={280}
               className="w-full h-auto"
@@ -185,7 +187,7 @@ function BusinessSection() {
               <div className="relative h-full min-h-[400px] rounded overflow-hidden">
                 <Image
                   src="/images/generated/business-hero.jpg"
-                  alt="事業内容"
+                  alt="道路建設工事で施工中の高架橋の橋脚"
                   fill
                   className="object-cover"
                 />
@@ -339,7 +341,7 @@ function CompanySection() {
       <div className="sticky top-0 h-screen overflow-hidden">
         <Image
           src="/images/generated/company-bg.jpg"
-          alt="会社背景"
+          alt="海沿いの堤防と樋門の工事現場（空撮）"
           fill
           className="object-cover"
           style={{ filter: `blur(${blur}px)` }}
@@ -363,7 +365,7 @@ function CompanySection() {
                 <div className="relative aspect-[4/3] rounded overflow-hidden">
                   <Image
                     src="/images/generated/company-bg.jpg"
-                    alt="会社イメージ"
+                    alt="海沿いの堤防と樋門の工事現場（空撮）"
                     fill
                     className="object-cover"
                   />
@@ -435,7 +437,7 @@ function RecruitSection() {
               <div className="relative aspect-[4/3] rounded overflow-hidden">
                 <Image
                   src="/images/generated/recruit-hero.jpg"
-                  alt="採用情報"
+                  alt="河川の工事現場に立つ信藤建設の社員"
                   fill
                   className="object-cover"
                 />

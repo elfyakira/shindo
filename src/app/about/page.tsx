@@ -17,7 +17,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/generated/about-hero.jpg"
-          alt="About"
+          alt="道路と擁壁の工事現場（空撮）"
           fill
           className="object-cover object-[center_15%]"
           priority
@@ -69,7 +69,7 @@ function AboutContentSection() {
               <div className="relative w-48 lg:w-64 aspect-[4/3] rounded overflow-hidden">
                 <Image
                   src="/images/generated/about-content.jpg"
-                  alt="私たちについて"
+                  alt="工事現場で打ち合わせをする信藤建設の社員"
                   fill
                   className="object-cover"
                 />

@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="relative aspect-[4/3] rounded overflow-hidden">
               <Image
                 src="/images/generated/company-bg.jpg"
-                alt="お問い合わせ"
+                alt="海沿いの堤防と樋門の工事現場（空撮）"
                 fill
                 className="object-cover"
               />

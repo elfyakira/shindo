@@ -4,11 +4,11 @@ import { breadcrumbJsonLd, faqJsonLd, jobPostingsJsonLd } from "@/lib/structured
 import { RECRUIT_FAQS } from "@/lib/recruit";
 
 export const metadata: Metadata = {
-  title: "Recruit",
+  title: "採用情報｜四日市市の土木作業員・施工管理の求人",
   description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。募集職種、待遇、よくある質問をご紹介します。",
 
   openGraph: {
-    title: "Recruit | 信藤建設",
+    title: "採用情報｜四日市市の土木作業員・施工管理の求人 | 信藤建設",
     description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。",
     url: "https://www.shindou-kk.co.jp/recruit",
     siteName: "信藤建設",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Recruit | 信藤建設",
+    title: "採用情報｜四日市市の土木作業員・施工管理の求人 | 信藤建設",
     description: "信藤建設の採用情報。地域のインフラを支える仕事に、あなたも参加しませんか。",
   },
 

@@ -3,11 +3,11 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: "各種表彰 | Awards",
+  title: "各種表彰｜官公庁の優良工事表彰・受賞歴",
   description: "信藤建設の受賞歴・表彰実績。国土交通省・三重県・四日市市をはじめとする官公庁から、数多くの優良工事表彰をいただいています。安全・品質・工程管理の評価の証です。",
 
   openGraph: {
-    title: "各種表彰 | Awards | 信藤建設",
+    title: "各種表彰｜官公庁の優良工事表彰・受賞歴 | 信藤建設",
     description: "信藤建設の受賞歴・表彰実績。国土交通省・三重県・四日市市などから数多くの優良工事表彰をいただいています。",
     url: "https://www.shindou-kk.co.jp/awards",
     siteName: "信藤建設",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "各種表彰 | Awards | 信藤建設",
+    title: "各種表彰｜官公庁の優良工事表彰・受賞歴 | 信藤建設",
     description: "信藤建設の受賞歴・表彰実績。国土交通省・三重県・四日市市などから数多くの優良工事表彰をいただいています。",
   },
 
