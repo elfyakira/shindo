@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/lib/site";
@@ -86,9 +87,20 @@ function NewsList({ category }: { category: Category }) {
               <li key={index} className="border-b border-gray-200">
                 <Link
                   href={`/news/${item.slug}`}
-                  className="flex items-center justify-between py-6 lg:py-8 hover:opacity-70 transition-opacity"
+                  className="flex items-center justify-between gap-4 py-6 lg:py-8 hover:opacity-70 transition-opacity"
                 >
-                  <div className="flex items-center gap-3 lg:gap-6">
+                  {item.image && (
+                    <div className="relative w-20 h-20 lg:w-28 lg:h-28 flex-shrink-0 rounded overflow-hidden bg-gray-100">
+                      <Image
+                        src={item.image.src}
+                        alt={item.image.alt}
+                        fill
+                        sizes="(min-width: 1024px) 112px, 80px"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0 flex flex-wrap lg:flex-nowrap items-center gap-x-3 gap-y-2 lg:gap-6">
                     <span className="text-sm text-text-secondary w-[88px] flex-shrink-0">{item.date}</span>
                     <span className="text-xs font-semibold py-1 bg-gray-100 rounded-full text-text-primary text-center whitespace-nowrap flex-shrink-0 w-16 lg:w-20">
                       {categoryLabel}
