@@ -9,6 +9,7 @@ import WaveButton from "@/components/WaveButton";
 import CharByCharLines from "@/components/CharByCharLines";
 import { ALL_AWARDS } from "@/lib/awards";
 import { ALL_CASES } from "@/lib/cases";
+import LatestBlogPosts from "@/components/LatestBlogPosts";
 
 // ============================================================
 // WipeInLeft - スクロールで画面に入ったらワイプ開始
@@ -479,12 +480,14 @@ function BlogSection() {
       <DecoShape color="green" width={320} top="-120px" right="-60px" direction="top-right" zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={240} top="40%" left="-80px" delay={0.1} direction="top-left" zIndex={3} className="hidden lg:block" />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp>
+        <FadeInUp className="mb-10 lg:mb-16">
           <WipeInLeft><h2 className="inline-block text-[56px] lg:text-[96px] font-black text-[#16a637] leading-[0.9] mb-4 uppercase tracking-wide">Blog</h2></WipeInLeft>
           <div className="mt-6">
             <WaveButton href="/news" text="View all" variant="dark" />
           </div>
         </FadeInUp>
+
+        <LatestBlogPosts />
       </div>
     </section>
   );

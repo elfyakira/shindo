@@ -7,6 +7,7 @@ import WaveButton from "@/components/WaveButton";
 import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
+import LatestBlogPosts from "@/components/LatestBlogPosts";
 
 // ============================================================
 // Hero Section
@@ -186,12 +187,14 @@ function BlogSection() {
       <DecoShape color="red" width={120} top="40%" left="-50px" delay={0.1} zIndex={3} className="hidden lg:block" />
       <DecoShape color="red" width={140} top="10px" right="20%" delay={0.2} zIndex={3} />
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12">
-        <FadeInUp>
+        <FadeInUp className="mb-10 lg:mb-16">
           <WaveTitle en="Blog" />
           <div className="mt-6">
             <WaveButton href="/news" text="View all" variant="dark" />
           </div>
         </FadeInUp>
+
+        <LatestBlogPosts />
       </div>
     </section>
   );

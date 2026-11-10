@@ -217,10 +217,10 @@ function RequirementsSection() {
           <WaveTitle en="Requirements" ja="募集要項" />
         </FadeInUp>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <FadeInUp delay={0.1}>
-            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6">施工管理</h3>
-            <div className="bg-white border border-gray-100 rounded overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-x-12 lg:gap-y-0">
+          <FadeInUp delay={0.1} className="lg:grid lg:grid-rows-subgrid lg:row-span-8">
+            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6 self-end">施工管理</h3>
+            <div className="bg-white border border-gray-100 rounded overflow-hidden lg:grid lg:grid-rows-subgrid lg:row-span-6">
               {REQUIREMENTS_NEW_GRAD.map((item, i) => (
                 <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
                   <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
@@ -232,11 +232,21 @@ function RequirementsSection() {
                 </div>
               ))}
             </div>
+            <div className="mt-8 text-center">
+              <WaveButton
+                href="https://tunageru.net/stc/case/info/f9xUKHXhD5bM3It1R0Tp"
+                target="_blank"
+                rel="noopener noreferrer"
+                text="この職種に応募する"
+                variant="dark"
+                className="mx-auto"
+              />
+            </div>
           </FadeInUp>
 
-          <FadeInUp delay={0.2}>
-            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6">現場作業員</h3>
-            <div className="bg-white border border-gray-100 rounded overflow-hidden">
+          <FadeInUp delay={0.2} className="lg:grid lg:grid-rows-subgrid lg:row-span-8">
+            <h3 className="text-[20px] font-semibold text-[#16a637] mb-6 self-end">現場作業員</h3>
+            <div className="bg-white border border-gray-100 rounded overflow-hidden lg:grid lg:grid-rows-subgrid lg:row-span-6">
               {REQUIREMENTS_MID_CAREER.map((item, i) => (
                 <div key={i} className="flex flex-col sm:flex-row border-b border-gray-100 last:border-b-0">
                   <div className="w-full sm:w-32 lg:w-36 flex-shrink-0 px-4 py-4 lg:py-5 text-[13px] lg:text-sm font-semibold text-text-primary bg-gray-50">
@@ -247,6 +257,16 @@ function RequirementsSection() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <WaveButton
+                href="https://tunageru.net/stc/case/info/mAl2aXR1VP8fuDJvNzkK"
+                target="_blank"
+                rel="noopener noreferrer"
+                text="この職種に応募する"
+                variant="dark"
+                className="mx-auto"
+              />
             </div>
           </FadeInUp>
         </div>
