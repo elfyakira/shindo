@@ -21,6 +21,9 @@ export const events = {
     trackEvent("form_submit", { form_name: formName }),
   ctaClick: (ctaName: string, location: string) =>
     trackEvent("cta_click", { cta_name: ctaName, location }),
+  // 職種別応募ボタン（外部の応募ページへの遷移）
+  applyClick: (job: string, location: string) =>
+    trackEvent("apply_click", { job, location }),
   phoneClick: () => trackEvent("phone_click"),
   scrollDepth: (percent: number) =>
     trackEvent("scroll_depth", { percent }),

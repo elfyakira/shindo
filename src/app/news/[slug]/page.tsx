@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { FadeInUp } from "@/components/animations";
-import WaveButton from "@/components/WaveButton";
 import JsonLd from "@/components/JsonLd";
+import ApplyButtons from "@/components/ApplyButtons";
 import { blogPostingJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 // ============================================================
@@ -163,7 +163,17 @@ export default async function NewsDetailPage({
               <p className="text-[15px] lg:text-base text-white leading-[1.9] whitespace-pre-line mb-8">
                 {news.cta.text}
               </p>
-              <WaveButton href={news.cta.href} text={news.cta.label} variant="light" />
+              <ApplyButtons
+                location={`news_${news.slug}`}
+                jobs={news.applyJobs}
+                variant="light"
+              />
+              <Link
+                href={news.cta.href}
+                className="inline-block mt-6 text-[14px] font-bold text-white underline underline-offset-4 hover:opacity-80"
+              >
+                {news.cta.label} →
+              </Link>
             </FadeInUp>
           </div>
         </section>

@@ -10,6 +10,7 @@ import CharByCharLines from "@/components/CharByCharLines";
 import { ALL_AWARDS } from "@/lib/awards";
 import { ALL_CASES } from "@/lib/cases";
 import LatestBlogPosts from "@/components/LatestBlogPosts";
+import ApplyButtons from "@/components/ApplyButtons";
 
 // ============================================================
 // WipeInLeft - スクロールで画面に入ったらワイプ開始
@@ -464,6 +465,10 @@ function RecruitSection() {
               </div>
             </div>
           </div>
+        </FadeInUp>
+
+        <FadeInUp>
+          <ApplyButtons location="top_recruit" className="mt-12 lg:mt-16" />
         </FadeInUp>
       </div>
     </section>

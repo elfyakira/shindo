@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
+import RecruitApplySection from "@/components/RecruitApplySection";
 import DecoShape from "@/components/DecoShape";
 
 // ============================================================
@@ -243,6 +244,7 @@ export default function CompanyPage() {
       <HistorySection />
       <CompanyInfoSection />
       <AccessSection />
+      <RecruitApplySection location="company_bottom" />
     </>
   );
 }

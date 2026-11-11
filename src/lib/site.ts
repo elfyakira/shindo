@@ -1,4 +1,5 @@
 import siteData from '@data/site.json';
+import type { ApplyJob } from './recruit';
 
 // 型定義
 export interface SEO {
@@ -100,6 +101,8 @@ export interface SiteData {
     image?: NewsImage;
     // 本文（文字列＝段落。段落内の改行は \n。オブジェクト＝画像）
     body?: Array<string | NewsImage>;
+    // 記事末尾の応募ボタンで表示する職種（省略時は両方）
+    applyJobs?: ApplyJob[];
     // 記事内の誘導枠
     cta?: {
       text: string;

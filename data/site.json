@@ -62,6 +62,7 @@
       "category": "news",
       "title": "土木作業員ってどんな仕事？仕事内容をご紹介します",
       "slug": "what-is-civil-engineering-worker",
+      "applyJobs": ["site_worker"],
       "description": "求人で目にする「土木作業員」とはどのような仕事なのか。土を掘る作業や資材の運搬など、土木作業員の仕事内容をご紹介します。",
       "image": {
         "src": "/images/news/civil-engineering-worker-1.jpg",
@@ -89,6 +90,7 @@
       "category": "news",
       "title": "現在施工中の大型工事をご紹介します",
       "slug": "pipe-jacking-construction-2000mm",
+      "applyJobs": ["site_worker"],
       "description": "信藤建設が現在施工中の推進工による工事をご紹介します。φ2000mm（直径約2m）、延長約300mという大型の工事です。",
       "image": {
         "src": "/images/news/pipe-jacking-1.jpg",
@@ -117,6 +119,7 @@
       "category": "news",
       "title": "中堅技術者が「積算」という新しい分野に挑戦しています",
       "slug": "mid-career-engineer-estimating-challenge",
+      "applyJobs": ["construction_manager"],
       "description": "信藤建設で働く中堅技術者が、工事にかかる費用を算出する「積算」という新しい分野に挑戦しています。経験を重ねた後も新しい仕事に取り組む社員の姿をご紹介します。",
       "image": {
         "src": "/images/news/estimating-challenge-1.jpg",
@@ -197,6 +200,7 @@
       "category": "news",
       "title": "長年の功績が認められ、国土交通大臣表彰を受賞しました",
       "slug": "mlit-minister-award-r8",
+      "applyJobs": ["construction_manager"],
       "description": "2026年7月10日、国土交通省で行われた「令和8年 建設事業関係功労者等 国土交通大臣表彰」において、信藤建設株式会社 代表取締役の伊藤秀樹が表彰を受けました。",
       "image": {
         "src": "/images/news/mlit-award-1.jpg",
@@ -226,6 +230,7 @@
       "category": "news",
       "title": "令和8年度 四日市市優良建設業者として表彰されました",
       "slug": "yokkaichi-excellent-contractor-award-r8",
+      "applyJobs": ["construction_manager"],
       "description": "2026年7月1日、四日市市総合会館で行われた「令和8年度 四日市市優良建設業者」の表彰式に出席しました。信藤建設は通算9回目の表彰となり、伊藤克也も優秀工事技術者として表彰されました。",
       "image": {
         "src": "/images/news/yokkaichi-award-1.jpg",

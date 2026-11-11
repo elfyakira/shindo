@@ -8,6 +8,7 @@ import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
 import { ALL_AWARDS } from "@/lib/awards";
 import LatestBlogPosts from "@/components/LatestBlogPosts";
+import RecruitApplySection from "@/components/RecruitApplySection";
 
 // ============================================================
 // Hero Section
@@ -211,6 +212,7 @@ export default function AboutPage() {
       <StrengthsSection />
       <AwardsSection />
       <BlogSection />
+      <RecruitApplySection location="about_bottom" />
     </>
   );
 }

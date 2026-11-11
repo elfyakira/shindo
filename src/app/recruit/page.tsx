@@ -8,6 +8,7 @@ import WaveButton from "@/components/WaveButton";
 import CharByCharLines from "@/components/CharByCharLines";
 import DecoShape from "@/components/DecoShape";
 import { RECRUIT_FAQS } from "@/lib/recruit";
+import ApplyButtons from "@/components/ApplyButtons";
 
 // ============================================================
 // Hero Section
@@ -32,6 +33,24 @@ function HeroSection() {
 
       <div className="relative z-10 w-full px-6 lg:px-[10%]">
         <WaveTitle en="Recruit" ja="採用情報" variant="dark" as="h1" />
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// Apply Bar（ヒーロー直下の職種別応募導線）
+// ============================================================
+function ApplyBarSection() {
+  return (
+    <section className="relative pt-10 pb-24 lg:pt-14 lg:pb-20 bg-white">
+      <div className="max-w-container mx-auto px-6 lg:px-12">
+        <FadeInUp>
+          <p className="text-center text-[16px] lg:text-[20px] font-bold text-text-primary mb-6">
+            施工管理・現場作業員を募集しています
+          </p>
+          <ApplyButtons location="recruit_hero" />
+        </FadeInUp>
       </div>
     </section>
   );
@@ -94,7 +113,7 @@ function JoinTeamSection() {
           <p className="text-[14px] lg:text-[15px] text-white/80 leading-[2] mb-10">
             私たちは、地域のインフラを支える仲間を募集しています。
           </p>
-          <WaveButton href="/contact" text="エントリーする" variant="light" />
+          <ApplyButtons location="recruit_join_team" variant="light" align="left" />
         </FadeInUp>
       </div>
     </section>
@@ -233,13 +252,11 @@ function RequirementsSection() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <WaveButton
-                href="https://tunageru.net/stc/case/info/f9xUKHXhD5bM3It1R0Tp"
-                target="_blank"
-                rel="noopener noreferrer"
-                text="この職種に応募する"
-                variant="dark"
-                className="mx-auto"
+              <ApplyButtons
+                location="recruit_requirements"
+                jobs={["construction_manager"]}
+                buttonText="この職種に応募する"
+                showAppeal={false}
               />
             </div>
           </FadeInUp>
@@ -259,30 +276,15 @@ function RequirementsSection() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <WaveButton
-                href="https://tunageru.net/stc/case/info/mAl2aXR1VP8fuDJvNzkK"
-                target="_blank"
-                rel="noopener noreferrer"
-                text="この職種に応募する"
-                variant="dark"
-                className="mx-auto"
+              <ApplyButtons
+                location="recruit_requirements"
+                jobs={["site_worker"]}
+                buttonText="この職種に応募する"
+                showAppeal={false}
               />
             </div>
           </FadeInUp>
         </div>
-
-        <FadeInUp>
-          <div className="mt-12 lg:mt-16 text-center">
-            <WaveButton
-              href="https://example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              text="リクルートサイトへ"
-              variant="dark"
-              className="mx-auto"
-            />
-          </div>
-        </FadeInUp>
       </div>
     </section>
   );
@@ -345,13 +347,13 @@ function CTASection() {
     <section className="relative py-16 lg:py-24 bg-[#16a637] overflow-visible">
       <div className="relative z-10 max-w-container mx-auto px-6 lg:px-12 text-center">
         <FadeInUp>
-          <h2 className="text-[24px] lg:text-[48px] font-bold text-white mb-4 whitespace-nowrap lg:whitespace-normal">
-            ご応募お待ちしています
+          <h2 className="text-[22px] lg:text-[48px] font-bold text-white mb-4 whitespace-nowrap lg:whitespace-normal">
+            まずはお気軽にご相談ください
           </h2>
           <p className="text-[14px] lg:text-[15px] text-white/80 mb-10">
-            まずはお気軽にご連絡ください。
+            応募前のご質問や職場見学のご希望も、お問い合わせフォーム・お電話で受け付けています。
           </p>
-          <WaveButton href="/contact" text="エントリーフォーム" variant="light" className="mx-auto" />
+          <WaveButton href="/contact" text="お問い合わせはこちら" variant="light" className="mx-auto" />
           <p className="mt-6 text-sm text-white/70">
             お電話でのお問い合わせ: 059-345-3171
           </p>
@@ -368,10 +370,10 @@ export default function RecruitPage() {
   return (
     <>
       <HeroSection />
+      <ApplyBarSection />
       <MessageSection />
-      <JoinTeamSection />
-
       <RequirementsSection />
+      <JoinTeamSection />
       <FAQSection />
       <CTASection />
     </>
