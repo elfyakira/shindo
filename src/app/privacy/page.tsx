@@ -6,7 +6,7 @@ import { FadeInUp } from "@/components/animations";
 import WaveTitle from "@/components/WaveTitle";
 import DecoShape from "@/components/DecoShape";
 
-const EFFECTIVE_DATE = "20XX年XX月XX日";
+const EFFECTIVE_DATE = "2026年7月12日";
 
 export default function PrivacyPage() {
   const companyName = company.name || "株式会社サンプル";

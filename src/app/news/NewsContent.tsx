@@ -11,8 +11,6 @@ import DecoShape from "@/components/DecoShape";
 // ============================================================
 const CATEGORIES = [
   { id: "all" as const, label: "すべて" },
-  { id: "news" as const, label: "お知らせ" },
-  { id: "works" as const, label: "実績" },
   { id: "recruit" as const, label: "採用" },
 ];
 
